@@ -15,6 +15,7 @@ public class ManageBeatEvents : MonoBehaviour
     private int maxSixteenth;
 
     private bool lastQuarterWasHalf = true;
+    private bool lastWhole = false;
 
 
 
@@ -31,6 +32,7 @@ public class ManageBeatEvents : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // TODO- decide how it should work with and update to work with 3:4 time signature   
 
         curMeasureTime += Time.deltaTime;
         if (curMeasureTime >= singleMeasureTime / 16f * (curSixteenth + 1))
@@ -41,7 +43,25 @@ public class ManageBeatEvents : MonoBehaviour
             {
                 pushEighth();
 
-                //if (curSixteenth)
+                if (curSixteenth % 4 == 0)
+                {
+                    pushQuarter();
+
+                    if (curSixteenth % 8 == 0)
+                    {
+                        pushHalf();
+
+                        if (curSixteenth == 0)
+                        {
+                            pushWhole();
+
+                            if (!lastWhole)
+                                pushTwoWhole();
+
+                            lastWhole = !lastWhole;
+                        }
+                    }
+                }
             }
 
 
@@ -64,37 +84,32 @@ public class ManageBeatEvents : MonoBehaviour
 
     void pushSixteenth()
     {
-
+        
     }
 
     void pushEighth()
     {
-
+        print("8th");
     }
 
     void pushQuarter()
     {
-
+        print("4th");
     }
 
     void pushHalf()
     {
-
+        print("Half");
     }
 
     void pushWhole()
     {
-
+        print("Whole");
     }
 
-    void pushHalfMeasure()
+    void pushTwoWhole()
     {
-
-    }
-
-    void pushMeasure()
-    {
-
+        print("Two whole");
     }
 
     // Event based function; when song changed, reset Update
