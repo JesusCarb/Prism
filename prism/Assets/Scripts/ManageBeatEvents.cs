@@ -14,9 +14,26 @@ public class ManageBeatEvents : MonoBehaviour
     private int curSixteenth = 0;
     private int maxSixteenth;
 
-    private bool lastQuarterWasHalf = true;
+    //private bool lastQuarterWasHalf = true;
     private bool lastWhole = false;
 
+    public delegate void OnSixteenth();
+    public static OnSixteenth onSixteenth;
+
+    public delegate void OnEighth();
+    public static OnEighth onEighth;
+
+    public delegate void OnQuarter();
+    public static OnQuarter onQuarter;
+
+    public delegate void OnHalf();
+    public static OnHalf onHalf;
+
+    public delegate void OnWhole();
+    public static OnWhole onWhole;
+
+    public delegate void OnDoubleWhole();
+    public static OnDoubleWhole onDoubleWhole;
 
 
     // Start is called before the first frame update
@@ -37,26 +54,34 @@ public class ManageBeatEvents : MonoBehaviour
         curMeasureTime += Time.deltaTime;
         if (curMeasureTime >= singleMeasureTime / 16f * (curSixteenth + 1))
         {
-            pushSixteenth();
+            if (onSixteenth != null)
+                onSixteenth();
 
             if (curSixteenth % 2 == 0)
             {
-                pushEighth();
+                if (onEighth != null)
+                    onEighth();
 
                 if (curSixteenth % 4 == 0)
                 {
-                    pushQuarter();
+                    if (onQuarter != null)
+                        onQuarter();
 
                     if (curSixteenth % 8 == 0)
                     {
-                        pushHalf();
+                        if (onHalf != null)
+                            onHalf();
 
                         if (curSixteenth == 0)
                         {
-                            pushWhole();
+                            if (onWhole != null)
+                                onWhole();
 
                             if (!lastWhole)
-                                pushTwoWhole();
+                            {
+                                if (onDoubleWhole != null)
+                                    onDoubleWhole();
+                            }
 
                             lastWhole = !lastWhole;
                         }
@@ -82,7 +107,7 @@ public class ManageBeatEvents : MonoBehaviour
 
     }
 
-    void pushSixteenth()
+    /* void pushSixteenth()
     {
         
     }
@@ -110,7 +135,7 @@ public class ManageBeatEvents : MonoBehaviour
     void pushTwoWhole()
     {
         print("Two whole");
-    }
+    } */
 
     // Event based function; when song changed, reset Update
 }
