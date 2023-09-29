@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,15 +36,19 @@ public class ManageBeatEvents : MonoBehaviour
     public delegate void OnDoubleWhole();
     public static OnDoubleWhole onDoubleWhole;
 
-
+    public AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
         BPM = musicInfo.BPM;
+
         timeSignature0 = musicInfo.timeSignature[0];
         timeSignature1 = musicInfo.timeSignature[1];
         singleMeasureTime = 60f / BPM * timeSignature0;
         maxSixteenth = 4 * timeSignature0;
+
+        onQuarter = pushQuarter;
+        Debug.Log(audioSource);
     }
 
     // Update is called once per frame
@@ -52,6 +57,7 @@ public class ManageBeatEvents : MonoBehaviour
         // TODO- decide how it should work with and update to work with 3:4 time signature   
 
         curMeasureTime += Time.deltaTime;
+        // Debug.Log(singleMeasureTime);
         if (curMeasureTime >= singleMeasureTime / 16f * (curSixteenth + 1))
         {
             if (onSixteenth != null)
@@ -66,6 +72,7 @@ public class ManageBeatEvents : MonoBehaviour
                 {
                     if (onQuarter != null)
                         onQuarter();
+                        
 
                     if (curSixteenth % 8 == 0)
                     {
@@ -107,7 +114,7 @@ public class ManageBeatEvents : MonoBehaviour
 
     }
 
-    /* void pushSixteenth()
+    void pushSixteenth()
     {
         
     }
@@ -120,6 +127,7 @@ public class ManageBeatEvents : MonoBehaviour
     void pushQuarter()
     {
         print("4th");
+        audioSource.Play();
     }
 
     void pushHalf()
@@ -135,7 +143,7 @@ public class ManageBeatEvents : MonoBehaviour
     void pushTwoWhole()
     {
         print("Two whole");
-    } */
+    }
 
     // Event based function; when song changed, reset Update
 }
