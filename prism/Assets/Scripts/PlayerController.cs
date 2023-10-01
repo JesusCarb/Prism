@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
 
-
     Vector2 playerInput;
 
     Vector3 velocity;
@@ -22,11 +21,14 @@ public class PlayerController : MonoBehaviour
 
     float accelerationTime = .1f;
 
+    public Texture2D cursorTexture;
+    public CursorMode cursorMode = CursorMode.Auto;
+    public Vector2 hotspot = Vector2.zero;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Cursor.SetCursor(cursorTexture, hotspot, cursorMode);
     }
 
     void Update()
