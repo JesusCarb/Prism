@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ProjectileHandling : MonoBehaviour
 {
+    ManageBeatEvents beatManager;
 
-    private ManageBeatEvents beatManager;
     // Start is called before the first frame update
     void Start()
     {
-        //beatManager = gameObject.GetComponent<ManageBeatEvents>;
+        beatManager = gameObject.GetComponent<ManageBeatEvents>();
     }
 
     // Update is called once per frame
@@ -17,7 +17,11 @@ public class ProjectileHandling : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            //gameObject.
+            //if (!beatManager.onQuarter.contains(FireProjectile()))
+            //{
+            //    beatManager.onQuarter += FireProjectile();
+            //}
+            
         }
     }
 
