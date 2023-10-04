@@ -53,6 +53,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6524696104927445887, guid: 574a1577d3526544593261fc8d662bc9, type: 3}
       propertyPath: m_Name
+      value: Player Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6524696104927445887, guid: 574a1577d3526544593261fc8d662bc9, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []

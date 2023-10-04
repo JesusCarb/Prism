@@ -8,21 +8,31 @@ public class PlayerBulletBehavior : MonoBehaviour
     private float distx;
     private float disty;
 
+    Vector3 direction;
+
+    private float spawnTime;
+
     // Start is called before the first frame update
     void Start()
     {
-        float targx = GameObject.FindGameObjectWithTag("Cursor").transform.position.x;
-        float targy = GameObject.FindGameObjectWithTag("Cursor").transform.position.y;
+        Vector3 mouseLoc = Camera.main.ScreenToWorldPoint(Input.mousePosition); 
+        spawnTime = Time.time;
+        print(mouseLoc);
+        float targx = mouseLoc.x;
+        float targy = mouseLoc.y;
         float hypot = Mathf.Sqrt((targx * targx) + (targy * targy));
 
         distx = targx / hypot * speed;
         disty = targy / hypot * speed;
+
+        direction = new Vector3(distx, disty, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position += (new Vector3(distx, disty, 0) * Time.deltaTime * speed);
+        DeSpawn();
+        transform.position += direction * Time.deltaTime * speed;
     }
 
     // Probably better to move this to enemy to reduce lag
@@ -38,5 +48,15 @@ public class PlayerBulletBehavior : MonoBehaviour
         }
 
         Destroy(gameObject);
+    }
+
+    private void DeSpawn()
+    {
+        float currentTime = Time.time;
+        
+        if(currentTime - spawnTime > 3)
+        {
+            Destroy(gameObject);
+        }
     }
 }
