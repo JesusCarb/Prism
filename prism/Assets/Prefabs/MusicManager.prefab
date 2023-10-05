@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: 
-  BPM: 60
+  BPM: 120
   timeSignature: 0400000004000000
 --- !u!114 &8633342059170199039
 MonoBehaviour:

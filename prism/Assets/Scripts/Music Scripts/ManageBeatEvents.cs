@@ -37,16 +37,20 @@ public class ManageBeatEvents : MonoBehaviour
     public static OnDoubleWhole onDoubleWhole;
 
     public AudioSource audioSource;
+
+
     // Start is called before the first frame update
     void Start()
     {
         BPM = musicInfo.BPM;
-
+        print("BPM" + BPM);
         timeSignature0 = musicInfo.timeSignature[0];
         timeSignature1 = musicInfo.timeSignature[1];
         singleMeasureTime = 60f / BPM * timeSignature0;
         maxSixteenth = 4 * timeSignature0;
-
+      
+        
+        // initially sets shooting value to false
         onQuarter = pushQuarter;
         Debug.Log(audioSource);
     }
@@ -57,9 +61,10 @@ public class ManageBeatEvents : MonoBehaviour
         // TODO- decide how it should work with and update to work with 3:4 time signature   
 
         curMeasureTime += Time.deltaTime;
-        // Debug.Log(singleMeasureTime);
+
         if (curMeasureTime >= singleMeasureTime / 16f * (curSixteenth + 1))
         {
+
             if (onSixteenth != null)
                 onSixteenth();
 
@@ -96,8 +101,6 @@ public class ManageBeatEvents : MonoBehaviour
                 }
             }
 
-
-
             if (curSixteenth + 1 == 16)
             {
                 curSixteenth = -1;
@@ -123,11 +126,13 @@ public class ManageBeatEvents : MonoBehaviour
     {
         print("8th");
     }
-
     void pushQuarter()
     {
-        print("4th");
         audioSource.Play();
+        print("4th");
+        
+
+
     }
 
     void pushHalf()

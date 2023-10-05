@@ -20,9 +20,12 @@ public class MusicInfo : MonoBehaviour
         FileInfo inFile = new FileInfo("Assets\\Texts\\" + title + "-MusicInfo.txt");
         StreamReader reader = inFile.OpenText();
 
-        this.BPM = Int32.Parse(reader.ReadLine());
+        // removed this code to not read file
+        // BPM = Int32.Parse(reader.ReadLine());
         string tempstr = reader.ReadLine();
         timeSignature[0] = tempstr[0] - '0';
         timeSignature[1] = tempstr[2] - '0';
     }
+
+
 }

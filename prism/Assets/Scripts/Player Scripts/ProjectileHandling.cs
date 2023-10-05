@@ -6,6 +6,7 @@ public class ProjectileHandling : MonoBehaviour
 {
     ManageBeatEvents beatManager;
 
+    PlayerController playerController;
     public GameObject playerBullet;
 
     private GameObject player;
@@ -14,7 +15,7 @@ public class ProjectileHandling : MonoBehaviour
     void Start()
     {
         beatManager = gameObject.GetComponent<ManageBeatEvents>();
-        player = GameObject.FindWithTag("Player");
+        playerController = gameObject.GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -22,7 +23,17 @@ public class ProjectileHandling : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            FireProjectile();
+            if(playerController.OnBeat())
+            {
+                FireProjectile();
+                Debug.Log("Beat Hit");
+
+            }
+            else
+            {
+                Debug.Log("Beat Miss");
+
+            }
             //if (!beatManager.onQuarter.contains(FireProjectile()))
             //{
             //    beatManager.onQuarter += FireProjectile();
@@ -33,8 +44,9 @@ public class ProjectileHandling : MonoBehaviour
 
     void FireProjectile()
     {
+        // currently spawning on player position
         print("FIRE");
-        Instantiate(playerBullet, player.transform);
+        Instantiate(playerBullet, playerController.transform);
         // Debug.Log("FIRE");
     }
 }
