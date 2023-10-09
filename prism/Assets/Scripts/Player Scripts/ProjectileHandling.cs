@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Timers;
 using UnityEngine;
 
 public class ProjectileHandling : MonoBehaviour
@@ -11,6 +12,10 @@ public class ProjectileHandling : MonoBehaviour
 
     private GameObject player;
 
+    private bool firstFireCurrentBeat = true;
+    private float timeUntilNextFire = 0f;
+    private float delayFromFire = .25f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,13 +26,20 @@ public class ProjectileHandling : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (timeUntilNextFire > 0f)
+            timeUntilNextFire -= Time.deltaTime;
+        if (timeUntilNextFire <= 0f)
+            firstFireCurrentBeat = true;
+
+
         if (Input.GetButtonDown("Fire1"))
         {
-            if(playerController.OnBeat())
+            if(playerController.OnBeat() && firstFireCurrentBeat)
             {
                 FireProjectile();
                 Debug.Log("Beat Hit");
-
+                firstFireCurrentBeat = false;
+                timeUntilNextFire = delayFromFire;
             }
             else
             {
