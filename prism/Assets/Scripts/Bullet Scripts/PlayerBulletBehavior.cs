@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerBulletBehavior : MonoBehaviour
 {
+    private GameObject player;
     public float speed = 5f;
     private float distx;
     private float disty;
@@ -15,16 +16,19 @@ public class PlayerBulletBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindWithTag("Player");
+        // Vector3  mouseLoc = Input.mousePosition;
         Vector3 mouseLoc = Camera.main.ScreenToWorldPoint(Input.mousePosition); 
         spawnTime = Time.time;
-        print(mouseLoc);
-        float targx = mouseLoc.x;
-        float targy = mouseLoc.y;
+        Vector3 finalPos = mouseLoc - player.transform.position;
+        print(finalPos);
+        float targx = finalPos.x;
+        float targy = finalPos.y;
         float hypot = Mathf.Sqrt((targx * targx) + (targy * targy));
 
         distx = targx / hypot * speed;
         disty = targy / hypot * speed;
-
+    
         direction = new Vector3(distx, disty, 0);
     }
 
