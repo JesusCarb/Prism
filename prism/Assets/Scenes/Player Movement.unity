@@ -321,17 +321,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c39d49592624e34490e9b340c10eeef, type: 3}
---- !u!114 &545153348 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3001996309730871148, guid: 4c39d49592624e34490e9b340c10eeef, type: 3}
-  m_PrefabInstance: {fileID: 545153347}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 538111531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 611cab02960942b459978feed1c73aa8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &711511608
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,6 +333,8 @@ GameObject:
   - component: {fileID: 711511612}
   - component: {fileID: 711511611}
   - component: {fileID: 711511610}
+  - component: {fileID: 711511615}
+  - component: {fileID: 711511614}
   - component: {fileID: 711511613}
   m_Layer: 0
   m_Name: Enemy
@@ -475,10 +466,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 711511608}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 041452e39556aa44397570c2ec18dc54, type: 3}
+  m_Script: {fileID: 11500000, guid: d0b5ae3fa13d2e545b8f1010123a0d46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 545153348}
+  chaseBehaviorEnabled: 1
+  chaseScript: {fileID: 0}
+  playerAwarenessScript: {fileID: 0}
+--- !u!114 &711511614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711511608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edd8898777a97294383667b72e34bd6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 0
+  _rotationSpeed: 0
+--- !u!114 &711511615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711511608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f73a97950ed211a49b411372797325ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseScript: {fileID: 711511614}
+  _playerAwarenessDistance: 0
 --- !u!1 &1082849052
 GameObject:
   m_ObjectHideFlags: 0
