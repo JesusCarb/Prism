@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAwarenessController : MonoBehaviour
 {
-    private bool behaviorEnabled = true;
+    public bool behaviorEnabled = true;
     public ChaseMovement chaseScript;
 
     public bool AwareOfPlayer {get; private set;}
@@ -23,7 +23,6 @@ public class PlayerAwarenessController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //behaviorEnabled = chaseScript.behaviorEnabled;
         if (!behaviorEnabled)
             return;
 

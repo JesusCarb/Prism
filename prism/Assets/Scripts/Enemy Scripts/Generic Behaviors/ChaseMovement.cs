@@ -27,8 +27,8 @@ public class ChaseMovement : MonoBehaviour
     private void FixedUpdate()
     {
         //behaviorEnabled = chaseScript.behaviorEnabled;
-        if (!behaviorEnabled)
-            return;
+        //if (!behaviorEnabled)
+            //return;
 
         UpdateTargetDirection();
         RotateTowardsTarget();
@@ -77,5 +77,19 @@ public class ChaseMovement : MonoBehaviour
         {
             _rigidbody.velocity = transform.up * _speed;
         }
+    }
+
+    public void enableBehavior()
+    {
+        print("Chase enabled");
+        behaviorEnabled = true;
+        _playerAwarenessController.behaviorEnabled = true;
+    }
+
+    public void disableBehavior()
+    {
+        print("Chase disabled");
+        behaviorEnabled = false;
+        _playerAwarenessController.behaviorEnabled = false;
     }
 }
