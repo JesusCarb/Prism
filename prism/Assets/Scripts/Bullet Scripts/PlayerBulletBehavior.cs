@@ -15,7 +15,8 @@ public class PlayerBulletBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindWithTag("Player");
+        // Added "GameObject" before player bc it didn't compile
+        GameObject player = GameObject.FindWithTag("Player");
         // Vector3  mouseLoc = Input.mousePosition;
         Vector3 mouseLoc = Camera.main.ScreenToWorldPoint(Input.mousePosition); 
         spawnTime = Time.time;
