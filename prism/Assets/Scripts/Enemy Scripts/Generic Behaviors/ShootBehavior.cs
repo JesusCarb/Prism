@@ -6,11 +6,12 @@ public class ShootBehavior : MonoBehaviour
 {
     bool behaviorEnabled = false;
 
+    private Rigidbody2D _rigidbody;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        _rigidbody = GetComponent<Rigidbody2D>();
     }
 
 
@@ -24,6 +25,7 @@ public class ShootBehavior : MonoBehaviour
     public void enableBehavior()
     {
         print("Shoot enabled");
+        //_rigidbody.velocity = Vector2.zero;   This doesn't work. I'm trying to freeze it while it shoots.
         behaviorEnabled = true;
     }
 
