@@ -15,6 +15,8 @@ public class ChaseMovement : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private PlayerAwarenessController _playerAwarenessController;
     private Vector2 _targetDirection;
+
+    private Vector2 storeVector;
     
     // Awake is called when the script/entity loads in and becomes active
     private void Awake()
@@ -26,9 +28,8 @@ public class ChaseMovement : MonoBehaviour
     // FixedUpdate works better with the physics system
     private void FixedUpdate()
     {
-        //behaviorEnabled = chaseScript.behaviorEnabled;
-        //if (!behaviorEnabled)
-            //return;
+        if (!behaviorEnabled)
+            return;
 
         UpdateTargetDirection();
         RotateTowardsTarget();
@@ -81,14 +82,16 @@ public class ChaseMovement : MonoBehaviour
 
     public void enableBehavior()
     {
-        print("Chase enabled");
+        //print("Chase enabled");
+        _rigidbody.velocity = new Vector2(storeVector.x, storeVector.y);
         behaviorEnabled = true;
         _playerAwarenessController.behaviorEnabled = true;
     }
 
     public void disableBehavior()
     {
-        print("Chase disabled");
+        //print("Chase disabled");
+        storeVector = new Vector2(_rigidbody.velocity.x, _rigidbody.velocity.y);
         behaviorEnabled = false;
         _playerAwarenessController.behaviorEnabled = false;
     }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 // using System.Numerics;
 // using UnityEditor.Experimental.GraphView;
 // using System.Numerics;
@@ -41,20 +42,22 @@ public class PlayerController : MonoBehaviour
     float period;
 
     public AudioSource audioSource;
+    public AudioSource songAudioSource;
 
     bool beatChange;
 
 
-
-    int BPM;
+    float BPM;
     // Start is called before the first frame update
     void Start()
     {
         BPM = musicInfo.BPM;
+        BPM = 100f;
         onBeat = false;
         CalculateTimings();
         Cursor.SetCursor(cursorTexture, hotspot, cursorMode);
         beatChange = false;
+        PlayMusicWrapper();
     }
 
     void Update()
@@ -138,6 +141,17 @@ public class PlayerController : MonoBehaviour
         {
             audioSource.Play();
         }
+    }
+
+    private void PlayMusicWrapper()
+    {
+        // Add 0.45s delay to start of music to match up with beats
+        Invoke("PlayMusic", 0.5f);
+    }
+
+    private void PlayMusic()
+    {
+        songAudioSource.Play();
     }
 
     public bool OnBeat()
