@@ -40,7 +40,8 @@ public class EnemyController : MonoBehaviour
         {
             firstFrameOnBeat = false;
 
-            print("On beat: " + curBeatCount);
+            // I'm debuggin here :)
+            // print("On beat: " + curBeatCount);
 
             if (curBeatCount == 0)
                 enableShoot();

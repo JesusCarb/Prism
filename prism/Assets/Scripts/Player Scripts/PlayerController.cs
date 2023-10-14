@@ -40,21 +40,28 @@ public class PlayerController : MonoBehaviour
     float beatsPerSecond;
     float period;
 
+    public AudioSource audioSource;
+
+    bool beatChange;
+
+
+
     int BPM;
     // Start is called before the first frame update
     void Start()
     {
         BPM = musicInfo.BPM;
-        print("BPM" + BPM);
         onBeat = false;
         CalculateTimings();
         Cursor.SetCursor(cursorTexture, hotspot, cursorMode);
+        beatChange = false;
     }
 
     void Update()
     {
         playerInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         BeatTracker();
+        PlayBeat();
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -67,6 +74,7 @@ public class PlayerController : MonoBehaviour
         velocity.y = Mathf.SmoothDamp(velocity.y, targetVelocityY, ref velocityYSmoothing, accelerationTime);
 
         Move(velocity);
+
     }
 
     public void Move(Vector3 velocity)
@@ -98,26 +106,40 @@ public class PlayerController : MonoBehaviour
 
         // print(currentTime);
 
+        if (newTimeNextBeat > timeNextBeat)
+            beatChange = true;
+        else    
+            beatChange = false;
+        
         timeLastBeat = newTimelastBeat;
         timeNextBeat = newTimeNextBeat;
 
+        
         float normalTLB = timeLastBeat/period;
         float normalTNB = timeNextBeat/period;
 
-        // print("timeLastBeat" + normalTLB);
-        // print("timeNextBeat" + normalTNB);
+        print("timeLastBeat" + normalTLB + " " + onBeat);
+        print("timeNextBeat" + normalTNB + " " + onBeat);
 
         if(normalTLB < hitLeeway || normalTNB < hitLeeway)
         {
-            onBeat = false;
+            onBeat = true;
         }
         else{
-            onBeat = true;
+            onBeat = false;
         }
         // print(onBeat);
 
     }
     
+    private void PlayBeat()
+    {
+        if(beatChange)
+        {
+            audioSource.Play();
+        }
+    }
+
     public bool OnBeat()
     {
         return onBeat;

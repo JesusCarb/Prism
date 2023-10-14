@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6524696104927445880, guid: 574a1577d3526544593261fc8d662bc9, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 354255947612235489}
     - target: {fileID: 6524696104927445881, guid: 574a1577d3526544593261fc8d662bc9, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -127,3 +131,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9570b2220a7928749bc7ba95e7415ace, type: 3}
+--- !u!82 &354255947612235489 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8633342059832106143, guid: 9570b2220a7928749bc7ba95e7415ace, type: 3}
+  m_PrefabInstance: {fileID: 8297138171159018110}
+  m_PrefabAsset: {fileID: 0}
