@@ -37,6 +37,7 @@ public class PlayerBulletBehavior : MonoBehaviour
     {
         DeSpawn();
         transform.position += direction * Time.deltaTime * speed;
+        print(direction);
     }
 
     // Probably better to move this to enemy to reduce lag

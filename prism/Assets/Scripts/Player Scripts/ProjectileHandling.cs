@@ -56,9 +56,11 @@ public class ProjectileHandling : MonoBehaviour
 
     void FireProjectile()
     {
+        Vector3 pos = playerController.transform.position;
+        Quaternion rot = playerController.transform.rotation;
         // currently spawning on player position
         print("FIRE");
-        Instantiate(playerBullet, playerController.transform);
+        Instantiate(playerBullet, position: pos, rotation: rot);
         // Debug.Log("FIRE");
     }
 }
