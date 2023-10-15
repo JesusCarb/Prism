@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Timers;
+using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class ProjectileHandling : MonoBehaviour
 {
@@ -10,7 +13,11 @@ public class ProjectileHandling : MonoBehaviour
     PlayerController playerController;
     public GameObject playerBullet;
 
+    public GameObject enemyBullet;
+
     private GameObject player;
+
+
 
     private bool firstFireCurrentBeat = true;
     private float timeUntilNextFire = 0f;
@@ -21,6 +28,9 @@ public class ProjectileHandling : MonoBehaviour
     {
         beatManager = gameObject.GetComponent<ManageBeatEvents>();
         playerController = gameObject.GetComponent<PlayerController>();
+        player = this.gameObject;
+        print(player);
+        SpawnEnemyBullet();
     }
 
     // Update is called once per frame
@@ -34,6 +44,7 @@ public class ProjectileHandling : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
+            print("fire1");
             if(playerController.OnBeat() && firstFireCurrentBeat)
             {
                 FireProjectile();
@@ -59,8 +70,20 @@ public class ProjectileHandling : MonoBehaviour
         Vector3 pos = playerController.transform.position;
         Quaternion rot = playerController.transform.rotation;
         // currently spawning on player position
-        print("FIRE");
         Instantiate(playerBullet, position: pos, rotation: rot);
         // Debug.Log("FIRE");
+    }
+
+    // for debugging, will spawn enemy bullets
+    private void SpawnEnemyBullet()
+    {
+        Vector3 pos = playerController.transform.position;
+        Quaternion rot = playerController.transform.rotation;
+        
+        Vector3 offset = new Vector3(0,10,0);
+        pos += offset;
+        print(pos);
+        
+        Instantiate(enemyBullet, position: pos, rotation: rot);
     }
 }

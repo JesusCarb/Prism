@@ -4,55 +4,51 @@ using System.Threading.Tasks;
 // using System.Numerics;
 // using UnityEditor.Experimental.GraphView;
 // using System.Numerics;
+using UnityEngine.SceneManagement;
 
 using UnityEngine;
 
 
 public class PlayerController : MonoBehaviour
 {
-    public MusicInfo musicInfo;
-
+    // player vars
+    public int hp = 3;
     public float moveSpeed = 5f;
-
     Vector2 playerInput;
-
     Vector3 velocity;
-
     float velocityXSmoothing;
-
     float velocityYSmoothing;
+    public float accelerationTime = .1f;
 
-    float accelerationTime = .1f;
-
+    // cursor vars
     public Texture2D cursorTexture;
     public CursorMode cursorMode = CursorMode.Auto;
     public Vector2 hotspot = Vector2.zero;
 
-
+    // beat calculation vars
+    bool beatChange;
+    float BPM;
     private bool onBeat;
-
     private float timeLastBeat;
-
     private float timeNextBeat;
 
     // percentage betwween beats to hit
     public float hitLeeway = .25f;
-
     float beatsPerSecond;
     float period;
 
+    // audio vars
+    public MusicInfo musicInfo;
     public AudioSource audioSource;
     public AudioSource songAudioSource;
 
-    bool beatChange;
 
 
-    float BPM;
     // Start is called before the first frame update
     void Start()
     {
         BPM = musicInfo.BPM;
-        BPM = 100f;
+        BPM = 60f;
         onBeat = false;
         CalculateTimings();
         Cursor.SetCursor(cursorTexture, hotspot, cursorMode);
@@ -65,6 +61,8 @@ public class PlayerController : MonoBehaviour
         playerInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         BeatTracker();
         PlayBeat();
+        StartCoroutine(FailureState());
+        print(hp);
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -98,8 +96,7 @@ public class PlayerController : MonoBehaviour
 
         // print("timeLastBeat" + timeLastBeat);
         // print("timeNextBeat" + timeNextBeat);
-
-        
+ 
     }
     void BeatTracker()
     {
@@ -132,7 +129,6 @@ public class PlayerController : MonoBehaviour
             onBeat = false;
         }
         // print(onBeat);
-
     }
     
     private void PlayBeat()
@@ -157,5 +153,21 @@ public class PlayerController : MonoBehaviour
     public bool OnBeat()
     {
         return onBeat;
+    }
+
+    private IEnumerator FailureState()
+    {
+        if(hp <= 0)
+        {
+            // when dead, pause time, wait 1 second, then transition to main menu
+            Time.timeScale = 0;
+
+            yield return new WaitForSecondsRealtime(1);
+            Time.timeScale = 1;
+
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            // timescale will stay at zero so I'm turning it back to 1
+        }
+
     }
 }

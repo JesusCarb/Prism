@@ -26,21 +26,21 @@ public class EnemyBulletBehavior : MonoBehaviour
     }
 
     // Probably better to move this to enemy to reduce lag
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        // Prevent bullet-on-bullet collision
-        if (collision.gameObject.tag.Equals("Bullet"))
-            return;
+    // private void OnCollisionEnter2D(Collision2D collision)
+    // {
+    //     // Prevent bullet-on-bullet collision
+    //     if (collision.gameObject.tag.Equals("Bullet"))
+    //         return;
 
-        if (collision.gameObject.tag.Equals("Player"))
-        {
-            // collision.gameObject.takeDamage()
-            // If ^ doesn't work, just GameObject.findAnyObjectOfType<>
-            Destroy(collision.gameObject);
-        }
+    //     if (collision.gameObject.tag.Equals("Player"))
+    //     {
+    //         // collision.gameObject.takeDamage()
+    //         // If ^ doesn't work, just GameObject.findAnyObjectOfType<>
+    //         Destroy(collision.gameObject);
+    //     }
 
-        Destroy(gameObject);
-    }
+    //     Destroy(gameObject);
+    // }
 
     //private void OnTriggerEnter2D(Collider2D collision)
     //{
