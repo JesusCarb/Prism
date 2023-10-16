@@ -218,8 +218,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8fd0cb66e5d8a444ae8e4063828c18a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   player: {fileID: 538111538}
 --- !u!1 &538111531 stripped
 GameObject:
@@ -236,8 +236,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f3182983d61fe3458653cdeec68d962, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   playerBullet: {fileID: 3110126029553538758, guid: 42953fd82f42d1347b7d6a9a2068af43, type: 3}
   enemyBullet: {fileID: 5644327936522697431, guid: b350a82cec4926c49a73c72e7eeecb43, type: 3}
 --- !u!4 &538111538 stripped
@@ -262,7 +262,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 354255948015144833, guid: 4c39d49592624e34490e9b340c10eeef, type: 3}
       propertyPath: musicInfo
-      value: 
+      value:
       objectReference: {fileID: 8633342059170199038, guid: 9570b2220a7928749bc7ba95e7415ace, type: 3}
     - target: {fileID: 3001996309730871146, guid: 4c39d49592624e34490e9b340c10eeef, type: 3}
       propertyPath: m_SortingOrder
@@ -273,16 +273,20 @@ PrefabInstance:
       value: Player Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3001996309730871148, guid: 4c39d49592624e34490e9b340c10eeef, type: 3}
+      propertyPath: moveSpeed
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3001996309730871148, guid: 4c39d49592624e34490e9b340c10eeef, type: 3}
       propertyPath: musicInfo
-      value: 
+      value:
       objectReference: {fileID: 8633342059170199038, guid: 9570b2220a7928749bc7ba95e7415ace, type: 3}
     - target: {fileID: 3001996309730871148, guid: 4c39d49592624e34490e9b340c10eeef, type: 3}
       propertyPath: cursorTexture
-      value: 
+      value:
       objectReference: {fileID: 2800000, guid: f6c447868c4916746aba134404e3b985, type: 3}
     - target: {fileID: 3001996309730871148, guid: 4c39d49592624e34490e9b340c10eeef, type: 3}
       propertyPath: songAudioSource
-      value: 
+      value:
       objectReference: {fileID: 849401562}
     - target: {fileID: 3001996309730871149, guid: 4c39d49592624e34490e9b340c10eeef, type: 3}
       propertyPath: m_RootOrder
@@ -339,8 +343,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 611cab02960942b459978feed1c73aa8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!61 &545153350
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -377,8 +381,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eac6c3060e8958440860400089737ff9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!50 &545153352
 Rigidbody2D:
   serializedVersion: 4
@@ -554,8 +558,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0b5ae3fa13d2e545b8f1010123a0d46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   chaseScript: {fileID: 711511614}
   playerAwarenessScript: {fileID: 711511615}
   shootScript: {fileID: 711511616}
@@ -573,8 +577,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: edd8898777a97294383667b72e34bd6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   _speed: 35
   _rotationSpeed: 360
 --- !u!114 &711511615
@@ -587,8 +591,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f73a97950ed211a49b411372797325ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   behaviorEnabled: 1
   chaseScript: {fileID: 711511614}
   _playerAwarenessDistance: 10000
@@ -602,8 +606,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99ec48198b93c834b9040ec44b5926ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!61 &711511617
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -640,8 +644,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6867535b8087b940aeb6cae5c4bd6af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!1 &849401560
 GameObject:
   m_ObjectHideFlags: 0
@@ -871,7 +875,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5644327936522697424, guid: b350a82cec4926c49a73c72e7eeecb43, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12
+      value: -12.405743
       objectReference: {fileID: 0}
     - target: {fileID: 5644327936522697424, guid: b350a82cec4926c49a73c72e7eeecb43, type: 3}
       propertyPath: m_LocalPosition.z
