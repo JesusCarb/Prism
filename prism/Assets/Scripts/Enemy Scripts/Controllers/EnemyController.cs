@@ -8,7 +8,7 @@ public class EnemyController : MonoBehaviour
     public PlayerAwarenessController playerAwarenessScript;
     public WanderMovement wanderScript;
     public ShootBehavior shootScript;
-    public bool chaseBehaviorEnabled = true;
+    public bool chaseBehaviorEnabled = false;
     public bool wanderBehaviorEnabled = false;
     public bool shootBehaviorEnabled = false;
 
@@ -19,10 +19,14 @@ public class EnemyController : MonoBehaviour
     private int curBeatCount = 0;
     private int maxBeatCount = 7;   // fire every 8 beats
 
+    public bool enemyIsChaser;
+    public bool enemyIsShooter;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (enemyIsChaser && !enemyIsShooter)
+            enableChase();
     }
 
     // Update is called once per frame
@@ -43,11 +47,30 @@ public class EnemyController : MonoBehaviour
             // I'm debuggin here :)
             // print("On beat: " + curBeatCount);
 
-            if (curBeatCount == 0)
-                enableShoot();
-            else if (curBeatCount == 2)
-                enableWander(); // shoot behavior lasts for two beats
-            // TODO: ^ should be wander behavior, replace
+            // CHASER BEHAVIOR
+            if (enemyIsChaser && !enemyIsShooter)
+            {
+                // Nothing needed, chase behavior enabled in Start()
+            }
+
+            // SHOOTER BEHAVIOR
+            else if (enemyIsShooter && !enemyIsChaser)
+            {
+                if (curBeatCount == 4)
+                    enableShoot();
+                else if (curBeatCount == 6)
+                    enableWander(); // shoot behavior lasts for two beats
+            }
+
+            // CHASER-SHOOTER BEHAVIOR
+            else
+            {
+                if (curBeatCount == 0)
+                    enableShoot();
+                else if (curBeatCount == 2)
+                    enableChase(); // shoot behavior lasts for two beats
+            }
+            
 
             if (curBeatCount == 7)
                 curBeatCount = 0;
@@ -76,6 +99,5 @@ public class EnemyController : MonoBehaviour
         wanderScript.disableBehavior();
         shootScript.enableBehavior();
         shootScript.enemyPos = gameObject.transform.position;
-        shootScript.enemyRot = gameObject.transform.rotation;
     }
 }

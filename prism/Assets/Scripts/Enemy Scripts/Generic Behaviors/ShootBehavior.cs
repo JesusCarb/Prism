@@ -11,13 +11,11 @@ public class ShootBehavior : MonoBehaviour
     public Quaternion enemyRot;
 
     private Rigidbody2D _rigidbody;
-    private GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
-        player = GameObject.FindGameObjectWithTag("player");
         enemyPos = new Vector3(0, 0, 0);
         enemyRot = new Quaternion();
     }

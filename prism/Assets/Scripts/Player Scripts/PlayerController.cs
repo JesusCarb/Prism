@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
         BeatTracker();
         PlayBeat();
         StartCoroutine(FailureState());
-        print(hp);
+        //print(hp);
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -124,8 +124,8 @@ public class PlayerController : MonoBehaviour
         float normalTLB = timeLastBeat/period;
         float normalTNB = timeNextBeat/period;
 
-        print("timeLastBeat" + normalTLB + " " + onBeat);
-        print("timeNextBeat" + normalTNB + " " + onBeat);
+        //print("timeLastBeat" + normalTLB + " " + onBeat);
+        //print("timeNextBeat" + normalTNB + " " + onBeat);
 
         if(normalTLB < hitLeeway || normalTNB < hitLeeway)
         {
