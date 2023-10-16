@@ -8,7 +8,6 @@ public class PlayerCollision : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("COLLISION");
 
         // checks for collision with bullet reduces health destroys bullet
         if (collision.gameObject.tag.Equals("EnemyBullet"))

@@ -8,23 +8,41 @@ public class EnemyBulletBehavior : MonoBehaviour
     private float distx;
     private float disty;
 
+    Rigidbody2D rb;
+    Vector2 direction;
+    GameObject player;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
-        float targx = GameObject.FindGameObjectWithTag("Cursor").transform.position.x;
-        float targy = GameObject.FindGameObjectWithTag("Cursor").transform.position.y;
-        float hypot = Mathf.Sqrt((targx * targx) + (targy * targy));
-
-        distx = targx / hypot * speed;
-        disty = targy / hypot * speed;
+        rb = GetComponent<Rigidbody2D>();
+        player = GameObject.FindWithTag("Player");
+        CalculateEnemyBulletTragectory();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position += (new Vector3(distx, disty, 0) * Time.deltaTime * speed);
+        rb.velocity = direction * speed;
     }
 
+    private void CalculateEnemyBulletTragectory()
+    {
+        Vector3 playerLoc = player.transform.position;
+        Vector3 finalPos = playerLoc - this.transform.position;
+        
+        float targx = finalPos.x;
+        float targy = finalPos.y;
+        float hypot = Mathf.Sqrt((targx * targx) + (targy * targy));
+
+        distx = targx / hypot * speed;
+        disty = targy / hypot * speed;
+
+        direction = new Vector2(distx, disty);
+    }
     // Probably better to move this to enemy to reduce lag
     // private void OnCollisionEnter2D(Collision2D collision)
     // {

@@ -23,9 +23,11 @@ public class PlayerBulletBehavior : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindWithTag("Player");
+        spawnTime = Time.time;
 
 
-        CalculateTragectory();
+
+        CalculatePlayerBulletTragectory();
 
 
     }
@@ -66,16 +68,16 @@ public class PlayerBulletBehavior : MonoBehaviour
 
     }
 
-    private void CalculateTragectory()
+    private void CalculatePlayerBulletTragectory()
     {
         // Added "GameObject" before player bc it didn't compile
         // Vector3  mouseLoc = Input.mousePosition;
 
-
+        // gets location of camera, changes it to world space
         Vector3 mouseLoc = Camera.main.ScreenToWorldPoint(Input.mousePosition); 
-        spawnTime = Time.time;
+        // subtracted by player position to get directional vector
         Vector3 finalPos = mouseLoc - player.transform.position;
-        print(finalPos);
+
         float targx = finalPos.x;
         float targy = finalPos.y;
         float hypot = Mathf.Sqrt((targx * targx) + (targy * targy));

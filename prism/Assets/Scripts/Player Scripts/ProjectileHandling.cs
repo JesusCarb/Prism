@@ -30,7 +30,7 @@ public class ProjectileHandling : MonoBehaviour
         playerController = gameObject.GetComponent<PlayerController>();
         player = this.gameObject;
         print(player);
-        SpawnEnemyBullet();
+        // SpawnEnemyBullet();
     }
 
     // Update is called once per frame
