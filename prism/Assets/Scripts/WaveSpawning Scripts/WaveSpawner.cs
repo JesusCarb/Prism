@@ -16,8 +16,10 @@ public class WaveSpawner : MonoBehaviour
 
     public int waveDuration;
     private float waveTimer;
-    private float spawnInterval;
-    private float spawnTimer;
+    private double spawnInterval;
+    private double spawnTimer;
+
+    private int enemyNum;
 
     public List<GameObject> spawnedEnemies = new List<GameObject>();
 
@@ -64,6 +66,19 @@ public class WaveSpawner : MonoBehaviour
         {
             currWave++;
             GenerateWave();
+        }
+        enemyNum = spawnedEnemies.Count;
+
+
+        // Maybe update later depenign on how script is changed!!
+        for (int i = 0; i < enemyNum; i++)
+        {
+            if (spawnedEnemies[i] == null)
+            {
+                spawnedEnemies.RemoveAt(i);
+                enemyNum--;
+                i--;
+            }
         }
     }
 
