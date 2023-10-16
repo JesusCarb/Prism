@@ -5,13 +5,21 @@ using UnityEngine;
 public class ShootBehavior : MonoBehaviour
 {
     bool behaviorEnabled = false;
+    bool canShoot = true;
+    public GameObject enemyBullet;
+    public Vector3 enemyPos;
+    public Quaternion enemyRot;
 
     private Rigidbody2D _rigidbody;
+    private GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        player = GameObject.FindGameObjectWithTag("player");
+        enemyPos = new Vector3(0, 0, 0);
+        enemyRot = new Quaternion();
     }
 
 
@@ -19,8 +27,21 @@ public class ShootBehavior : MonoBehaviour
     void Update()
     {
         if (!behaviorEnabled)
+        {
+            canShoot = true;
             return;
+        }
 
+        if (canShoot)
+        {
+            Invoke("spawnEnemyBullet", 0);
+            canShoot = false;
+        }
+    }
+
+    public void spawnEnemyBullet()
+    {
+        Instantiate(enemyBullet, position: enemyPos, rotation: enemyRot);
     }
 
     public void enableBehavior()
@@ -36,4 +57,6 @@ public class ShootBehavior : MonoBehaviour
         //print("Shoot disabled");
         behaviorEnabled = false;
     }
+
+
 }

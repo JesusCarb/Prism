@@ -75,5 +75,7 @@ public class EnemyController : MonoBehaviour
         chaseScript.disableBehavior();
         wanderScript.disableBehavior();
         shootScript.enableBehavior();
+        shootScript.enemyPos = gameObject.transform.position;
+        shootScript.enemyRot = gameObject.transform.rotation;
     }
 }
