@@ -29,7 +29,11 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         // SWAP BEHAVIORS DEPENDING ON BEAT
-        onBeat = playerControllerScript.OnBeat();
+        if (playerControllerScript != null)
+        {
+            onBeat = playerControllerScript.OnBeat();
+        }
+        
 
         if (!onBeat)
         {
