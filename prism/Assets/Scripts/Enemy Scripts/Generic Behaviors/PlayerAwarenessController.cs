@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerAwarenessController : MonoBehaviour
 {
-    public bool behaviorEnabled = true;
+    public bool chaseBehaviorEnabled = true;
+    public bool wanderBehaviorEnabled = true;
     public ChaseMovement chaseScript;
 
     public bool AwareOfPlayer {get; private set;}
@@ -23,19 +24,19 @@ public class PlayerAwarenessController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!behaviorEnabled)
-            return;
-
-        Vector2 enemyToPlayerVector = _player.position - transform.position;
-        DirectionToPlayer = enemyToPlayerVector.normalized;
-
-        if (enemyToPlayerVector.magnitude <= _playerAwarenessDistance)
+        if (chaseBehaviorEnabled)
         {
-            AwareOfPlayer = true;
-        }
-        else
-        {
-            AwareOfPlayer = false;
+            Vector2 enemyToPlayerVector = _player.position - transform.position;
+            DirectionToPlayer = enemyToPlayerVector.normalized;
+
+            if (enemyToPlayerVector.magnitude <= _playerAwarenessDistance)
+            {
+                AwareOfPlayer = true;
+            }
+            else
+            {
+                AwareOfPlayer = false;
+            }
         }
     }
 }

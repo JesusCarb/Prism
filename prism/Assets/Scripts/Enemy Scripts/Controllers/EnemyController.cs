@@ -6,7 +6,7 @@ public class EnemyController : MonoBehaviour
 {
     public ChaseMovement chaseScript;
     public PlayerAwarenessController playerAwarenessScript;
-    // public WanderBehavior wanderScript;
+    public WanderMovement wanderScript;
     public ShootBehavior shootScript;
     public bool chaseBehaviorEnabled = true;
     public bool wanderBehaviorEnabled = false;
@@ -46,7 +46,7 @@ public class EnemyController : MonoBehaviour
             if (curBeatCount == 0)
                 enableShoot();
             else if (curBeatCount == 2)
-                enableChase(); // shoot behavior lasts for two beats
+                enableWander(); // shoot behavior lasts for two beats
             // TODO: ^ should be wander behavior, replace
 
             if (curBeatCount == 7)
@@ -58,7 +58,7 @@ public class EnemyController : MonoBehaviour
 
     void enableChase()
     {
-        //wanderScript.disableBehavior();
+        wanderScript.disableBehavior();
         shootScript.disableBehavior();
         chaseScript.enableBehavior();
     }
@@ -67,13 +67,13 @@ public class EnemyController : MonoBehaviour
     {
         chaseScript.disableBehavior();
         shootScript.disableBehavior();
-        //wanderScript.enableBehavior();
+        wanderScript.enableBehavior();
     }
 
     void enableShoot()
     {
         chaseScript.disableBehavior();
-        //wanderScript.disableBehavior();
+        wanderScript.disableBehavior();
         shootScript.enableBehavior();
     }
 }

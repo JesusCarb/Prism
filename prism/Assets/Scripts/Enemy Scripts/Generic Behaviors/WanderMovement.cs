@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
-public class ChaseMovement : MonoBehaviour
+public class WanderMovement : MonoBehaviour
 {
     private bool behaviorEnabled = true;
 
@@ -15,6 +16,7 @@ public class ChaseMovement : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private PlayerAwarenessController _playerAwarenessController;
     private Vector2 _targetDirection;
+    private float _changeDirectionCooldown;
 
     private Vector2 storeVector;
     
@@ -23,6 +25,7 @@ public class ChaseMovement : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _playerAwarenessController = GetComponent<PlayerAwarenessController>();
+        _targetDirection = transform.up;
     }
 
     // FixedUpdate works better with the physics system
@@ -36,27 +39,41 @@ public class ChaseMovement : MonoBehaviour
         SetVelocity();
     }
 
-    // Updates the target direction if aware of the player
+    // Updates the target direction to a random direction
     private void UpdateTargetDirection()
+    {
+        HandleRandomDirectionChange();
+        //HandlePlayerTargeting();
+    }
+
+    // Chooses a random direction as part of the wandering phase
+    private void HandleRandomDirectionChange()
+    {
+        _changeDirectionCooldown -= Time.deltaTime;
+
+        if (_changeDirectionCooldown <= 0)
+        {
+            float angleChange = Random.Range(-90f, 90f);
+            Quaternion rotation = Quaternion.AngleAxis(angleChange, transform.forward);
+            _targetDirection = rotation * _targetDirection;
+
+            _changeDirectionCooldown = Random.Range(1,5);
+        }
+    }
+
+    /*
+    private void HandlePlayerTargeting()
     {
         if (_playerAwarenessController.AwareOfPlayer)
         {
             _targetDirection = _playerAwarenessController.DirectionToPlayer;
         }
-        else
-        {
-            _targetDirection = Vector2.zero;
-        }
     }
+    */
 
-    // Rotates towards the player if aware of the player
+    // Rotates towards the random target
     private void RotateTowardsTarget()
     {
-        if (_targetDirection == Vector2.zero)
-        {
-            return;
-        }
-
         Quaternion targetRotation = Quaternion.LookRotation(transform.forward, _targetDirection);
         Quaternion rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, _rotationSpeed * Time.deltaTime);
         //Transform graphicsTransform = gameObject.GetComponentsInChildren<Transform>();
@@ -67,32 +84,25 @@ public class ChaseMovement : MonoBehaviour
         //graphicsObject.transform.rotation = new Quaternion(-1 * rotation.W, -1 * rotation.X, -1 * rotation.Y, -1 * rotation.Z);
     }
     
-    // Gives the set velocity if aware of the player
+     // Gives the set velocity if aware of the player
     private void SetVelocity()
     {
-        if (_targetDirection == Vector2.zero)
-        {
-            _rigidbody.velocity = Vector2.zero;
-        }
-        else
-        {
-            _rigidbody.velocity = transform.up * _speed;
-        }
+        _rigidbody.velocity = transform.up * _speed;
     }
 
     public void enableBehavior()
     {
-        //print("Chase enabled");
+        //print("Wander enabled");
         _rigidbody.velocity = new Vector2(storeVector.x, storeVector.y);
         behaviorEnabled = true;
-        _playerAwarenessController.chaseBehaviorEnabled = true;
+        _playerAwarenessController.wanderBehaviorEnabled = true;
     }
 
     public void disableBehavior()
     {
-        //print("Chase disabled");
+        //print("Wander disabled");
         storeVector = new Vector2(_rigidbody.velocity.x, _rigidbody.velocity.y);
         behaviorEnabled = false;
-        _playerAwarenessController.chaseBehaviorEnabled = false;
+        _playerAwarenessController.wanderBehaviorEnabled = false;
     }
 }

@@ -504,6 +504,7 @@ GameObject:
   - component: {fileID: 711511616}
   - component: {fileID: 711511617}
   - component: {fileID: 711511618}
+  - component: {fileID: 711511619}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -562,6 +563,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chaseScript: {fileID: 711511614}
   playerAwarenessScript: {fileID: 711511615}
+  wanderScript: {fileID: 0}
   shootScript: {fileID: 711511616}
   chaseBehaviorEnabled: 1
   wanderBehaviorEnabled: 0
@@ -593,7 +595,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f73a97950ed211a49b411372797325ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviorEnabled: 1
+  chaseBehaviorEnabled: 1
+  wanderBehaviorEnabled: 1
   chaseScript: {fileID: 711511614}
   _playerAwarenessDistance: 10000
 --- !u!114 &711511616
@@ -646,6 +649,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6867535b8087b940aeb6cae5c4bd6af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &711511619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711511608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2124a79ba2521f94087e7ecceaf47bc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 20
+  _rotationSpeed: 150
 --- !u!1 &849401560
 GameObject:
   m_ObjectHideFlags: 0
