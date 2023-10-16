@@ -67,7 +67,9 @@ public class ProjectileHandling : MonoBehaviour
 
     void FireProjectile()
     {
-        Vector3 pos = playerController.transform.position;
+        print("bullet spawn");
+        // gets position of player to spawn bullet
+        Vector3 pos = playerController.transform.position + new Vector3(0,0,0);
         Quaternion rot = playerController.transform.rotation;
         // currently spawning on player position
         Instantiate(playerBullet, position: pos, rotation: rot);

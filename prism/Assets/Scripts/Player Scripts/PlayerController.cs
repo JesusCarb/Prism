@@ -7,18 +7,21 @@ using System.Threading.Tasks;
 using UnityEngine.SceneManagement;
 
 using UnityEngine;
+using UnityEditor.Callbacks;
 
 
 public class PlayerController : MonoBehaviour
 {
     // player vars
     public int hp = 3;
-    public float moveSpeed = 5f;
+    public float moveSpeed = 40f;
     Vector2 playerInput;
     Vector3 velocity;
     float velocityXSmoothing;
     float velocityYSmoothing;
     public float accelerationTime = .1f;
+
+    private Rigidbody2D rb;
 
     // cursor vars
     public Texture2D cursorTexture;
@@ -47,6 +50,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         BPM = musicInfo.BPM;
         BPM = 60f;
         onBeat = false;
@@ -71,16 +75,18 @@ public class PlayerController : MonoBehaviour
         float targetVelocityX = playerInput.x * moveSpeed;
         float targetVelocityY = playerInput.y * moveSpeed;
 
-        velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, accelerationTime);
-        velocity.y = Mathf.SmoothDamp(velocity.y, targetVelocityY, ref velocityYSmoothing, accelerationTime);
+        // velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, accelerationTime);
+        // velocity.y = Mathf.SmoothDamp(velocity.y, targetVelocityY, ref velocityYSmoothing, accelerationTime);
 
+        velocity.x = targetVelocityX;
+        velocity.y = targetVelocityY;
         Move(velocity);
 
     }
 
-    public void Move(Vector3 velocity)
+    public void Move(Vector2 velocity)
     {
-        transform.Translate(velocity);
+        rb.velocity = velocity;
     }
 
     void CalculateTimings()
