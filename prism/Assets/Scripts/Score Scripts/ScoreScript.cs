@@ -24,22 +24,23 @@ public class ScoreScript : MonoBehaviour
 
     private IEnumerator Pulse()
     {
-        for (float i = 1f; i < 1.2f; i+=0.05f)
+        /* for (float i = 1f; i <= 1.2f; i+=0.05f)
         {
             scoreCounterText.rectTransform.localScale = new Vector3(i, i, i);
             yield return new WaitForEndOfFrame();
         }
         scoreCounterText.rectTransform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
-
+        */
         scoreValue += 25;
-
+        /*
         for (float i = 1.2f; i >= 1f; i -= 0.05f)
         {
             scoreCounterText.rectTransform.localScale = new Vector3(i, i, i);
             yield return new WaitForEndOfFrame();
         }
         scoreCounterText.rectTransform.localScale = new Vector3(1f, 1f, 1f);
-
+        */
+        yield return new WaitForEndOfFrame();
     }
 
     // Start is called before the first frame update
