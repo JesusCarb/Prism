@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
     public bool wanderBehaviorEnabled = false;
     public bool shootBehaviorEnabled = false;
 
+    private GameObject playerObject;
     public PlayerController playerControllerScript;
 
     private bool onBeat = false;
@@ -27,6 +28,9 @@ public class EnemyController : MonoBehaviour
     {
         if (enemyIsChaser && !enemyIsShooter)
             enableChase();
+
+        playerObject = GameObject.FindGameObjectWithTag("Player");
+        playerControllerScript = playerObject.GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -46,6 +50,7 @@ public class EnemyController : MonoBehaviour
         
         if (onBeat && firstFrameOnBeat)
         {
+            print("BEAT TIME");
             firstFrameOnBeat = false;
 
             // I'm debuggin here :)
@@ -61,7 +66,10 @@ public class EnemyController : MonoBehaviour
             else if (enemyIsShooter && !enemyIsChaser)
             {
                 if (curBeatCount == 4)
+                {
                     enableShoot();
+                }
+                    
                 else if (curBeatCount == 6)
                     enableWander(); // shoot behavior lasts for two beats
             }
