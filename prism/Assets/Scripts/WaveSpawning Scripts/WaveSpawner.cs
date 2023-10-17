@@ -87,7 +87,7 @@ public class WaveSpawner : MonoBehaviour
         waveValue = currWave * 10;
         GenerateEnemies();
 
-        spawnInterval = waveDuration / Mathf.Max(enemiesToSpawn.Count, 1);
+        spawnInterval = (double)Mathf.Max(0.2f, waveDuration / Mathf.Max(enemiesToSpawn.Count, 1));
         waveTimer = waveDuration;
     }
 

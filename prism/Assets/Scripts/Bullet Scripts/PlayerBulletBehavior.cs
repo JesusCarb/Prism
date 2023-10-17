@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Callbacks;
 using UnityEngine;
+using System;
 
 public class PlayerBulletBehavior : MonoBehaviour
 {
+    public static event Action EnemyKilled = delegate {};
+
     public float speed = 25f;
     private float distx;
     private float disty;
@@ -61,6 +64,8 @@ public class PlayerBulletBehavior : MonoBehaviour
 
         if (collision.gameObject.tag.Equals("Enemy"))
         {
+
+            EnemyKilled();
             Destroy(collision.gameObject);
             Destroy(gameObject);
 
