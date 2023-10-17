@@ -36,9 +36,9 @@ public class PlayerBulletBehavior : MonoBehaviour
     void Update()
     {
         DeSpawn();
-        print(direction);
+        //print(direction);
         rb.velocity = direction * speed;
-        print("bullet velocity" + rb.velocity);
+        //print("bullet velocity" + rb.velocity);
     }
 
     void FixedUpdate()

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6824214987311602987}
   - component: {fileID: 6824214987311602984}
   - component: {fileID: 6824214987311603029}
+  - component: {fileID: 2702932572605105853}
   - component: {fileID: 6824214987311603028}
   - component: {fileID: 6824214987311603031}
   m_Layer: 0
@@ -72,7 +73,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f73a97950ed211a49b411372797325ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  behaviorEnabled: 1
+  chaseBehaviorEnabled: 1
+  wanderBehaviorEnabled: 1
   chaseScript: {fileID: 6824214987311602987}
   _playerAwarenessDistance: 10000
 --- !u!114 &6824214987311602987
@@ -103,11 +105,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chaseScript: {fileID: 6824214987311602987}
   playerAwarenessScript: {fileID: 6824214987311602986}
+  wanderScript: {fileID: 2702932572605105853}
   shootScript: {fileID: 6824214987311603029}
   chaseBehaviorEnabled: 1
   wanderBehaviorEnabled: 0
   shootBehaviorEnabled: 0
   playerControllerScript: {fileID: 0}
+  enemyIsChaser: 0
+  enemyIsShooter: 0
 --- !u!114 &6824214987311603029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,6 +125,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99ec48198b93c834b9040ec44b5926ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyBullet: {fileID: 0}
+  enemyPos: {x: 0, y: 0, z: 0}
+  enemyRot: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2702932572605105853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6824214987311602989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2124a79ba2521f94087e7ecceaf47bc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 20
+  _rotationSpeed: 150
 --- !u!61 &6824214987311603028
 BoxCollider2D:
   m_ObjectHideFlags: 0
