@@ -12,6 +12,10 @@ public class EnemyController : MonoBehaviour
     public bool wanderBehaviorEnabled = false;
     public bool shootBehaviorEnabled = false;
 
+    private Rigidbody2D _rigidbody;
+    private Vector2 _targetDirection;
+    private float _speed;
+
     private GameObject playerObject;
     public PlayerController playerControllerScript;
 
@@ -31,11 +35,18 @@ public class EnemyController : MonoBehaviour
 
         playerObject = GameObject.FindGameObjectWithTag("Player");
         playerControllerScript = playerObject.GetComponent<PlayerController>();
+        _rigidbody = gameObject.GetComponent<Rigidbody2D>();
+        _targetDirection = transform.up;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Mathf.Sqrt(_rigidbody.velocity.x * _rigidbody.velocity.x + _rigidbody.velocity.y * _rigidbody.velocity.y) < 10)
+        {
+            _speed = _rigidbody.velocity.x * _rigidbody.velocity.x + _rigidbody.velocity.y * _rigidbody.velocity.y;
+        }
+
         // SWAP BEHAVIORS DEPENDING ON BEAT
         if (playerControllerScript != null)
         {
@@ -90,6 +101,45 @@ public class EnemyController : MonoBehaviour
                 curBeatCount++;
         }
     }
+
+    // Doesn't work ;-;
+    /* private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Obstacle")
+        {
+            if (_rigidbody.velocity.x < 0.1f)
+            {
+                print("enemy hit left/right wall");
+                print("start: " + _rigidbody.rotation);
+
+                BounceOffWall();
+
+                print("end: " + _rigidbody.rotation);
+            }
+            if (_rigidbody.velocity.y < 0.1f)
+            {
+                print("enemy hit top/bottom wall");
+                print("start: " + _rigidbody.rotation);
+
+                BounceOffWall();
+
+                print("end: " + _rigidbody.rotation);
+            }
+        }
+    } */
+
+    // Doesn't work ;-;
+    /* void BounceOffWall()
+    {
+        Quaternion rotation = Quaternion.AngleAxis(180f, transform.forward);
+        Quaternion targetRotation = Quaternion.LookRotation(transform.forward, _targetDirection);
+        _targetDirection = rotation * _targetDirection;
+
+        Quaternion newRotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 10000f);
+        _rigidbody.SetRotation(newRotation);
+
+        _rigidbody.velocity = transform.up * _speed;
+    } */
 
     void enableChase()
     {
