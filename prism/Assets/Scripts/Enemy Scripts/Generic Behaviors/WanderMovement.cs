@@ -17,6 +17,7 @@ public class WanderMovement : MonoBehaviour
     private PlayerAwarenessController _playerAwarenessController;
     private Vector2 _targetDirection;
     private float _changeDirectionCooldown;
+    private bool collidedWithWall = false;
 
     private Vector2 storeVector;
     
@@ -46,19 +47,38 @@ public class WanderMovement : MonoBehaviour
         //HandlePlayerTargeting();
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Obstacle")
+        {
+            collidedWithWall = true;
+        }
+    }
+
     // Chooses a random direction as part of the wandering phase
     private void HandleRandomDirectionChange()
     {
         _changeDirectionCooldown -= Time.deltaTime;
 
-        if (_changeDirectionCooldown <= 0)
+        if (collidedWithWall)
         {
-            float angleChange = Random.Range(-90f, 90f);
-            Quaternion rotation = Quaternion.AngleAxis(angleChange, transform.forward);
+            print("am collide with wall");
+            Quaternion rotation = Quaternion.AngleAxis(180f, transform.forward);
             _targetDirection = rotation * _targetDirection;
-
-            _changeDirectionCooldown = Random.Range(1,5);
+            collidedWithWall = false;
         }
+        else
+        {
+            if (_changeDirectionCooldown <= 0)
+            {
+                float angleChange = Random.Range(-90f, 90f);
+                Quaternion rotation = Quaternion.AngleAxis(angleChange, transform.forward);
+                _targetDirection = rotation * _targetDirection;
+                _changeDirectionCooldown = Random.Range(1,5);
+            }
+        }
+        
+        
     }
 
     /*
