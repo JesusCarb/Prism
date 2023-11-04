@@ -71,6 +71,13 @@ public class PlayerBulletBehavior : MonoBehaviour
 
         }
 
+        if (collision.gameObject.tag.Equals("Obstacle"))
+        {
+            Destroy(gameObject);
+
+        }
+
+
     }
 
     private void CalculatePlayerBulletTragectory()
@@ -92,7 +99,7 @@ public class PlayerBulletBehavior : MonoBehaviour
     
         direction = new Vector2(distx, disty);
     }
-
+    // despawns the bullet after 3 seconds
     private void DeSpawn()
     {
         float currentTime = Time.time;

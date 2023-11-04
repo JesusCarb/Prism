@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         BPM = musicInfo.BPM;
-        BPM = 60f;
+        BPM = 120f;
         onBeat = false;
         CalculateTimings();
         Cursor.SetCursor(cursorTexture, hotspot, cursorMode);

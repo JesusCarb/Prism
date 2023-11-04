@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: enemyIsShooter
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 586594769850623306, guid: d873415b5bf218a48aaa27b567a0cadc, type: 3}
+      propertyPath: _speed
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 586594769850623308, guid: d873415b5bf218a48aaa27b567a0cadc, type: 3}
       propertyPath: m_Name
       value: EnemyVariantChaserShooter

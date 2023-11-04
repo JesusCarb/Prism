@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: dfe2da12be5f5994286f281b2cde6656, type: 3}
+    - target: {fileID: 5359114742526158153, guid: fd7693fa31da5014d9b841ef5cabf8e7, type: 3}
+      propertyPath: _speed
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 5359114742526158154, guid: fd7693fa31da5014d9b841ef5cabf8e7, type: 3}
       propertyPath: playerControllerScript
       value: 

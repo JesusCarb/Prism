@@ -11,6 +11,7 @@ public class EnemyBulletBehavior : MonoBehaviour
     Rigidbody2D rb;
     Vector2 direction;
     GameObject player;
+    private float spawnTime;
 
 
 
@@ -21,12 +22,15 @@ public class EnemyBulletBehavior : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         CalculateEnemyBulletTragectory();
         
+        spawnTime = Time.time;
+
     }
 
     // Update is called once per frame
     void Update()
     {
         rb.velocity = direction * speed;
+
     }
 
     private void CalculateEnemyBulletTragectory()
@@ -44,24 +48,35 @@ public class EnemyBulletBehavior : MonoBehaviour
         direction = new Vector2(distx, disty);
     }
     // Probably better to move this to enemy to reduce lag
-    // private void OnCollisionEnter2D(Collision2D collision)
-    // {
-    //     // Prevent bullet-on-bullet collision
-    //     if (collision.gameObject.tag.Equals("Bullet"))
-    //         return;
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Prevent bullet-on-bullet collision
+        if (collision.gameObject.tag.Equals("Bullet"))
+            return;
 
-    //     if (collision.gameObject.tag.Equals("Player"))
-    //     {
-    //         // collision.gameObject.takeDamage()
-    //         // If ^ doesn't work, just GameObject.findAnyObjectOfType<>
-    //         Destroy(collision.gameObject);
-    //     }
+        if (collision.gameObject.tag.Equals("Player"))
+        {
+            // collision.gameObject.takeDamage()
+            // If ^ doesn't work, just GameObject.findAnyObjectOfType<>
+        }
 
-    //     Destroy(gameObject);
-    // }
+        if (collision.gameObject.tag.Equals("Obstacle"))
+        {
 
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    
-    //}
+            Destroy(gameObject);
+        }
+    }
+    // despawns the bullet after 3 seconds
+
+    private void DeSpawn()
+    {
+        float currentTime = Time.time;
+        
+        if(currentTime - spawnTime > 3)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+
 }
