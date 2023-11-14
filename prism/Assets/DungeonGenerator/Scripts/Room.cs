@@ -5,6 +5,14 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Room : MonoBehaviour
 {
+    public enum DirValue
+    {
+        up = 1,
+        down = 2,
+        left = 4,
+        right = 8
+
+    }
     public enum Directions
     {
         right,
@@ -35,6 +43,24 @@ public class Room : MonoBehaviour
     [SerializeField]
     public SpriteRenderer centerDec;
 
+    [SerializeField]
+    public int roomValue = 0;
+
+    [SerializeField]
+    public bool specialRoom = false;
+    public bool bossRoom = false;
+    public bool lootRoom = false;
+
+    public void setBossRoom()
+    {
+        bossRoom = true;
+    }
+
+    public void setLootRoom()
+    {
+        lootRoom = true;
+    }
+
     private BoxCollider2D myCollider;
 
     public Doors[] roomDoors = new Doors[4];
@@ -43,6 +69,41 @@ public class Room : MonoBehaviour
     public bool collision;
 
     public int jumpsFromStart = - 1;
+ 
+    public void AssignRoomValue()
+    {
+        if (roomDoors.Length != 4)
+            return;
+
+        int sum = 0;
+        if (roomDoors[0].leadsTo != null)
+            sum += 8;
+        if (roomDoors[1].leadsTo != null)
+            sum += 4;
+        if (roomDoors[2].leadsTo != null)
+            sum += 1;
+        if (roomDoors[3].leadsTo != null)
+            sum += 2;
+
+        roomValue = sum;
+    }
+
+    public void AssignSpecial()
+    {
+        if (SpecialHelper())
+        {
+            specialRoom = true;
+        }
+
+    }
+    private bool SpecialHelper()
+    {
+        if (roomValue == 1 || roomValue == 2 || roomValue == 4 || roomValue == 8)
+        {
+            return true;
+        }
+        return false;
+    }
 
     private void Awake()
     {

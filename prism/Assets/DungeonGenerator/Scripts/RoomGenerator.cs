@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 [RequireComponent(typeof(Room))]
 public class RoomGenerator : MonoBehaviour
 {
@@ -10,6 +11,14 @@ public class RoomGenerator : MonoBehaviour
         multiPath,
         multiPathBalanced
     }
+
+    [SerializeField]
+    public int numSpecialRooms = 0;
+    public bool hasBossRoom = false;
+    public bool hasLootRoom = false;
+
+    [SerializeField]
+    public int floorNum = 1;
 
     public static bool useSeed = false;
     public static readonly int seed = 26;
@@ -82,45 +91,80 @@ public class RoomGenerator : MonoBehaviour
 
         roomsContainer = new GameObject("Rooms").transform;
         selected1x1Prefab = hex ? hexRoomPrefab1x1 : roomPrefab1x1;
+
+        amountToGenerate = (int)(Mathf.Ceil(3 * (floorNum + 1) + (int)Random.Range(5, 6)));
     }
 
     IEnumerator Start()
     {
         //pooling
         Debug.Log("Creating a pool...");
-        StartCoroutine(CreatePool(selected1x1Prefab));
-        while (creatingPool)
-            yield return new WaitForSeconds(0.05f);
-        Debug.Log("Pool created");
+            StartCoroutine(CreatePool(selected1x1Prefab));
+            while (creatingPool)
+                yield return new WaitForSeconds(0.05f);
+            Debug.Log("Pool created");
 
-        //placing
-        if (type == GeneratorType.singularPath)
-            StartCoroutine(PlaceRooms());
-        else
-            StartCoroutine(PlaceRoomsMultiPath());
-        while (generatingRooms)
-            yield return new WaitForSeconds(0.05f);
-        Debug.Log("Rooms placed");
+            //placing
+            if (type == GeneratorType.singularPath)
+                StartCoroutine(PlaceRooms());
+            else
+                StartCoroutine(PlaceRoomsMultiPath());
+            while (generatingRooms)
+                yield return new WaitForSeconds(0.05f);
+            Debug.Log("Rooms placed");
 
-        //features
-        GenerateDoors();
+            //features
+            GenerateDoors();
 
-        if (add2x2 && !hex)
+            for (int i = 0; i < rooms.Count; i++)
+            {
+                if (rooms[i] != null)
+                {
+                    rooms[i].AssignRoomValue();
+                    rooms[i].AssignSpecial();
+                    if (rooms[i].specialRoom == true)
+                    {
+                        numSpecialRooms++;
+                        if (hasBossRoom == false)
+                        {
+                            rooms[i].setBossRoom();
+                            hasBossRoom = true;
+                        }
+                        else if (hasLootRoom == false)
+                        {
+                            rooms[i].setLootRoom();
+                            hasLootRoom = true;
+                        }
+                    }
+                }
+                
+            }
+            if (add2x2 && !hex)
+            {
+                Add2x2Room();
+                amountToGenerate -= 3;
+            }
+
+            if (pathfindingExample)
+            {
+                List<Room> roomsSortedByDist = PathManager.SortForPathFinding(generatorRoom, amountToGenerate + 1);
+                PathManager.AssignJumps(roomsSortedByDist);
+                FurthestRoomActions();
+            }
+
+            generatingStructure = false;
+            roomChunks.Clear();
+
+        // Will only continue if the dungeon generated has 2 or more special room types
+        if (numSpecialRooms < 2)
         {
-            Add2x2Room();
-            amountToGenerate -= 3;
+            SceneManager.LoadScene("DungeonGen");
         }
 
-        if (pathfindingExample)
-        {
-            List<Room> roomsSortedByDist = PathManager.SortForPathFinding(generatorRoom, amountToGenerate + 1);
-            PathManager.AssignJumps(roomsSortedByDist);
-            FurthestRoomActions();
-        }
 
-        generatingStructure = false;
-        roomChunks.Clear();
+
     }
+
 
     public IEnumerator CreatePool(Room prefab)
     {
