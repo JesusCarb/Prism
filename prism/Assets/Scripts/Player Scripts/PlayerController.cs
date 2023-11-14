@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
     // percentage betwween beats to hit
     public float hitLeeway = .25f;
     float beatsPerSecond;
-    float period;
+    private float period;
 
     // audio vars
     public MusicInfo musicInfo;
@@ -159,6 +159,11 @@ public class PlayerController : MonoBehaviour
     public bool OnBeat()
     {
         return onBeat;
+    }
+
+    public float GetPeriod()
+    {
+        return period;
     }
 
     private IEnumerator FailureState()
