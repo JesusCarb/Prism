@@ -714,6 +714,10 @@ PrefabInstance:
       value: Player Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3001996309730871148, guid: 4c39d49592624e34490e9b340c10eeef, type: 3}
+      propertyPath: BPM
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 3001996309730871148, guid: 4c39d49592624e34490e9b340c10eeef, type: 3}
       propertyPath: moveSpeed
       value: 40
       objectReference: {fileID: 0}
