@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edd8898777a97294383667b72e34bd6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 35
+  _speed: 25
   _rotationSpeed: 360
 --- !u!114 &6824214987311602984
 MonoBehaviour:
@@ -110,7 +110,6 @@ MonoBehaviour:
   chaseBehaviorEnabled: 1
   wanderBehaviorEnabled: 0
   shootBehaviorEnabled: 0
-  playerObject: {fileID: 3001996309730871147, guid: 4c39d49592624e34490e9b340c10eeef, type: 3}
   playerControllerScript: {fileID: 0}
   enemyIsChaser: 0
   enemyIsShooter: 0

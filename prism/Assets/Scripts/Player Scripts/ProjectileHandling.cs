@@ -50,7 +50,9 @@ public class ProjectileHandling : MonoBehaviour
                 FireProjectile();
                 Debug.Log("Beat Hit");
                 firstFireCurrentBeat = false;
-                timeUntilNextFire = delayFromFire;
+                // timeUntilNextFire = delayFromFire;
+                timeUntilNextFire = delayFromFire * playerController.GetPeriod() * 2;
+
             }
             else
             {

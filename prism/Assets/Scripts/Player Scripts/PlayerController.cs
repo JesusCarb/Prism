@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
     // beat calculation vars
     bool beatChange;
-    float BPM;
+    public float BPM;
     private bool onBeat;
     private float timeLastBeat;
     private float timeNextBeat;
@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
     // percentage betwween beats to hit
     public float hitLeeway = .25f;
     float beatsPerSecond;
-    float period;
+    private float period;
 
     // audio vars
     public MusicInfo musicInfo;
@@ -51,8 +51,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        BPM = musicInfo.BPM;
-        BPM = 60f;
+        //BPM = musicInfo.BPM;
         onBeat = false;
         CalculateTimings();
         Cursor.SetCursor(cursorTexture, hotspot, cursorMode);
@@ -159,6 +158,11 @@ public class PlayerController : MonoBehaviour
     public bool OnBeat()
     {
         return onBeat;
+    }
+
+    public float GetPeriod()
+    {
+        return period;
     }
 
     private IEnumerator FailureState()
