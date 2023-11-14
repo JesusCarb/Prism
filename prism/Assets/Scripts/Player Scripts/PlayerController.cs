@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
     // beat calculation vars
     bool beatChange;
-    float BPM;
+    public float BPM;
     private bool onBeat;
     private float timeLastBeat;
     private float timeNextBeat;
@@ -51,8 +51,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        BPM = musicInfo.BPM;
-        BPM = 120f;
+        //BPM = musicInfo.BPM;
         onBeat = false;
         CalculateTimings();
         Cursor.SetCursor(cursorTexture, hotspot, cursorMode);
