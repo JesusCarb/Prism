@@ -103,5 +103,9 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 586594769915475178, guid: d873415b5bf218a48aaa27b567a0cadc, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d873415b5bf218a48aaa27b567a0cadc, type: 3}
