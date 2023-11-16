@@ -9,11 +9,12 @@ TagManager:
   - PlayerBullet
   - Obstacle
   - Wall
+  - AICollider
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Enemy
   - Water
   - UI
   - Background

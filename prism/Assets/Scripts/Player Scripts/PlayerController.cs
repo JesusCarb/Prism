@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 // using UnityEditor.Experimental.GraphView;
 // using System.Numerics;
 using UnityEngine.SceneManagement;
-
+using System;
 using UnityEngine;
 using UnityEditor.Callbacks;
-
+using JetBrains.Annotations;
 
 public class PlayerController : MonoBehaviour
 {
@@ -44,8 +44,13 @@ public class PlayerController : MonoBehaviour
     public MusicInfo musicInfo;
     public AudioSource audioSource;
     public AudioSource songAudioSource;
-
-
+    private Animator anim;
+    private enum Walk
+    {
+        Not,
+        Forward,
+        Backward
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -57,6 +62,9 @@ public class PlayerController : MonoBehaviour
         Cursor.SetCursor(cursorTexture, hotspot, cursorMode);
         beatChange = false;
         PlayMusicWrapper();
+
+                // get animator 
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -65,11 +73,23 @@ public class PlayerController : MonoBehaviour
         BeatTracker();
         PlayBeat();
         StartCoroutine(FailureState());
+        SetPlayerAnimations();
         //print(hp);
     }
     // Update is called once per frame
     void FixedUpdate()
     {
+        Vector3 mouseLoc = Camera.main.ScreenToWorldPoint(Input.mousePosition); 
+        Vector3 finalPos = mouseLoc - transform.position;
+        if(finalPos.x < 0)
+        {
+            this.transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else
+        {
+            this.transform.localScale = new Vector3(1, 1, 1);
+
+        }
 
         float targetVelocityX = playerInput.x * moveSpeed;
         float targetVelocityY = playerInput.y * moveSpeed;
@@ -102,6 +122,32 @@ public class PlayerController : MonoBehaviour
         // print("timeLastBeat" + timeLastBeat);
         // print("timeNextBeat" + timeNextBeat);
  
+    }
+
+        // spaghetti code :)
+    void SetPlayerAnimations()
+    {
+        float velocityNorm = (float)Math.Sqrt(velocity.x * velocity.x + velocity.y * velocity.y);
+        anim.SetInteger("Direction", (int)this.transform.localScale.x);
+
+        if(velocityNorm == 0)
+        {
+            anim.SetInteger("Direction", (int)Walk.Not);
+
+        }
+        else if((velocity.x > 0) && this.transform.localScale.x < 0
+        || (velocity.x < 0) && this.transform.localScale.x > 0 || velocity.y <0)
+        {
+
+            anim.SetInteger("Direction", (int)Walk.Backward);
+            
+        }
+        else
+        {
+        
+            anim.SetInteger("Direction", (int)Walk.Forward);
+
+        }
     }
     void BeatTracker()
     {
