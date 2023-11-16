@@ -20,8 +20,8 @@ public class RoomGenerator : MonoBehaviour
     [SerializeField]
     public int floorNum = 1;
 
-    public static bool useSeed = false;
-    public static readonly int seed = 26;
+    public static bool useSeed = true;
+    public static readonly int seed = 0;
 
     [SerializeField]
     int amountToGenerate = 32;
@@ -43,8 +43,10 @@ public class RoomGenerator : MonoBehaviour
     public bool ultraSpeed;
     public bool pathfindingExample = true;
 
-    public static readonly float prefabsDistance = 1;
-    public readonly Vector2[] offsets = new Vector2[]
+    [SerializeField]
+    public static float prefabsDistance = 1;
+
+    public Vector2[] offsets = new Vector2[]
     {
         Vector2.right * prefabsDistance,
         Vector2.left * prefabsDistance,
@@ -71,7 +73,7 @@ public class RoomGenerator : MonoBehaviour
     public bool generatingRooms;
     [HideInInspector]
     public bool generatingStructure = true;
-    [HideInInspector]
+    
     public Room generatorRoom;
     private Vector2 generatorPosition;
 
@@ -156,11 +158,12 @@ public class RoomGenerator : MonoBehaviour
             roomChunks.Clear();
 
         // Will only continue if the dungeon generated has 2 or more special room types
+        /*
         if (numSpecialRooms < 2)
         {
             SceneManager.LoadScene("DungeonGen");
         }
-
+        */
 
 
     }

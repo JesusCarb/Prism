@@ -38,6 +38,9 @@ public class Room : MonoBehaviour
     }
 
     [SerializeField]
+    public int multiplier = 1;
+
+    [SerializeField]
     public SpriteRenderer body;
 
     [SerializeField]
@@ -127,7 +130,7 @@ public class Room : MonoBehaviour
             int dir = (int)roomDoors[i].direction;
             Vector2 offset = offsets[dir];
 
-            RaycastHit2D[] hit = Physics2D.RaycastAll(roomDoors[i].roomPart.position, offset, RoomGenerator.prefabsDistance);
+            RaycastHit2D[] hit = Physics2D.RaycastAll(roomDoors[i].roomPart.position, offset, RoomGenerator.prefabsDistance * multiplier);
             for (int j = 0; j < hit.Length; j++)
             {
                 if (hit[j].collider != null && hit[j].collider.gameObject != this.gameObject)

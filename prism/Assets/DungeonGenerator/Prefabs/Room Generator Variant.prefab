@@ -134,15 +134,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d58e8c5f424e16844a3f5b04feb406d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numSpecialRooms: 0
+  hasBossRoom: 0
+  hasLootRoom: 0
+  floorNum: 1
   amountToGenerate: 10
   density: 0
   roomPrefab1x1: {fileID: 8864491939727171634, guid: 268dcf47ba0b2bf438f2c2446ab997b4, type: 3}
   hexRoomPrefab1x1: {fileID: 0}
   roomPrefab2x2: {fileID: 8152484570815157310, guid: 616f8ba0a54293840af65446819277a5, type: 3}
-  add2x2: 1
+  add2x2: 0
   hex: 0
-  ultraSpeed: 0
-  pathfindingExample: 1
+  ultraSpeed: 1
+  pathfindingExample: 0
+  offsets:
+  - {x: 1, y: 0}
+  - {x: -1, y: 0}
+  - {x: 0, y: 1}
+  - {x: 0, y: -1}
+  - {x: 0.86603093, y: 0.4999903}
+  - {x: 0.86603093, y: -0.4999903}
+  - {x: -0.86603093, y: -0.4999903}
+  - {x: -0.86603093, y: 0.4999903}
   rooms: []
   generatingRooms: 0
   generatingStructure: 1
