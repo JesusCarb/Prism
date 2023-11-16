@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.FullSerializer;
@@ -19,6 +20,9 @@ public class WanderMovement : MonoBehaviour
     private float _changeDirectionCooldown;
     private bool collidedWithWall = false;
 
+    float wanderLength;
+
+
     private Vector2 storeVector;
     
     // Awake is called when the script/entity loads in and becomes active
@@ -27,17 +31,48 @@ public class WanderMovement : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _playerAwarenessController = GetComponent<PlayerAwarenessController>();
         _targetDirection = transform.up;
+        wanderLength = 0f;
     }
 
     // FixedUpdate works better with the physics system
     private void FixedUpdate()
     {
-        if (!behaviorEnabled)
-            return;
+        wanderLength -= Time.fixedDeltaTime;
+        // if (!behaviorEnabled)
+        //     return;
 
-        UpdateTargetDirection();
-        RotateTowardsTarget();
-        SetVelocity();
+        // UpdateTargetDirection();
+        // RotateTowardsTarget();
+        // SetVelocity();
+        JesusWanderTest();
+    }
+
+    private void JesusWanderTest()
+    {
+        // flips sprite
+        if(_rigidbody.velocity.x < 0)
+        {
+            this.transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else
+        {
+            this.transform.localScale = new Vector3(1, 1, 1);
+
+        }
+
+        if(wanderLength <= 0)
+        {
+            // picks random direction
+            float randx = UnityEngine.Random.Range(-1f, 1f);
+            float randy = UnityEngine.Random.Range(-1f, 1f);
+            // moves in said direction
+            _rigidbody.velocity = Vector3.Normalize( new Vector3(randx,
+            randy, 0)) * _speed;
+
+            // changes direction every 2-6 seconds
+            wanderLength = UnityEngine.Random.Range(2f, 5f);
+        }
+      
     }
 
     // Updates the target direction to a random direction
@@ -71,10 +106,10 @@ public class WanderMovement : MonoBehaviour
         {
             if (_changeDirectionCooldown <= 0)
             {
-                float angleChange = Random.Range(-90f, 90f);
+                float angleChange = UnityEngine.Random.Range(-90f, 90f);
                 Quaternion rotation = Quaternion.AngleAxis(angleChange, transform.forward);
                 _targetDirection = rotation * _targetDirection;
-                _changeDirectionCooldown = Random.Range(1,5);
+                _changeDirectionCooldown = UnityEngine.Random.Range(1,5);
             }
         }
         
@@ -105,6 +140,7 @@ public class WanderMovement : MonoBehaviour
     }
     
      // Gives the set velocity if aware of the player
+    
     private void SetVelocity()
     {
         _rigidbody.velocity = transform.up * _speed;

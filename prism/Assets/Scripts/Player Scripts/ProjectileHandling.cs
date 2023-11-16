@@ -17,6 +17,9 @@ public class ProjectileHandling : MonoBehaviour
 
     private GameObject player;
 
+    public AudioClip shootSuccessAudio;
+    public AudioClip shootFailAudio;
+    private AudioSource shootSource;
 
 
     private bool firstFireCurrentBeat = true;
@@ -31,6 +34,7 @@ public class ProjectileHandling : MonoBehaviour
         player = this.gameObject;
         print(player);
         // SpawnEnemyBullet();
+        shootSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -52,12 +56,12 @@ public class ProjectileHandling : MonoBehaviour
                 firstFireCurrentBeat = false;
                 // timeUntilNextFire = delayFromFire;
                 timeUntilNextFire = delayFromFire * playerController.GetPeriod() * 2;
-
+                shootSource.PlayOneShot(shootSuccessAudio);
             }
             else
             {
                 Debug.Log("Beat Miss");
-
+                shootSource.PlayOneShot(shootFailAudio);
             }
             //if (!beatManager.onQuarter.contains(FireProjectile()))
             //{
