@@ -134,14 +134,17 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetInteger("Direction", (int)Walk.Not);
 
-        }else if((velocity.x > 0) && this.transform.localScale.x < 0
+        }
+        else if((velocity.x > 0) && this.transform.localScale.x < 0
         || (velocity.x < 0) && this.transform.localScale.x > 0 || velocity.y <0)
         {
+
             anim.SetInteger("Direction", (int)Walk.Backward);
             
-        }else
+        }
+        else
         {
-         
+        
             anim.SetInteger("Direction", (int)Walk.Forward);
 
         }

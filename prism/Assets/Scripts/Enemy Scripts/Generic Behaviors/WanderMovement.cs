@@ -31,6 +31,7 @@ public class WanderMovement : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _playerAwarenessController = GetComponent<PlayerAwarenessController>();
         _targetDirection = transform.up;
+        wanderLength = 0f;
     }
 
     // FixedUpdate works better with the physics system
@@ -69,7 +70,7 @@ public class WanderMovement : MonoBehaviour
             randy, 0)) * _speed;
 
             // changes direction every 2-6 seconds
-            wanderLength = UnityEngine.Random.Range(2f, 6f);
+            wanderLength = UnityEngine.Random.Range(2f, 5f);
         }
       
     }
@@ -139,6 +140,7 @@ public class WanderMovement : MonoBehaviour
     }
     
      // Gives the set velocity if aware of the player
+    
     private void SetVelocity()
     {
         _rigidbody.velocity = transform.up * _speed;
