@@ -137,7 +137,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6524696104927445880, guid: 574a1577d3526544593261fc8d662bc9, type: 3}
       propertyPath: BPM
-      value: 120
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6524696104927445880, guid: 574a1577d3526544593261fc8d662bc9, type: 3}
       propertyPath: moveSpeed

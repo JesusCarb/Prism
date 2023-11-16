@@ -10,7 +10,8 @@ public class CameraTracker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameObject p = GameObject.FindWithTag("Player");
+        player = p.transform;
     }
 
     // Update is called once per frame

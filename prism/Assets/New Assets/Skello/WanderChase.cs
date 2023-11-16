@@ -13,6 +13,9 @@ public class WanderChase : MonoBehaviour
 
     private float detectionDistance;
 
+    
+    [SerializeField]
+    private float wanderLimit;
     PlayerController player;
 
     Rigidbody2D rb;
@@ -21,22 +24,33 @@ public class WanderChase : MonoBehaviour
     Vector3 directionToPlayer;
 
     float wanderLength;
+
     // Start is called before the first frame update
     void Start()
     {
         player = FindObjectOfType<PlayerController>();
         rb = GetComponent<Rigidbody2D>();
-        
+        wanderLength = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-  
+          // flips sprite
+        if(rb.velocity.x < 0)
+        {
+            this.transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else
+        {
+            this.transform.localScale = new Vector3(1, 1, 1);
+
+        }
     }
 
     void FixedUpdate()
     {
+
         wanderLength -= Time.fixedDeltaTime;
 
         distanceToPlayer = player.transform.position - this.transform.position;
@@ -49,21 +63,14 @@ public class WanderChase : MonoBehaviour
         }
         else
         {
-            Wander();
+            if(wanderLength <= 0)
+            {
+                Wander();
+            }
         }
     }
     void Chase()
     {
-        // flip
-        if(player.transform.position.x - this.transform.position.x < 0)
-        {
-            this.transform.localScale = new Vector3(-1, 1, 1);
-        }
-        else
-        {
-            this.transform.localScale = new Vector3(1, 1, 1);
-
-        }
 
         rb.velocity = Vector3.Normalize( new Vector3(directionToPlayer.x,
         directionToPlayer.y, 0)) * speed;
@@ -72,28 +79,31 @@ public class WanderChase : MonoBehaviour
 
     void Wander()
     {
-                // flips sprite
-        if(rb.velocity.x < 0)
-        {
-            this.transform.localScale = new Vector3(-1, 1, 1);
-        }
-        else
-        {
-            this.transform.localScale = new Vector3(1, 1, 1);
-
-        }
 
         if(wanderLength <= 0)
         {
-            // picks random direction
-            float randx = UnityEngine.Random.Range(-1f, 1f);
-            float randy = UnityEngine.Random.Range(-1f, 1f);
-            // moves in said direction
-            rb.velocity = Vector3.Normalize( new Vector3(randx,
-            randy, 0)) * speed;
+ 
 
-            // changes direction every 2-6 seconds
-            wanderLength = UnityEngine.Random.Range(2f, 5f);
+            // if too far will move towards the player 
+            if(distanceToPlayer.magnitude >= wanderLimit)
+            {
+                rb.velocity = Vector3.Normalize( new Vector3(directionToPlayer.x,
+                directionToPlayer.y, 0)) * speed;
+                wanderLength = UnityEngine.Random.Range(2f, 6f);
+
+            }
+            else
+            {
+                // changes direction every time interval you want seconds
+            // picks random direction
+                float randx = UnityEngine.Random.Range(-1f, 1f);
+                float randy = UnityEngine.Random.Range(-1f, 1f);
+                // moves in said direction
+                rb.velocity = Vector3.Normalize( new Vector3(randx,
+                randy, 0)) * speed;
+                wanderLength = UnityEngine.Random.Range(1f, 4f);
+                
+            }
         }
     }
 }

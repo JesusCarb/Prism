@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5751621207301384859}
   - component: {fileID: 5751621207301384856}
   - component: {fileID: 5751621207301384857}
+  - component: {fileID: -6712308360381900470}
   m_Layer: 0
   m_Name: Skello
   m_TagString: Enemy
@@ -143,7 +144,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  detectionDistance: 1
+  detectionDistance: 2.5
+  wanderLimit: 15
 --- !u!61 &5751621207301384857
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -170,3 +172,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.78957766, y: 0.95330197}
   m_EdgeRadius: 0
+--- !u!114 &-6712308360381900470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5751621207301385574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2af4952e957addb418e03b51a141074b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
