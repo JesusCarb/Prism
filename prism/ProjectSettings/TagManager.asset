@@ -9,6 +9,7 @@ TagManager:
   - PlayerBullet
   - Obstacle
   - Wall
+  - AICollider
   layers:
   - Default
   - TransparentFX
