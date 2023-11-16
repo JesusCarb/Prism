@@ -32,7 +32,7 @@ public class ChaseMovement : MonoBehaviour
             return;
 
         UpdateTargetDirection();
-        RotateTowardsTarget();
+        // RotateTowardsTarget();
         SetVelocity();
     }
 
@@ -70,13 +70,27 @@ public class ChaseMovement : MonoBehaviour
     // Gives the set velocity if aware of the player
     private void SetVelocity()
     {
+                // flip
+        if(_playerAwarenessController.DirectionToPlayer.x < 0)
+        {
+            this.transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else
+        {
+            this.transform.localScale = new Vector3(1, 1, 1);
+
+        }
+
+
         if (_targetDirection == Vector2.zero)
         {
             _rigidbody.velocity = Vector2.zero;
         }
         else
         {
-            _rigidbody.velocity = transform.up * _speed;
+            // _rigidbody.velocity = transform.up * _speed;            
+            _rigidbody.velocity = Vector3.Normalize( new Vector3(_playerAwarenessController.DirectionToPlayer.x,
+            _playerAwarenessController.DirectionToPlayer.y, 0)) * _speed;
         }
     }
 
