@@ -140,8 +140,20 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6524696104927445880, guid: 574a1577d3526544593261fc8d662bc9, type: 3}
+      propertyPath: rifle
+      value: 
+      objectReference: {fileID: 254048839663103597, guid: 162fbd51a2cdfd344be437ceb8729f58, type: 3}
+    - target: {fileID: 6524696104927445880, guid: 574a1577d3526544593261fc8d662bc9, type: 3}
+      propertyPath: pistol
+      value: 
+      objectReference: {fileID: 254048839663103597, guid: 17fb4f0dffefb704d91c7f6729192f6c, type: 3}
+    - target: {fileID: 6524696104927445880, guid: 574a1577d3526544593261fc8d662bc9, type: 3}
+      propertyPath: shotty
+      value: 
+      objectReference: {fileID: 254048839663103597, guid: 20e7a2d57c2aacf4ba37c8bcd510e550, type: 3}
+    - target: {fileID: 6524696104927445880, guid: 574a1577d3526544593261fc8d662bc9, type: 3}
       propertyPath: moveSpeed
-      value: 5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 6524696104927445880, guid: 574a1577d3526544593261fc8d662bc9, type: 3}
       propertyPath: musicInfo
@@ -165,11 +177,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6524696104927445881, guid: 574a1577d3526544593261fc8d662bc9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10
+      value: -1.25
       objectReference: {fileID: 0}
     - target: {fileID: 6524696104927445881, guid: 574a1577d3526544593261fc8d662bc9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -40
+      value: -2.7
       objectReference: {fileID: 0}
     - target: {fileID: 6524696104927445881, guid: 574a1577d3526544593261fc8d662bc9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -260,7 +272,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.042514563, y: -0.014114618}
+  m_Offset: {x: 0.042514563, y: -0.033254504}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -271,7 +283,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.54533434, y: 1.00665}
+  m_Size: {x: 0.54533434, y: 0.88568616}
   m_EdgeRadius: 0
 --- !u!95 &-7621158037217406179
 Animator:
@@ -294,20 +306,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &538111535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2898977456099001113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f3182983d61fe3458653cdeec68d962, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerBullet: {fileID: 3110126029553538758, guid: 42953fd82f42d1347b7d6a9a2068af43, type: 3}
-  enemyBullet: {fileID: 5644327936522697431, guid: b350a82cec4926c49a73c72e7eeecb43, type: 3}
 --- !u!114 &545153351
 MonoBehaviour:
   m_ObjectHideFlags: 0

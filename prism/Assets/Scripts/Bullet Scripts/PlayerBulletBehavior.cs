@@ -1,36 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Callbacks;
 using UnityEngine;
 using System;
+using System.Linq.Expressions;
 
 public class PlayerBulletBehavior : MonoBehaviour
 {
     public static event Action EnemyKilled = delegate {};
 
-    public float speed = 25f;
-    private float distx;
-    private float disty;
-
     Vector2 direction;
 
     private float spawnTime;
 
-    Rigidbody2D rb;
     GameObject player;
 
+    public int bulletType;
 
     // Start is called before the first frame update
     void Start()
     {
-
-        rb = GetComponent<Rigidbody2D>();
-        player = GameObject.FindWithTag("Player");
         spawnTime = Time.time;
-
-
-
-        CalculatePlayerBulletTragectory();
+        player = GameObject.FindWithTag("Player");
 
 
     }
@@ -40,14 +30,7 @@ public class PlayerBulletBehavior : MonoBehaviour
     {
         DeSpawn();
         //print(direction);
-        rb.velocity = direction * speed;
         //print("bullet velocity" + rb.velocity);
-    }
-
-    void FixedUpdate()
-    {
-        
-
     }
     // Probably better to move this to enemy to reduce lag
     private void OnCollisionEnter2D(Collision2D collision)
@@ -76,35 +59,38 @@ public class PlayerBulletBehavior : MonoBehaviour
             Destroy(gameObject);
 
         }
-
-
     }
 
-    private void CalculatePlayerBulletTragectory()
-    {
-        // Added "GameObject" before player bc it didn't compile
-        // Vector3  mouseLoc = Input.mousePosition;
-
-        // gets location of camera, changes it to world space
-        Vector3 mouseLoc = Camera.main.ScreenToWorldPoint(Input.mousePosition); 
-        // subtracted by player position to get directional vector
-        Vector3 finalPos = mouseLoc - player.transform.position;
-
-        float targx = finalPos.x;
-        float targy = finalPos.y;
-        float hypot = Mathf.Sqrt((targx * targx) + (targy * targy));
-
-        distx = targx / hypot * speed;
-        disty = targy / hypot * speed;
-    
-        direction = new Vector2(distx, disty);
-    }
+  
     // despawns the bullet after 3 seconds
     private void DeSpawn()
     {
+        // sets despawn time depending on which bullet it be
         float currentTime = Time.time;
-        
-        if(currentTime - spawnTime > 3)
+        float despawnTime = 1f;
+        switch(bulletType)
+        {
+            // pistol
+
+            case 1:
+            despawnTime = 1.35f;
+            break;
+
+            // rifle
+
+            case 2:
+
+            despawnTime = 1.75f;
+            break;
+
+            // shotty
+
+            case 3:
+            despawnTime = 0.75f;
+            break;
+
+        }
+        if(currentTime - spawnTime > despawnTime)
         {
             Destroy(gameObject);
         }
