@@ -8,10 +8,11 @@ using UnityEngine.UIElements;
 
 public class ProjectileHandling : MonoBehaviour
 {
+
     ManageBeatEvents beatManager;
 
     PlayerController playerController;
-    public GameObject playerBullet;
+    public GameObject basicBullet;
 
     public GameObject enemyBullet;
 
@@ -26,15 +27,38 @@ public class ProjectileHandling : MonoBehaviour
     private float timeUntilNextFire = 0f;
     private float delayFromFire = .25f;
 
+    [SerializeField]
+    private int currentWeapon;
+
+    private enum Weapon
+    {
+        None,
+        Pistol,
+        Rifle,
+        Shotty
+    }
+
+    [SerializeField]
+    public GameObject blastBullets;
+
+    public GameObject burstBullets;
+
+    public int blastNum;
+    public int burstNum;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        GameObject player = GameObject.FindWithTag("Player");
+
         beatManager = gameObject.GetComponent<ManageBeatEvents>();
-        playerController = gameObject.GetComponent<PlayerController>();
+        playerController = player.GetComponent<PlayerController>();
         player = this.gameObject;
         print(player);
-        // SpawnEnemyBullet();
         shootSource = GetComponent<AudioSource>();
+
+
     }
 
     // Update is called once per frame
@@ -51,7 +75,20 @@ public class ProjectileHandling : MonoBehaviour
             print("fire1");
             if(playerController.OnBeat() && firstFireCurrentBeat)
             {
-                FireProjectile();
+                print(currentWeapon);
+                print((int)Weapon.Shotty);
+                if(currentWeapon == (int)Weapon.Pistol)
+                {
+                    FireProjectile();
+                }else if(currentWeapon == (int)Weapon.Rifle)
+                {
+                    StartCoroutine(FireBurst());
+                }
+                else if(currentWeapon == (int)Weapon.Shotty)
+                {
+                    BlastBullets();
+                }
+
                 Debug.Log("Beat Hit");
                 firstFireCurrentBeat = false;
                 // timeUntilNextFire = delayFromFire;
@@ -73,25 +110,52 @@ public class ProjectileHandling : MonoBehaviour
 
     void FireProjectile()
     {
-        print("bullet spawn");
         // gets position of player to spawn bullet
-        Vector3 pos = playerController.transform.position + new Vector3(0,0,0);
-        Quaternion rot = playerController.transform.rotation;
+
+        Vector3 pos = this.transform.position;
+        Vector3 mouseLoc = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 final = mouseLoc - pos;
+
+        float angle = Mathf.Atan2(final.y, final.x) * Mathf.Rad2Deg;
+
+        Quaternion rot = Quaternion.Euler(new Vector3(0,0, angle - 90));
+
         // currently spawning on player position
-        Instantiate(playerBullet, position: pos, rotation: rot);
+        Instantiate(basicBullet, position: pos, rotation: rot);
         // Debug.Log("FIRE");
     }
 
-    // for debugging, will spawn enemy bullets
-    private void SpawnEnemyBullet()
+    private IEnumerator FireBurst()
     {
-        Vector3 pos = playerController.transform.position;
-        Quaternion rot = playerController.transform.rotation;
+        for(int i = 0; i < burstNum; i ++)
+        {
+            yield return new WaitForSeconds(.075f);
+                // gets position of player to spawn bullet
+
+            Vector3 pos = this.transform.position;
+            Vector3 mouseLoc = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 final = mouseLoc - pos;
+
+            float angle = Mathf.Atan2(final.y, final.x) * Mathf.Rad2Deg;
+
+            Quaternion rot = Quaternion.Euler(new Vector3(0,0, angle - 90));
+
+            // currently spawning on player position
+            Instantiate(burstBullets, position: pos, rotation: rot);
+            // Debug.Log("FIRE");
+        }
         
-        Vector3 offset = new Vector3(0,10,0);
-        pos += offset;
-        print(pos);
-        
-        Instantiate(enemyBullet, position: pos, rotation: rot);
     }
+
+    void BlastBullets()
+    {
+        Vector3 loc = this.transform.position;
+        Quaternion rot = this.transform.rotation;
+        for(int i = 0; i < blastNum; i++)
+        {
+            Instantiate(blastBullets, position: loc, rotation: rot);
+        }
+    }
+
+
 }

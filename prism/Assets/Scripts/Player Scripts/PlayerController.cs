@@ -2,16 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 // using System.Numerics;
-// using UnityEditor.Experimental.GraphView;
 // using System.Numerics;
 using UnityEngine.SceneManagement;
 using System;
 using UnityEngine;
-using UnityEditor.Callbacks;
 using JetBrains.Annotations;
+using System.Diagnostics.Tracing;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject pistol;
+    [SerializeField]
+
+    private GameObject rifle;
+    [SerializeField]
+
+    private GameObject shotty;
+
     // player vars
     public int hp = 3;
     public float moveSpeed = 40f;
@@ -51,6 +59,14 @@ public class PlayerController : MonoBehaviour
         Forward,
         Backward
     }
+    private int currentWeapon;
+    private enum Weapon
+    {
+        None,
+        Pistol,
+        Rifle,
+        Shotty
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -62,9 +78,13 @@ public class PlayerController : MonoBehaviour
         Cursor.SetCursor(cursorTexture, hotspot, cursorMode);
         beatChange = false;
         PlayMusicWrapper();
-
+        
+        currentWeapon = (int)Weapon.None;
                 // get animator 
         anim = GetComponent<Animator>();
+
+        // SetWeapon((int)Weapon.Rifle);
+
     }
 
     void Update()
@@ -103,6 +123,36 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void SetWeapon(int type)
+    {
+        if(currentWeapon != (int)Weapon.None)
+        {
+            GameObject obj = GameObject.FindGameObjectWithTag("Weapon");
+            Destroy(obj);
+        }
+        switch(type)
+        {
+            case 1:
+                    Instantiate(pistol, this.transform);
+                    currentWeapon = (int)Weapon.Pistol;
+
+            break;
+            case 2:
+                    Instantiate(rifle, this.transform);
+                    currentWeapon = (int)Weapon.Rifle;
+
+            break;
+            case 3:
+                    Instantiate(shotty, this.transform);
+                    currentWeapon = (int)Weapon.Shotty;
+
+            break;
+
+            default:
+            break;
+        }
+    }
+
     public void Move(Vector2 velocity)
     {
         rb.velocity = velocity;
@@ -136,7 +186,7 @@ public class PlayerController : MonoBehaviour
 
         }
         else if((velocity.x > 0) && this.transform.localScale.x < 0
-        || (velocity.x < 0) && this.transform.localScale.x > 0 || velocity.y <0)
+        || (velocity.x < 0) && this.transform.localScale.x > 0)
         {
 
             anim.SetInteger("Direction", (int)Walk.Backward);
@@ -144,7 +194,6 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-        
             anim.SetInteger("Direction", (int)Walk.Forward);
 
         }

@@ -3,23 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - EnemyBullet
-  - Enemy
-  - PlayerBullet
-  - Obstacle
-  - Wall
-  - AICollider
-  - Weapon
-  - Drop
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Enemy
+  - 
   - Water
   - UI
-  - Background
+  - 
   - 
   - 
   - 
@@ -48,10 +40,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Weapon
-    uniqueID: 412695451
-    locked: 0
-  - name: Player
-    uniqueID: 912035719
     locked: 0

@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 3941651070723074689}
   - component: {fileID: 7876153412148803406}
   - component: {fileID: 2432814130906410457}
-  - component: {fileID: -643106028056588982}
   m_Layer: 0
-  m_Name: Weapon 3
+  m_Name: WeaponShotty
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,9 +27,10 @@ Transform:
   m_GameObject: {fileID: 254048839663103597}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.13, y: -0.217, z: 0}
-  m_LocalScale: {x: 0.85, y: 0.85, z: 0.85}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5094616326604577296}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 912035719
   m_SortingLayer: 2
   m_SortingOrder: 1
-  m_Sprite: {fileID: -353751291, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
+  m_Sprite: {fileID: 1772703093, guid: 378026fc794d15e4bbb89c335c8031ab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,15 +98,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e940a02b441e2a041a4f831d5e4e7cd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-643106028056588982
+--- !u!1 &3586550286004177645
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5094616326604577296}
+  - component: {fileID: 303327025470818916}
+  m_Layer: 0
+  m_Name: BulletSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5094616326604577296
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3586550286004177645}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.156, y: 0.1, z: 0}
+  m_LocalScale: {x: 1.1764704, y: 1.1764704, z: 1.1764705}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3941651070723074689}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &303327025470818916
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 254048839663103597}
+  m_GameObject: {fileID: 3586550286004177645}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e940a02b441e2a041a4f831d5e4e7cd2, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f3182983d61fe3458653cdeec68d962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerBullet: {fileID: 3110126029553538758, guid: 22650c8dfb512244a99435dd9b739dff, type: 3}
+  enemyBullet: {fileID: 0}
+  shootSuccessAudio: {fileID: 0}
+  shootFailAudio: {fileID: 0}
+  currentWeapon: 3
+  blastBullets: {fileID: 3110126029553538758, guid: 657a2bee99d2f5d47a9a81683e1d1d41, type: 3}
+  burstBullets: {fileID: 3110126029553538758, guid: 00b8176ed1202df4192a19a842c76657, type: 3}
+  blastNum: 4
+  burstNum: 3
