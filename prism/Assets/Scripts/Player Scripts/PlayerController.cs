@@ -72,6 +72,8 @@ public class PlayerController : MonoBehaviour
         Shotty
     }
 
+    int beatCounter = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -81,7 +83,7 @@ public class PlayerController : MonoBehaviour
         CalculateTimings();
         Cursor.SetCursor(cursorTexture, hotspot, cursorMode);
         beatChange = false;
-        PlayMusicWrapper();
+        // PlayMusicWrapper();
         
         currentWeapon = (int)Weapon.None;
                 // get animator 
@@ -202,6 +204,7 @@ public class PlayerController : MonoBehaviour
 
         }
     }
+
     void BeatTracker()
     {
         float currentTime = Time.deltaTime + timeLastBeat;
@@ -237,10 +240,16 @@ public class PlayerController : MonoBehaviour
     
     private void PlayBeat()
     {
+        if(beatCounter < 1)
+        {
+            PlayMusic();
+        }
         if(beatChange)
         {
             audioSource.Play();
         }
+
+        beatCounter ++;
     }
 
     private void PlayMusicWrapper()
