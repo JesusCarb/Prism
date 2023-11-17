@@ -20,7 +20,7 @@ public class RoomGenerator : MonoBehaviour
     [SerializeField]
     public int floorNum = 1;
 
-    public static bool useSeed = true;
+    public static bool useSeed = false;
     public static readonly int seed = 0;
 
     [SerializeField]
@@ -62,7 +62,28 @@ public class RoomGenerator : MonoBehaviour
         new Vector2(-0.653f,0.377f).normalized * prefabsDistance
     };
 
+    [SerializeField]
+    public List<Room> RoomVal1 = new List<Room>();
+    public List<Room> RoomVal2 = new List<Room>();
+    public List<Room> RoomVal3 = new List<Room>();
+    public List<Room> RoomVal4 = new List<Room>();
+    public List<Room> RoomVal5 = new List<Room>();
+    public List<Room> RoomVal6 = new List<Room>();
+    public List<Room> RoomVal7 = new List<Room>();
+    public List<Room> RoomVal8 = new List<Room>();
+    public List<Room> RoomVal9 = new List<Room>();
+    public List<Room> RoomVal10 = new List<Room>();
+    public List<Room> RoomVal11 = new List<Room>();
+    public List<Room> RoomVal12 = new List<Room>();
+    public List<Room> RoomVal13 = new List<Room>();
+    public List<Room> RoomVal14 = new List<Room>();
+    public List<Room> RoomVal15 = new List<Room>();
+    public List<Room> RoomValLoot = new List<Room>();
+    public List<Room> RoomValBoss = new List<Room>();
+
+
     public List<Room> rooms;
+    public List<Room> generatedRooms;
     private List<List<int>> roomChunks = new List<List<int>>();
     private int chunkWidth = 8;
 
@@ -158,14 +179,13 @@ public class RoomGenerator : MonoBehaviour
             roomChunks.Clear();
 
         // Will only continue if the dungeon generated has 2 or more special room types
-        /*
         if (numSpecialRooms < 2)
         {
             SceneManager.LoadScene("DungeonGen");
         }
-        */
 
-
+        replaceRooms();
+        GenerateDoors();
     }
 
 
@@ -384,6 +404,180 @@ public class RoomGenerator : MonoBehaviour
         selectedChunk = roomChunks[chunkIndex];
         return selectedChunk;
     }
+
+    private void replaceRooms()
+    {
+        int roomVal;
+        int numRooms = rooms.Count;
+        Room[] toRemove = new Room[numRooms];
+        Room start = rooms[0];
+        Room newRoom = null;
+        Room currRoom = start;
+        generatedRooms = new List<Room>();
+        for(int i = 0; i < numRooms; i++)
+        {
+            toRemove[i] = rooms[i];
+        }
+ 
+        if (start != null)
+        {
+            for (int i = 0; i < numRooms; i++)
+            {
+                currRoom = rooms[i];
+                roomVal = currRoom.roomValue;
+                switch (roomVal)
+                {
+                    // Up
+                    case 1:
+                        if (currRoom.bossRoom == true)
+                        {
+                            newRoom = Instantiate(RoomValBoss[Random.Range(0, RoomValBoss.Count)], currRoom.transform.position, Quaternion.identity, roomsContainer).GetComponent<Room>();
+                        }
+                        else if (currRoom.lootRoom == true)
+                        {
+                            newRoom = Instantiate(RoomValLoot[Random.Range(0, RoomValLoot.Count)], currRoom.transform.position, Quaternion.identity, roomsContainer).GetComponent<Room>();
+                        }
+                        else
+                        {
+                            newRoom = Instantiate(RoomVal1[Random.Range(0, RoomVal1.Count)], currRoom.transform.position, Quaternion.identity, roomsContainer).GetComponent<Room>();
+                        }
+                        break;
+
+                    // Down
+                    case 2:
+                        if (currRoom.bossRoom == true)
+                        {
+                            newRoom = Instantiate(RoomValBoss[Random.Range(0, RoomValBoss.Count)], currRoom.transform.position, Quaternion.identity, roomsContainer).GetComponent<Room>();
+                        }
+                        else if (currRoom.lootRoom == true)
+                        {
+                            newRoom = Instantiate(RoomValLoot[Random.Range(0, RoomValLoot.Count)], currRoom.transform.position, Quaternion.identity, roomsContainer).GetComponent<Room>();
+                        }
+                        else
+                        {
+                            newRoom = Instantiate(RoomVal2[Random.Range(0, RoomVal2.Count)], currRoom.transform.position, Quaternion.identity, roomsContainer).GetComponent<Room>();
+                        }
+                        break;
+
+                    // Up, Down
+                    case 3:
+                        newRoom = Instantiate(RoomVal3[Random.Range(0, RoomVal3.Count)], currRoom.transform.position, Quaternion.identity, roomsContainer).GetComponent<Room>();
+                        break;
+
+                    // Left
+                    case 4:
+                        if (currRoom.bossRoom == true)
+                        {
+                            newRoom = Instantiate(RoomValBoss[Random.Range(0, RoomValBoss.Count)], currRoom.transform.position, Quaternion.identity, roomsContainer).GetComponent<Room>();
+                        }
+                        else if (currRoom.lootRoom == true)
+                        {
+                            newRoom = Instantiate(RoomValLoot[Random.Range(0, RoomValLoot.Count)], currRoom.transform.position, Quaternion.identity, roomsContainer).GetComponent<Room>();
+                        }
+                        else
+                        {
+                            newRoom = Instantiate(RoomVal4[Random.Range(0, RoomVal4.Count)], currRoom.transform.position, Quaternion.identity, roomsContainer).GetComponent<Room>();
+                        }
+                        break;
+
+                    // Left, Up
+                    case 5:
+                        newRoom = Instantiate(RoomVal5[Random.Range(0, RoomVal5.Count)], currRoom.transform.position, Quaternion.identity, roomsContainer).GetComponent<Room>();
+                        break;
+
+                    // Left, Down
+                    case 6:
+                        newRoom = Instantiate(RoomVal6[Random.Range(0, RoomVal6.Count)], currRoom.transform.position, Quaternion.identity, roomsContainer).GetComponent<Room>();
+                        break;
+
+                    // Left, Up, Down
+                    case 7:
+                        newRoom = Instantiate(RoomVal7[Random.Range(0, RoomVal7.Count)], currRoom.transform.position, Quaternion.identity, roomsContainer).GetComponent<Room>();
+                        break;
+
+                    // Right
+                    case 8:
+                        if (currRoom.bossRoom == true)
+                        {
+                            newRoom = Instantiate(RoomValBoss[Random.Range(0, RoomValBoss.Count)], currRoom.transform.position, Quaternion.identity, roomsContainer).GetComponent<Room>();
+                        }
+                        else if (currRoom.lootRoom == true)
+                        {
+                            newRoom = Instantiate(RoomValLoot[Random.Range(0, RoomValLoot.Count)], currRoom.transform.position, Quaternion.identity, roomsContainer).GetComponent<Room>();
+                        }
+                        else
+                        {
+                            newRoom = Instantiate(RoomVal8[Random.Range(0, RoomVal8.Count)], currRoom.transform.position, Quaternion.identity, roomsContainer).GetComponent<Room>();
+                        }
+                        break;
+
+                    // Right, Up
+                    case 9:
+                        newRoom = Instantiate(RoomVal9[Random.Range(0, RoomVal9.Count)], currRoom.transform.position, Quaternion.identity, roomsContainer).GetComponent<Room>();
+                        break;
+
+                    // Right, Down
+                    case 10:
+                        newRoom = Instantiate(RoomVal10[Random.Range(0, RoomVal10.Count)], currRoom.transform.position, Quaternion.identity, roomsContainer).GetComponent<Room>();
+                        break;
+
+                    // Right, Up, Down
+                    case 11:
+                        newRoom = Instantiate(RoomVal11[Random.Range(0, RoomVal11.Count)], currRoom.transform.position, Quaternion.identity, roomsContainer).GetComponent<Room>();
+                        break;
+
+                    // Right, Left
+                    case 12:
+                        newRoom = Instantiate(RoomVal12[Random.Range(0, RoomVal12.Count)], currRoom.transform.position, Quaternion.identity, roomsContainer).GetComponent<Room>();
+                        break;
+
+                    // Left, Right, Up
+                    case 13:
+                        newRoom = Instantiate(RoomVal13[Random.Range(0, RoomVal13.Count)], currRoom.transform.position, Quaternion.identity, roomsContainer).GetComponent<Room>();
+                        break;
+
+                    // Left, Down, Right
+                    case 14:
+                        newRoom = Instantiate(RoomVal14[Random.Range(0, RoomVal14.Count)], currRoom.transform.position, Quaternion.identity, roomsContainer).GetComponent<Room>();
+                        break;
+
+                    // Up, Down, Left, Right
+                    case 15:
+                        newRoom = Instantiate(RoomVal15[Random.Range(0, RoomVal15.Count)], currRoom.transform.position, Quaternion.identity, roomsContainer).GetComponent<Room>();
+                        break;
+
+                    // Error
+                    default:
+
+                        break;
+                }
+                newRoom.SetRandomBodyColor();
+                newRoom.gameObject.SetActive(true);
+                generatedRooms.Add(newRoom);
+                newRoom.AssignAllNeighbours(offsets);
+
+                //fix doors at neighbours
+                foreach (Room.Doors d in newRoom.roomDoors)
+                    if (d.leadsTo != null)
+                        d.leadsTo.AssignAllNeighbours(offsets);
+
+
+            }
+            /*
+            foreach (Room r in toRemove)
+            {
+                if (r != null)
+                {
+                    rooms.Remove(r);
+                    r.gameObject.SetActive(false);
+                    Destroy(r.gameObject);
+                }
+            }
+            */
+        }
+    }
+
+
 
     //based on physical distance
     //private Room FindFurthestRoom()
