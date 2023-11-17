@@ -160,9 +160,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8633342059170199038, guid: 9570b2220a7928749bc7ba95e7415ace, type: 3}
     - target: {fileID: 6524696104927445880, guid: 574a1577d3526544593261fc8d662bc9, type: 3}
+      propertyPath: rifleAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: f265294242457d443a5efc02da367b6e, type: 3}
+    - target: {fileID: 6524696104927445880, guid: 574a1577d3526544593261fc8d662bc9, type: 3}
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 394230951989764755}
+    - target: {fileID: 6524696104927445880, guid: 574a1577d3526544593261fc8d662bc9, type: 3}
+      propertyPath: pistolAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 54666d9fb49bfd848aa1d19b053a9466, type: 3}
+    - target: {fileID: 6524696104927445880, guid: 574a1577d3526544593261fc8d662bc9, type: 3}
+      propertyPath: shottyAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 06873bdc0985acc40a390b7d99d20a9f, type: 3}
     - target: {fileID: 6524696104927445880, guid: 574a1577d3526544593261fc8d662bc9, type: 3}
       propertyPath: cursorTexture
       value: 

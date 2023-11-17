@@ -20,6 +20,10 @@ public class PlayerController : MonoBehaviour
 
     private GameObject shotty;
 
+    public AudioClip pistolAudio;
+    public AudioClip rifleAudio;
+    public AudioClip shottyAudio;
+
     // player vars
     public int hp = 3;
     public float moveSpeed = 40f;
