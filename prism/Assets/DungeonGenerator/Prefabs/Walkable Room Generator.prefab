@@ -373,7 +373,7 @@ Transform:
   m_GameObject: {fileID: 2995587722397115798}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6080141840463883077}
@@ -491,6 +491,7 @@ MonoBehaviour:
   hasLootRoom: 0
   floorNum: 1
   amountToGenerate: 32
+  SceneToLoad: 
   density: 0
   roomPrefab1x1: {fileID: 8361612031184310025, guid: 72db34dc1a0420541aae06534e06782b, type: 3}
   hexRoomPrefab1x1: {fileID: 0}
@@ -508,7 +509,25 @@ MonoBehaviour:
   - {x: 0.86603093, y: -0.4999903}
   - {x: -0.86603093, y: -0.4999903}
   - {x: -0.86603093, y: 0.4999903}
+  RoomVal1: []
+  RoomVal2: []
+  RoomVal3: []
+  RoomVal4: []
+  RoomVal5: []
+  RoomVal6: []
+  RoomVal7: []
+  RoomVal8: []
+  RoomVal9: []
+  RoomVal10: []
+  RoomVal11: []
+  RoomVal12: []
+  RoomVal13: []
+  RoomVal14: []
+  RoomVal15: []
+  RoomValLoot: []
+  RoomValBoss: []
   rooms: []
+  generatedRooms: []
   generatingRooms: 0
   generatingStructure: 1
   generatorRoom: {fileID: 4509643446405255481}

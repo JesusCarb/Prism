@@ -184,7 +184,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Room Doors (Left, Up, Down)
+  m_text: 'Room Doors (Left, Up)
 
     Room Number: 1'
   m_isRightToLeft: 0

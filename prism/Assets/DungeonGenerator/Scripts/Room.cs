@@ -141,7 +141,15 @@ public class Room : MonoBehaviour
             }
         }
     }
-
+    private void resetDoors()
+    {
+        for (int i = 0; i < roomDoors.Length; i++)
+        {
+            roomDoors[i].leadsTo = null;
+            roomDoors[i].active = false;
+            roomDoors[i].spriteR.enabled = false;
+        }
+    }
     private void OpenDoor(int i, Room neighbour)
     {
         roomDoors[i].leadsTo = neighbour;

@@ -25,6 +25,7 @@ public class RoomGenerator : MonoBehaviour
 
     [SerializeField]
     int amountToGenerate = 32;
+    public string SceneToLoad;
 
     [Range(0,2)]
     public int density;
@@ -181,7 +182,7 @@ public class RoomGenerator : MonoBehaviour
         // Will only continue if the dungeon generated has 2 or more special room types
         if (numSpecialRooms < 2)
         {
-            SceneManager.LoadScene("DungeonGen");
+            SceneManager.LoadScene(SceneToLoad);
         }
 
         replaceRooms();
@@ -553,25 +554,27 @@ public class RoomGenerator : MonoBehaviour
                 }
                 newRoom.SetRandomBodyColor();
                 newRoom.gameObject.SetActive(true);
-                generatedRooms.Add(newRoom);
-                newRoom.AssignAllNeighbours(offsets);
-
-                //fix doors at neighbours
-                foreach (Room.Doors d in newRoom.roomDoors)
-                    if (d.leadsTo != null)
-                        d.leadsTo.AssignAllNeighbours(offsets);
+                rooms.Add(newRoom);
+                //newRoom.AssignAllNeighbours(offsets);
 
 
             }
-            /*
-            foreach (Room r in toRemove)
+            for(int i = numRooms - 1; i >= 0; i--)
             {
-                if (r != null)
+                if (rooms[i] != null)
                 {
-                    rooms.Remove(r);
-                    r.gameObject.SetActive(false);
-                    Destroy(r.gameObject);
+                    rooms[i].gameObject.SetActive(false);
+                    Destroy(rooms[i].gameObject);
+                    rooms.Remove(rooms[i]);
                 }
+            }
+            //fix doors at neighbours
+            /*
+            for (int i = 0; i < numRooms; i++)
+            {
+                  foreach (Room.Doors d in newRoom.roomDoors)
+                         if (d.leadsTo != null)
+                                 d.leadsTo.AssignAllNeighbours(offsets);
             }
             */
         }
@@ -598,4 +601,9 @@ public class RoomGenerator : MonoBehaviour
     //    else
     //        return null;
     //}
+
+    public void OnPlayerEnterRoom(Room room)
+    {
+        CameraController.instance.currRoom = room;
+    }
 }
