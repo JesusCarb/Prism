@@ -12,6 +12,9 @@ public class ShootBehavior : MonoBehaviour
 
     private Rigidbody2D _rigidbody;
 
+    public AudioClip enemyShootClip;
+    public AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +37,7 @@ public class ShootBehavior : MonoBehaviour
         {
             Invoke("spawnEnemyBullet", 0);
             canShoot = false;
+            audioSource.PlayOneShot(enemyShootClip);
         }
     }
 

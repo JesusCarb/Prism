@@ -318,6 +318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eac6c3060e8958440860400089737ff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerDamageAudio: {fileID: 8300000, guid: 598d212f84c6ed74d92543d80a1ba389, type: 3}
 --- !u!4 &2898977456099001119 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6524696104927445881, guid: 574a1577d3526544593261fc8d662bc9, type: 3}

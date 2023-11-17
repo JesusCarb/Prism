@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2080535979394739435}
   - component: {fileID: -4271379579994393743}
   - component: {fileID: 2385609327106054937}
+  - component: {fileID: 6829533826747492939}
   m_Layer: 0
   m_Name: Skelly
   m_TagString: Enemy
@@ -184,3 +185,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2af4952e957addb418e03b51a141074b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6829533826747492939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080535979394739434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 694e2344cb593394cb8c587bfb608334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyDamageAudio: {fileID: 8300000, guid: f685f8af2b201dc408e62739ff57279c, type: 3}
+  enemyDeathAudio: {fileID: 8300000, guid: f685f8af2b201dc408e62739ff57279c, type: 3}

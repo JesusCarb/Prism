@@ -27,6 +27,14 @@ public class EnemyColController : MonoBehaviour
             // HITWAALLLL!
             print("HITWAALLL");
         }
+
+        //if(collision.gameObject.tag == "PlayerBullet")
+        //{
+        //    Destroy(collision.gameObject);
+        //
+        //    EnemyDamageHandling damageScript = gameObject.GetComponent<EnemyDamageHandling>();
+        //    damageScript.takeDamage(1);
+        //}
     }
 
 }
