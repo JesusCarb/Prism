@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5751621207301384856}
   - component: {fileID: 5751621207301384857}
   - component: {fileID: -6712308360381900470}
+  - component: {fileID: 1044904575866636260}
   m_Layer: 0
   m_Name: Skello
   m_TagString: Enemy
@@ -78,12 +79,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1782705385, guid: 83014f661f75c7a4e95939f300bad207, type: 3}
+  m_Sprite: {fileID: 1782705385, guid: c1f8db8115abce34e878da05193c57d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.6, y: 1.6}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -122,7 +123,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -144,7 +145,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
-  detectionDistance: 2.5
+  chaseDetectionDistance: 3
+  shootDetectionDistance: 5
+  skelloWeapon: {fileID: 5644327936522697431, guid: 31d32cf16f82a6c46ba530aeb85a77db, type: 3}
   wanderLimit: 15
 --- !u!61 &5751621207301384857
 BoxCollider2D:
@@ -163,8 +166,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.125, y: 1.125}
-    newSize: {x: 1.6, y: 1.6}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -184,3 +187,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2af4952e957addb418e03b51a141074b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1044904575866636260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5751621207301385574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 694e2344cb593394cb8c587bfb608334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyDamageAudio: {fileID: 8300000, guid: 8f4e98fe365cc1c47a4cc3338cf3f60c, type: 3}
+  enemyDeathAudio: {fileID: 8300000, guid: 531b8a48098fd44458414ab90c97f7bd, type: 3}
+  corpse: {fileID: 655303771940014979, guid: a77c42c30da7adc4b9ac96a1755581bb, type: 3}

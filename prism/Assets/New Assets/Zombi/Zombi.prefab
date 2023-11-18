@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 4563099141569318981}
   - component: {fileID: 4563099141569318980}
   - component: {fileID: 4563099141569318983}
+  - component: {fileID: -849900078000793382}
+  - component: {fileID: -8302709124867207299}
   m_Layer: 0
   m_Name: Zombi
   m_TagString: Enemy
@@ -48,7 +50,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -170,3 +172,30 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6653459, y: 0.8923456}
   m_EdgeRadius: 0
+--- !u!114 &-849900078000793382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4563099141569318982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2af4952e957addb418e03b51a141074b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-8302709124867207299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4563099141569318982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 694e2344cb593394cb8c587bfb608334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyDamageAudio: {fileID: 8300000, guid: df67e24d79b6e7b40bd3083e2fbc0067, type: 3}
+  enemyDeathAudio: {fileID: 8300000, guid: f685f8af2b201dc408e62739ff57279c, type: 3}
+  corpse: {fileID: 655303771940014979, guid: 9a0009bb6347c0449a848623c4899a46, type: 3}

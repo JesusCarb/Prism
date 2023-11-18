@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
+    public AudioClip playerDamageAudio;
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -17,6 +18,7 @@ public class PlayerCollision : MonoBehaviour
             // reduce hp by 1 when hit by bullet
             gameObject.GetComponent<PlayerController>().hp -= 1;
 
+            gameObject.GetComponent<PlayerController>().audioSource.PlayOneShot(playerDamageAudio);
         }
 
         // checks for collision with enemy reduces health
@@ -25,7 +27,7 @@ public class PlayerCollision : MonoBehaviour
         {
             // collision.gameObject.takeDamage()
             gameObject.GetComponent<PlayerController>().hp -= 1;
-
+            gameObject.GetComponent<PlayerController>().audioSource.PlayOneShot(playerDamageAudio);
             // If ^ doesn't work, just GameObject.findAnyObjectOfType<>
         }
 

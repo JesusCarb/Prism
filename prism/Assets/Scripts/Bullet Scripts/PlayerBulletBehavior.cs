@@ -16,6 +16,8 @@ public class PlayerBulletBehavior : MonoBehaviour
 
     public int bulletType;
 
+    public AudioClip enemyDamageAudio;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,11 +49,12 @@ public class PlayerBulletBehavior : MonoBehaviour
 
         if (collision.gameObject.tag.Equals("Enemy"))
         {
+            collision.gameObject.GetComponent<EnemyDamageHandling>().takeDamage(1);
 
-            EnemyKilled();
-            Destroy(collision.gameObject);
+            
+            //EnemyKilled();
+            //Destroy(collision.gameObject);
             Destroy(gameObject);
-
         }
 
         if (collision.gameObject.tag.Equals("Obstacle"))

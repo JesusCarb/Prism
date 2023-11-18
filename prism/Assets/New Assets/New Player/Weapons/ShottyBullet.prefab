@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletType: 3
+  enemyDamageAudio: {fileID: 0}
 --- !u!114 &-2612218159413599472
 MonoBehaviour:
   m_ObjectHideFlags: 0

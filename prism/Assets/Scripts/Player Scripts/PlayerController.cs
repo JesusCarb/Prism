@@ -20,6 +20,10 @@ public class PlayerController : MonoBehaviour
 
     private GameObject shotty;
 
+    public AudioClip pistolAudio;
+    public AudioClip rifleAudio;
+    public AudioClip shottyAudio;
+
     // player vars
     public int hp = 3;
     public float moveSpeed = 40f;
@@ -53,6 +57,11 @@ public class PlayerController : MonoBehaviour
     public AudioSource audioSource;
     public AudioSource songAudioSource;
     private Animator anim;
+
+    // enemy timing vars
+    private bool enemyFireBeat = false;
+
+
     private enum Walk
     {
         Not,
@@ -68,6 +77,8 @@ public class PlayerController : MonoBehaviour
         Shotty
     }
 
+    int beatCounter = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -77,7 +88,7 @@ public class PlayerController : MonoBehaviour
         CalculateTimings();
         Cursor.SetCursor(cursorTexture, hotspot, cursorMode);
         beatChange = false;
-        PlayMusicWrapper();
+        // PlayMusicWrapper();
         
         currentWeapon = (int)Weapon.None;
                 // get animator 
@@ -92,8 +103,16 @@ public class PlayerController : MonoBehaviour
         playerInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         BeatTracker();
         PlayBeat();
-        StartCoroutine(FailureState());
-        SetPlayerAnimations();
+        if(hp <= 0)
+        {
+            StartCoroutine(FailureState());
+
+        }
+        else
+        {
+            SetPlayerAnimations();
+
+        }
         //print(hp);
     }
     // Update is called once per frame
@@ -198,18 +217,27 @@ public class PlayerController : MonoBehaviour
 
         }
     }
+
     void BeatTracker()
     {
         float currentTime = Time.deltaTime + timeLastBeat;
         float newTimelastBeat = currentTime % period;
         float newTimeNextBeat = period - (currentTime % period);
 
+
         // print(currentTime);
 
         if (newTimeNextBeat > timeNextBeat)
+        {
             beatChange = true;
-        else    
+            enemyFireBeat = true;
+        }
+        else
+        {
             beatChange = false;
+            enemyFireBeat = false;
+        }    
+            
         
         timeLastBeat = newTimelastBeat;
         timeNextBeat = newTimeNextBeat;
@@ -233,10 +261,16 @@ public class PlayerController : MonoBehaviour
     
     private void PlayBeat()
     {
+        if(beatCounter < 1)
+        {
+            PlayMusicWrapper();
+        }
         if(beatChange)
         {
             audioSource.Play();
         }
+
+        beatCounter ++;
     }
 
     private void PlayMusicWrapper()
@@ -260,14 +294,24 @@ public class PlayerController : MonoBehaviour
         return period;
     }
 
+    public bool GetEnemyFireBeat()
+    {
+        return enemyFireBeat;
+    }
+
     private IEnumerator FailureState()
     {
         if(hp <= 0)
         {
             // when dead, pause time, wait 1 second, then transition to main menu
-            Time.timeScale = 0;
+            anim.SetInteger("Direction", -1);
+            print(anim.GetInteger("Direction"));
+            
+            yield return new WaitForSecondsRealtime(.05f);
 
-            yield return new WaitForSecondsRealtime(1);
+            Time.timeScale = 0;
+            yield return new WaitForSecondsRealtime(2);
+
             Time.timeScale = 1;
 
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);

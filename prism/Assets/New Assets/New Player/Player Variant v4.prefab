@@ -153,16 +153,28 @@ PrefabInstance:
       objectReference: {fileID: 254048839663103597, guid: 20e7a2d57c2aacf4ba37c8bcd510e550, type: 3}
     - target: {fileID: 6524696104927445880, guid: 574a1577d3526544593261fc8d662bc9, type: 3}
       propertyPath: moveSpeed
-      value: 2.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6524696104927445880, guid: 574a1577d3526544593261fc8d662bc9, type: 3}
       propertyPath: musicInfo
       value: 
       objectReference: {fileID: 8633342059170199038, guid: 9570b2220a7928749bc7ba95e7415ace, type: 3}
     - target: {fileID: 6524696104927445880, guid: 574a1577d3526544593261fc8d662bc9, type: 3}
+      propertyPath: rifleAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: f265294242457d443a5efc02da367b6e, type: 3}
+    - target: {fileID: 6524696104927445880, guid: 574a1577d3526544593261fc8d662bc9, type: 3}
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 394230951989764755}
+    - target: {fileID: 6524696104927445880, guid: 574a1577d3526544593261fc8d662bc9, type: 3}
+      propertyPath: pistolAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 54666d9fb49bfd848aa1d19b053a9466, type: 3}
+    - target: {fileID: 6524696104927445880, guid: 574a1577d3526544593261fc8d662bc9, type: 3}
+      propertyPath: shottyAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 06873bdc0985acc40a390b7d99d20a9f, type: 3}
     - target: {fileID: 6524696104927445880, guid: 574a1577d3526544593261fc8d662bc9, type: 3}
       propertyPath: cursorTexture
       value: 
@@ -318,6 +330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eac6c3060e8958440860400089737ff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerDamageAudio: {fileID: 8300000, guid: 598d212f84c6ed74d92543d80a1ba389, type: 3}
 --- !u!4 &2898977456099001119 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6524696104927445881, guid: 574a1577d3526544593261fc8d662bc9, type: 3}

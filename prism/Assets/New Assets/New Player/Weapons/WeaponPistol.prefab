@@ -144,7 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   basicBullet: {fileID: 3110126029553538758, guid: 22650c8dfb512244a99435dd9b739dff, type: 3}
   enemyBullet: {fileID: 0}
-  shootSuccessAudio: {fileID: 0}
+  shootSuccessAudio: {fileID: 8300000, guid: 54666d9fb49bfd848aa1d19b053a9466, type: 3}
   shootFailAudio: {fileID: 0}
   currentWeapon: 1
   blastBullets: {fileID: 3110126029553538758, guid: 657a2bee99d2f5d47a9a81683e1d1d41, type: 3}
