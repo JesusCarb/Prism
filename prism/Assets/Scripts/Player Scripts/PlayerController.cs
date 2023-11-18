@@ -242,9 +242,10 @@ public class PlayerController : MonoBehaviour
         timeLastBeat = newTimelastBeat;
         timeNextBeat = newTimeNextBeat;
 
-        
-        float normalTLB = (timeLastBeat - beatOffset) / period;
-        float normalTNB = (timeNextBeat + beatOffset) / period;
+        // extra 0.18f added because it's more likely to click early
+        // to align unfortunately delayed sound with beat
+        float normalTLB = timeLastBeat / period;
+        float normalTNB = timeNextBeat / period;
 
         //print("timeLastBeat" + normalTLB + " " + onBeat);
         //print("timeNextBeat" + normalTNB + " " + onBeat);
