@@ -60,6 +60,8 @@ public class PlayerController : MonoBehaviour
 
     // enemy timing vars
     private bool enemyFireBeat = false;
+
+
     private enum Walk
     {
         Not,
@@ -261,7 +263,7 @@ public class PlayerController : MonoBehaviour
     {
         if(beatCounter < 1)
         {
-            PlayMusic();
+            PlayMusicWrapper();
         }
         if(beatChange)
         {

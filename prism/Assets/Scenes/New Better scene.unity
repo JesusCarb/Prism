@@ -379,6 +379,52 @@ Transform:
   m_Father: {fileID: 40277819}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &292363881
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 292363883}
+  - component: {fileID: 292363882}
+  m_Layer: 0
+  m_Name: EnemyBeatCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &292363882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292363881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f4ec0406bea5354e978a0b2326d8700, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 559951795}
+  enemyFireBeat: 0
+--- !u!4 &292363883
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292363881}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.496462, y: 0.99936527, z: 3.619946}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &361872625
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -617,6 +663,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &559951795 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2898977456099001118, guid: db990a6bcd7946c4a9474f65fe4880e0, type: 3}
+  m_PrefabInstance: {fileID: 1785999270}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559951782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 611cab02960942b459978feed1c73aa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &947097578
 GameObject:
   m_ObjectHideFlags: 0
@@ -962,6 +1019,10 @@ PrefabInstance:
     - target: {fileID: 849401562, guid: db990a6bcd7946c4a9474f65fe4880e0, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 394230952398441458, guid: db990a6bcd7946c4a9474f65fe4880e0, type: 3}
+      propertyPath: BPM
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2898977456099001113, guid: db990a6bcd7946c4a9474f65fe4880e0, type: 3}
       propertyPath: m_Name
