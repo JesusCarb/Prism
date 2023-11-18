@@ -11,7 +11,7 @@ public class EnemyDamageHandling : MonoBehaviour
 
     const float damageTintTime = 0.3f;
     private float timeLeftTinted = 0f;
-    private bool isTinted = false;
+    //private bool isTinted = false;
     private UnityEngine.Color originalColor;
 
     private GameObject player;
@@ -54,7 +54,7 @@ public class EnemyDamageHandling : MonoBehaviour
             player.GetComponent<AudioSource>().PlayOneShot(enemyDamageAudio);
 
             timeLeftTinted = damageTintTime;
-            isTinted = true;
+            //isTinted = true;
             gameObject.GetComponent<SpriteRenderer>().color = UnityEngine.Color.red;
         }
     }
