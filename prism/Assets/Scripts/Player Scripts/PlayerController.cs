@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour
     private bool onBeat;
     private float timeLastBeat;
     private float timeNextBeat;
+    private float beatOffset = .15f;
 
     // percentage betwween beats to hit
     public float hitLeeway = .25f;
@@ -60,6 +61,7 @@ public class PlayerController : MonoBehaviour
 
     // enemy timing vars
     private bool enemyFireBeat = false;
+
 
 
     private enum Walk
@@ -95,7 +97,6 @@ public class PlayerController : MonoBehaviour
         anim = GetComponent<Animator>();
 
         // SetWeapon((int)Weapon.Rifle);
-
     }
 
     void Update()
@@ -243,8 +244,8 @@ public class PlayerController : MonoBehaviour
         timeNextBeat = newTimeNextBeat;
 
         
-        float normalTLB = timeLastBeat/period;
-        float normalTNB = timeNextBeat/period;
+        float normalTLB = (timeLastBeat - beatOffset) / period;
+        float normalTNB = (timeNextBeat + beatOffset) / period;
 
         //print("timeLastBeat" + normalTLB + " " + onBeat);
         //print("timeNextBeat" + normalTNB + " " + onBeat);
@@ -253,7 +254,8 @@ public class PlayerController : MonoBehaviour
         {
             onBeat = true;
         }
-        else{
+        else
+        {
             onBeat = false;
         }
         // print(onBeat);
