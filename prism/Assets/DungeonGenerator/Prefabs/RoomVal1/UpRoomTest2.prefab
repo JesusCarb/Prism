@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 3810481830254076083}
   m_Layer: 0
   m_Name: UpRoomTest2
-  m_TagString: Untagged
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68,27 +68,37 @@ MonoBehaviour:
   specialRoom: 0
   bossRoom: 0
   lootRoom: 0
+  unlocked: 0
   roomDoors:
   - active: 0
     roomPart: {fileID: 1079028023892774882}
     direction: 0
     spriteR: {fileID: 9011554754401836603}
     leadsTo: {fileID: 0}
+    doorHitBox: {fileID: 0}
+    lockedState: {fileID: 0}
   - active: 0
     roomPart: {fileID: 1079028023892774882}
     direction: 1
     spriteR: {fileID: 3734687491910363066}
     leadsTo: {fileID: 0}
+    doorHitBox: {fileID: 0}
+    lockedState: {fileID: 0}
   - active: 0
     roomPart: {fileID: 1079028023892774882}
     direction: 2
     spriteR: {fileID: 4350468277809514383}
     leadsTo: {fileID: 0}
+    doorHitBox: {fileID: 0}
+    lockedState: {fileID: 0}
   - active: 0
     roomPart: {fileID: 1079028023892774882}
     direction: 3
     spriteR: {fileID: 2985564465939681200}
     leadsTo: {fileID: 0}
+    doorHitBox: {fileID: 0}
+    lockedState: {fileID: 0}
+  enemyList: []
   collision: 0
   jumpsFromStart: -1
 --- !u!50 &9143130411651292982

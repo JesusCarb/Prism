@@ -35,6 +35,8 @@ public class Room : MonoBehaviour
         public Directions direction;
         public SpriteRenderer spriteR;
         public Room leadsTo;
+        public BoxCollider2D doorHitBox;
+        public BoxCollider2D lockedState;
     }
 
     [SerializeField]
@@ -53,6 +55,7 @@ public class Room : MonoBehaviour
     public bool specialRoom = false;
     public bool bossRoom = false;
     public bool lootRoom = false;
+    public bool unlocked = false;
 
     public void setBossRoom()
     {
@@ -67,6 +70,8 @@ public class Room : MonoBehaviour
     private BoxCollider2D myCollider;
 
     public Doors[] roomDoors = new Doors[4];
+
+    public List<GameObject> enemyList = new List<GameObject>();
 
     [HideInInspector]
     public bool collision;
@@ -133,7 +138,7 @@ public class Room : MonoBehaviour
             RaycastHit2D[] hit = Physics2D.RaycastAll(roomDoors[i].roomPart.position, offset, RoomGenerator.prefabsDistance * multiplier);
             for (int j = 0; j < hit.Length; j++)
             {
-                if (hit[j].collider != null && hit[j].collider.gameObject != this.gameObject)
+                if (hit[j].collider != null && hit[j].collider.gameObject != this.gameObject && hit[j].collider.gameObject.tag == "Room")
                 {
                     Room neighbour = hit[j].collider.GetComponentInChildren<Room>();
                     OpenDoor(i, neighbour);
@@ -141,7 +146,18 @@ public class Room : MonoBehaviour
             }
         }
     }
-    private void resetDoors()
+    public void UnlockRoom()
+    {
+        unlocked = true;
+        foreach(Doors r in roomDoors)
+        {
+            if(r.leadsTo != null)
+            {
+                r.lockedState.enabled = false;
+            }
+        }
+    }
+    public void resetDoors()
     {
         for (int i = 0; i < roomDoors.Length; i++)
         {

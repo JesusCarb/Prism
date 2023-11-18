@@ -99,6 +99,8 @@ public class RoomGenerator : MonoBehaviour
     public Room generatorRoom;
     private Vector2 generatorPosition;
 
+    public Room playerRoom;
+
     private void Awake()
     {
         if (useSeed)
@@ -189,6 +191,14 @@ public class RoomGenerator : MonoBehaviour
         GenerateDoors();
     }
 
+
+    void Update()
+    {
+        if (Input.GetKeyDown("u"))
+        {
+            playerRoom.UnlockRoom();
+        }
+    }
 
     public IEnumerator CreatePool(Room prefab)
     {
@@ -334,12 +344,17 @@ public class RoomGenerator : MonoBehaviour
 
     private void GenerateDoors()
     {
+        foreach(Room r in rooms)
+        {
+            r.resetDoors();
+        }
         generatorRoom.AssignAllNeighbours(offsets);
 
         for (int i = 0; i < amountToGenerate; i++)
         {
             rooms[i].AssignAllNeighbours(offsets);
         }
+
     }
 
     private void Add2x2Room()

@@ -616,7 +616,7 @@ GameObject:
   - component: {fileID: 5174983103266995361}
   m_Layer: 0
   m_Name: UpDownTest 1
-  m_TagString: Untagged
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -662,27 +662,37 @@ MonoBehaviour:
   specialRoom: 0
   bossRoom: 0
   lootRoom: 0
+  unlocked: 0
   roomDoors:
   - active: 0
     roomPart: {fileID: 9064001102083347440}
     direction: 0
     spriteR: {fileID: 1026767879252853289}
     leadsTo: {fileID: 0}
+    doorHitBox: {fileID: 0}
+    lockedState: {fileID: 0}
   - active: 0
     roomPart: {fileID: 9064001102083347440}
     direction: 1
     spriteR: {fileID: 4676127035202354088}
     leadsTo: {fileID: 0}
+    doorHitBox: {fileID: 0}
+    lockedState: {fileID: 0}
   - active: 0
     roomPart: {fileID: 9064001102083347440}
     direction: 2
     spriteR: {fileID: 5723865560686418845}
     leadsTo: {fileID: 0}
+    doorHitBox: {fileID: 0}
+    lockedState: {fileID: 0}
   - active: 0
     roomPart: {fileID: 9064001102083347440}
     direction: 3
     spriteR: {fileID: 6511762712729637794}
     leadsTo: {fileID: 0}
+    doorHitBox: {fileID: 0}
+    lockedState: {fileID: 0}
+  enemyList: []
   collision: 0
   jumpsFromStart: -1
 --- !u!50 &995957514886742820

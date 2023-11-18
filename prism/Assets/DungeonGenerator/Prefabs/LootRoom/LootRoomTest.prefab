@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 8395812234975791950}
   m_Layer: 0
   m_Name: LootRoomTest
-  m_TagString: Untagged
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -326,27 +326,37 @@ MonoBehaviour:
   specialRoom: 0
   bossRoom: 0
   lootRoom: 0
+  unlocked: 0
   roomDoors:
   - active: 0
     roomPart: {fileID: 5664153885108970527}
     direction: 0
     spriteR: {fileID: 4426228069138249158}
     leadsTo: {fileID: 0}
+    doorHitBox: {fileID: 0}
+    lockedState: {fileID: 0}
   - active: 0
     roomPart: {fileID: 5664153885108970527}
     direction: 1
     spriteR: {fileID: 8337888916282199111}
     leadsTo: {fileID: 0}
+    doorHitBox: {fileID: 0}
+    lockedState: {fileID: 0}
   - active: 0
     roomPart: {fileID: 5664153885108970527}
     direction: 2
     spriteR: {fileID: 8952470439904586866}
     leadsTo: {fileID: 0}
+    doorHitBox: {fileID: 0}
+    lockedState: {fileID: 0}
   - active: 0
     roomPart: {fileID: 5664153885108970527}
     direction: 3
     spriteR: {fileID: 7569632502497584205}
     leadsTo: {fileID: 0}
+    doorHitBox: {fileID: 0}
+    lockedState: {fileID: 0}
+  enemyList: []
   collision: 0
   jumpsFromStart: -1
 --- !u!50 &4503752585119298763
