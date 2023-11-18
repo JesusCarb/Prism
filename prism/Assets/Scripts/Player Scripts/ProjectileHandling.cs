@@ -18,8 +18,9 @@ public class ProjectileHandling : MonoBehaviour
 
     private GameObject player;
 
-    public AudioClip shootSuccessAudio;
-    public AudioClip shootFailAudio;
+    public AudioClip pistolShot;
+    public AudioClip rifleShot;
+    public AudioClip shottyShot;
     private AudioSource shootSource;
 
 
@@ -54,11 +55,10 @@ public class ProjectileHandling : MonoBehaviour
 
         beatManager = gameObject.GetComponent<ManageBeatEvents>();
         playerController = player.GetComponent<PlayerController>();
-        player = this.gameObject;
-        print(player);
-        shootSource = GetComponent<AudioSource>();
-
-
+        pistolShot = playerController.pistolAudio;
+        rifleShot = playerController.rifleAudio;
+        shottyShot = playerController.shottyAudio;
+        shootSource = player.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -93,12 +93,10 @@ public class ProjectileHandling : MonoBehaviour
                 firstFireCurrentBeat = false;
                 // timeUntilNextFire = delayFromFire;
                 timeUntilNextFire = delayFromFire * playerController.GetPeriod() * 2;
-                shootSource.PlayOneShot(shootSuccessAudio);
             }
             else
             {
                 Debug.Log("Beat Miss");
-                shootSource.PlayOneShot(shootFailAudio);
             }
             //if (!beatManager.onQuarter.contains(FireProjectile()))
             //{
@@ -122,6 +120,7 @@ public class ProjectileHandling : MonoBehaviour
 
         // currently spawning on player position
         Instantiate(basicBullet, position: pos, rotation: rot);
+        shootSource.PlayOneShot(pistolShot);
         // Debug.Log("FIRE");
     }
 
@@ -142,6 +141,7 @@ public class ProjectileHandling : MonoBehaviour
 
             // currently spawning on player position
             Instantiate(burstBullets, position: pos, rotation: rot);
+            shootSource.PlayOneShot(rifleShot);
             // Debug.Log("FIRE");
         }
         
@@ -155,6 +155,7 @@ public class ProjectileHandling : MonoBehaviour
         {
             Instantiate(blastBullets, position: loc, rotation: rot);
         }
+        shootSource.PlayOneShot(shottyShot);
     }
 
 

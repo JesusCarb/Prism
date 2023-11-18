@@ -63,7 +63,6 @@ public class PlayerController : MonoBehaviour
     private bool enemyFireBeat = false;
 
 
-
     private enum Walk
     {
         Not,
