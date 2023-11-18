@@ -17,7 +17,5 @@ public class EnemyBeatCheck : MonoBehaviour
     void Update()
     {
         enemyFireBeat = playerController.GetEnemyFireBeat();
-        if (enemyFireBeat)
-            print("Fire");
     }
 }

@@ -43,7 +43,7 @@ public class PlayerBulletTragectory : MonoBehaviour
         // Added "GameObject" before player bc it didn't compile
         // Vector3  mouseLoc = Input.mousePosition;
         float spr = Random.Range(-spread, spread);
-        print(spr);
+        //print(spr);
 
         // gets location of camera, changes it to world space
         Vector3 mouseLoc = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -65,6 +65,6 @@ public class PlayerBulletTragectory : MonoBehaviour
         // disty = targy / hypot;
     
         // direction = new Vector2(distx, disty);
-        print(direction);
+        //print(direction);
     }
 }

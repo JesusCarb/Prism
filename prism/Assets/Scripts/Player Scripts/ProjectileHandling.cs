@@ -72,11 +72,11 @@ public class ProjectileHandling : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            print("fire1");
+            //print("fire1");
             if(playerController.OnBeat() && firstFireCurrentBeat)
             {
-                print(currentWeapon);
-                print((int)Weapon.Shotty);
+                //print(currentWeapon);
+                //print((int)Weapon.Shotty);
                 if(currentWeapon == (int)Weapon.Pistol)
                 {
                     FireProjectile();
