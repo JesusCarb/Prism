@@ -71,12 +71,21 @@ public class Room : MonoBehaviour
 
     public Doors[] roomDoors = new Doors[4];
 
-    public List<GameObject> enemyList = new List<GameObject>();
+    //public List<GameObject> enemyList = new List<GameObject>();
 
     [HideInInspector]
     public bool collision;
 
     public int jumpsFromStart = - 1;
+
+    public struct EnemyProfile
+    {
+        public GameObject enemyType;
+        public Vector3 position;
+        public int HP; // haven't implemented yet
+    }
+
+    public List<EnemyProfile> enemyList = new List<EnemyProfile>();
  
     public void AssignRoomValue()
     {
@@ -325,4 +334,13 @@ public class Room : MonoBehaviour
     //    collision = hit.Length > 1;
     //    return collision;
     //}
+
+    void RespawnEnemies()
+    {
+        for (int i = 0; i < enemyList.Count; i++)
+        {
+            Instantiate(enemyList[i].enemyType, position: enemyList[i].position, Quaternion.identity);
+            // eventually trying to also keep original HP
+        }
+    }
 }
