@@ -57,6 +57,9 @@ public class PlayerController : MonoBehaviour
     public AudioSource audioSource;
     public AudioSource songAudioSource;
     private Animator anim;
+
+    // enemy timing vars
+    private bool enemyFireBeat = false;
     private enum Walk
     {
         Not,
@@ -219,6 +222,13 @@ public class PlayerController : MonoBehaviour
         float newTimelastBeat = currentTime % period;
         float newTimeNextBeat = period - (currentTime % period);
 
+        // set enemy timing
+        if (newTimeNextBeat <= hitLeeway && enemyFireBeat == false)
+            enemyFireBeat = true;
+        else
+            enemyFireBeat = false;
+
+
         // print(currentTime);
 
         if (newTimeNextBeat > timeNextBeat)
@@ -279,6 +289,11 @@ public class PlayerController : MonoBehaviour
     public float GetPeriod()
     {
         return period;
+    }
+
+    public bool GetEnemyFireBeat()
+    {
+        return enemyFireBeat;
     }
 
     private IEnumerator FailureState()
