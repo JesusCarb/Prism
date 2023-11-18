@@ -98,8 +98,16 @@ public class PlayerController : MonoBehaviour
         playerInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         BeatTracker();
         PlayBeat();
-        StartCoroutine(FailureState());
-        SetPlayerAnimations();
+        if(hp <= 0)
+        {
+            StartCoroutine(FailureState());
+
+        }
+        else
+        {
+            SetPlayerAnimations();
+
+        }
         //print(hp);
     }
     // Update is called once per frame
@@ -278,9 +286,14 @@ public class PlayerController : MonoBehaviour
         if(hp <= 0)
         {
             // when dead, pause time, wait 1 second, then transition to main menu
-            Time.timeScale = 0;
+            anim.SetInteger("Direction", -1);
+            print(anim.GetInteger("Direction"));
+            
+            yield return new WaitForSecondsRealtime(.05f);
 
-            yield return new WaitForSecondsRealtime(1);
+            Time.timeScale = 0;
+            yield return new WaitForSecondsRealtime(2);
+
             Time.timeScale = 1;
 
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);

@@ -16,6 +16,8 @@ public class EnemyDamageHandling : MonoBehaviour
 
     private GameObject player;
 
+    public GameObject corpse;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +45,8 @@ public class EnemyDamageHandling : MonoBehaviour
 
         if (hp <= 0)
         {
+            Instantiate(corpse, position: this.transform.position, rotation: this.transform.rotation);
+
             killEnemy();
         }
         else
