@@ -222,19 +222,20 @@ public class PlayerController : MonoBehaviour
         float newTimelastBeat = currentTime % period;
         float newTimeNextBeat = period - (currentTime % period);
 
-        // set enemy timing
-        if (newTimeNextBeat <= hitLeeway && enemyFireBeat == false)
-            enemyFireBeat = true;
-        else
-            enemyFireBeat = false;
-
 
         // print(currentTime);
 
         if (newTimeNextBeat > timeNextBeat)
+        {
             beatChange = true;
-        else    
+            enemyFireBeat = true;
+        }
+        else
+        {
             beatChange = false;
+            enemyFireBeat = false;
+        }    
+            
         
         timeLastBeat = newTimelastBeat;
         timeNextBeat = newTimeNextBeat;
