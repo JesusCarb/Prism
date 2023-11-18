@@ -10,8 +10,16 @@ public class WanderChase : MonoBehaviour
 
     [SerializeField]
 
-    private float detectionDistance;
+    private float chaseDetectionDistance;
 
+
+    [SerializeField]
+
+    private float shootDetectionDistance;
+    
+    [SerializeField]
+
+    private GameObject skelloWeapon;
     
     [SerializeField]
     private float wanderLimit;
@@ -50,13 +58,12 @@ public class WanderChase : MonoBehaviour
     void FixedUpdate()
     {
 
-        wanderLength -= Time.fixedDeltaTime;
 
         distanceToPlayer = player.transform.position - this.transform.position;
         directionToPlayer = distanceToPlayer.normalized;
 
         // chase if close enough otherwise wander
-        if(Math.Abs(distanceToPlayer.x) < detectionDistance)
+        if(Math.Abs(distanceToPlayer.magnitude) < chaseDetectionDistance)
         {
             Chase();
         }
@@ -65,8 +72,13 @@ public class WanderChase : MonoBehaviour
             if(wanderLength <= 0)
             {
                 Wander();
+
+                if(Math.Abs(distanceToPlayer.magnitude) < shootDetectionDistance)
+                    Shoot();
             }
         }
+        wanderLength -= Time.fixedDeltaTime;
+
     }
     void Chase()
     {
@@ -104,5 +116,20 @@ public class WanderChase : MonoBehaviour
                 
             }
         }
+    }
+
+    private void Shoot()
+    {
+        Vector3 pos = this.transform.position;
+        Vector3 mouseLoc = player.transform.position;;
+        Vector3 final = mouseLoc - pos;
+
+        float angle = Mathf.Atan2(final.y, final.x) * Mathf.Rad2Deg;
+
+        Quaternion rot = Quaternion.Euler(new Vector3(0,0, angle));
+
+        Instantiate(skelloWeapon, pos, rot);
+
+        
     }
 }

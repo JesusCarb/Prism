@@ -30,11 +30,11 @@ public class EnemyBulletBehavior : MonoBehaviour
     void Update()
     {
         rb.velocity = direction * speed;
-
     }
 
     private void CalculateEnemyBulletTragectory()
     {
+
         Vector3 playerLoc = player.transform.position;
         Vector3 finalPos = playerLoc - this.transform.position;
         
@@ -47,10 +47,16 @@ public class EnemyBulletBehavior : MonoBehaviour
 
         direction = new Vector2(distx, disty);
     }
+
     // Probably better to move this to enemy to reduce lag
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Prevent bullet-on-bullet collision
+        if (collision.gameObject.tag.Equals("Enemy"))
+        {
+            Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
+        }
+            
+                // Prevent bullet-on-bullet collision
         if (collision.gameObject.tag.Equals("Bullet"))
             return;
 
