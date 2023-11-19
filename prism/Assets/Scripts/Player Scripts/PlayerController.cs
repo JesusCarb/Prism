@@ -71,6 +71,8 @@ public class PlayerController : MonoBehaviour
     // enemy timing vars
     private bool enemyFireBeat = false;
 
+    // only L/R movement for start screen
+    public bool onlyHorizontalMovement = false;
 
     private enum Walk
     {
@@ -148,7 +150,12 @@ public class PlayerController : MonoBehaviour
         // velocity.y = Mathf.SmoothDamp(velocity.y, targetVelocityY, ref velocityYSmoothing, accelerationTime);
 
         velocity.x = targetVelocityX;
-        velocity.y = targetVelocityY;
+
+        if (onlyHorizontalMovement) // start screen
+            velocity.y = 0f;
+        else
+            velocity.y = targetVelocityY;
+
         Move(velocity);
 
     }
