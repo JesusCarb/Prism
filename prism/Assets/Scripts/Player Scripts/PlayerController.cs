@@ -8,6 +8,7 @@ using System;
 using UnityEngine;
 using JetBrains.Annotations;
 using System.Diagnostics.Tracing;
+using DG.Tweening;
 
 public class PlayerController : MonoBehaviour
 {
@@ -52,6 +53,11 @@ public class PlayerController : MonoBehaviour
     public float hitLeeway = .25f;
     float beatsPerSecond;
     private float period;
+    private float halfperiod;
+    private float tweenDelay;
+    private bool countingTweenDelay = false;
+    private bool barIsUp = true;
+    
 
     // audio vars
     public MusicInfo musicInfo;
@@ -87,7 +93,7 @@ public class PlayerController : MonoBehaviour
         //BPM = musicInfo.BPM;
         onBeat = false;
         CalculateTimings();
-        Cursor.SetCursor(cursorTexture, hotspot, cursorMode);
+        UnityEngine.Cursor.SetCursor(cursorTexture, hotspot, cursorMode);
         beatChange = false;
         // PlayMusicWrapper();
         
@@ -102,7 +108,9 @@ public class PlayerController : MonoBehaviour
     {
         playerInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         BeatTracker();
+        TweenTimer();
         PlayBeat();
+        AdjustHealth();
         if(hp <= 0)
         {
             StartCoroutine(FailureState());
@@ -194,6 +202,10 @@ public class PlayerController : MonoBehaviour
     }
 
         // spaghetti code :)
+
+        // yum i ated it all
+        // -remy
+
     void SetPlayerAnimations()
     {
         float velocityNorm = (float)Math.Sqrt(velocity.x * velocity.x + velocity.y * velocity.y);
@@ -320,5 +332,72 @@ public class PlayerController : MonoBehaviour
             // timescale will stay at zero so I'm turning it back to 1
         }
 
+    }
+
+    void AdjustHealth()
+    {
+        switch (hp)
+        {
+            case 2:
+                UnityEngine.UI.Image hideimage2 = GameObject.Find("Heart3").GetComponent<UnityEngine.UI.Image>();
+                hideimage2.color = new Color(255, 255, 255, 0);
+                UnityEngine.UI.Image showimage2 = GameObject.Find("Heart3Gone").GetComponent<UnityEngine.UI.Image>();
+                showimage2.color = new Color(255, 255, 255, 0.75f);
+                break;
+
+            case 1:
+                UnityEngine.UI.Image hideimage1 = GameObject.Find("Heart2").GetComponent<UnityEngine.UI.Image>();
+                hideimage1.color = new Color(255, 255, 255, 0);
+                UnityEngine.UI.Image showimage1 = GameObject.Find("Heart2Gone").GetComponent<UnityEngine.UI.Image>();
+                showimage1.color = new Color(255, 255, 255, 0.75f);
+                break;
+            
+            case 0:
+                UnityEngine.UI.Image hideimage0 = GameObject.Find("Heart1").GetComponent<UnityEngine.UI.Image>();
+                hideimage0.color = new Color(255, 255, 255, 0);
+                UnityEngine.UI.Image showimage0 = GameObject.Find("Heart1Gone").GetComponent<UnityEngine.UI.Image>();
+                showimage0.color = new Color(255, 255, 255, 0.75f);
+                break;
+        }
+    }
+
+    private void TweenTimer()
+    {
+        if (beatChange)
+        {
+            halfperiod = period / 2;
+            tweenDelay = 0;
+            countingTweenDelay = true;
+        }
+
+        if (countingTweenDelay)
+        {
+            tweenDelay += Time.deltaTime;
+        }
+        else
+        {
+            tweenDelay = 0;
+        }
+
+        if (tweenDelay > halfperiod)
+        {
+            print("mom");
+            //insert tween here
+            if (barIsUp)
+            {
+                //tween downwards
+                RectTransform targetTransform = GameObject.Find("TimingBar").GetComponent<RectTransform>();
+                targetTransform.DOMoveY(GameObject.Find("DownPosition").GetComponent<RectTransform>().position.y, period, false).SetEase(Ease.InOutQuad);
+                barIsUp = false;
+            }
+            else
+            {
+                //tween upwards
+                RectTransform targetTransform = GameObject.Find("TimingBar").GetComponent<RectTransform>();
+                targetTransform.DOMoveY(GameObject.Find("UpPosition").GetComponent<RectTransform>().position.y, period, false).SetEase(Ease.InOutQuad);
+                barIsUp = true;
+            }
+            countingTweenDelay = false;
+        }
     }
 }
