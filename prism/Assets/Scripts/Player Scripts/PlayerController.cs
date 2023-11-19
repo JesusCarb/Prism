@@ -292,8 +292,8 @@ public class PlayerController : MonoBehaviour
 
     private void PlayMusicWrapper()
     {
-        // Add 0.45s delay to start of music to match up with beats
-        Invoke("PlayMusic", 0.0f);
+        // Add delay to start of music to match up with beats
+        Invoke("PlayMusic", 0.3f);
     }
 
     private void PlayMusic()
