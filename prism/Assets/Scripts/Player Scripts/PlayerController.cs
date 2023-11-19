@@ -25,6 +25,9 @@ public class PlayerController : MonoBehaviour
     public AudioClip rifleAudio;
     public AudioClip shottyAudio;
 
+    public AudioClip weaponJam;
+
+
     // player vars
     public int hp = 3;
     public float moveSpeed = 40f;
@@ -281,7 +284,7 @@ public class PlayerController : MonoBehaviour
         }
         if(beatChange)
         {
-            audioSource.Play();
+            // audioSource.Play();
         }
 
         beatCounter ++;
@@ -290,7 +293,7 @@ public class PlayerController : MonoBehaviour
     private void PlayMusicWrapper()
     {
         // Add 0.45s delay to start of music to match up with beats
-        Invoke("PlayMusic", 0.5f);
+        Invoke("PlayMusic", 0.0f);
     }
 
     private void PlayMusic()
@@ -381,7 +384,8 @@ public class PlayerController : MonoBehaviour
 
         if (tweenDelay > halfperiod)
         {
-            print("mom");
+            // jesus deleted mom "sorry" he says
+            // print("mom");
             //insert tween here
             if (barIsUp)
             {

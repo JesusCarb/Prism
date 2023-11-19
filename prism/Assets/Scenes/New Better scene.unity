@@ -1845,6 +1845,10 @@ PrefabInstance:
       value: Player Variant v4
       objectReference: {fileID: 0}
     - target: {fileID: 2898977456099001118, guid: db990a6bcd7946c4a9474f65fe4880e0, type: 3}
+      propertyPath: BPM
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2898977456099001118, guid: db990a6bcd7946c4a9474f65fe4880e0, type: 3}
       propertyPath: song
       value: 
       objectReference: {fileID: 8300000, guid: 096d33f4d87f9e34c904887fc5284bf5, type: 3}

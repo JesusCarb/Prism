@@ -23,6 +23,8 @@ public class ProjectileHandling : MonoBehaviour
     public AudioClip shottyShot;
     private AudioSource shootSource;
 
+    private AudioClip weaponJam;
+
 
     private bool firstFireCurrentBeat = true;
     private float timeUntilNextFire = 0f;
@@ -30,6 +32,7 @@ public class ProjectileHandling : MonoBehaviour
 
     [SerializeField]
     private int currentWeapon;
+
 
     private enum Weapon
     {
@@ -58,6 +61,7 @@ public class ProjectileHandling : MonoBehaviour
         pistolShot = playerController.pistolAudio;
         rifleShot = playerController.rifleAudio;
         shottyShot = playerController.shottyAudio;
+        weaponJam = playerController.weaponJam;
         shootSource = player.GetComponent<AudioSource>();
     }
 
@@ -96,6 +100,10 @@ public class ProjectileHandling : MonoBehaviour
             }
             else
             {
+                // if you miss a beat you will be unable to shoot for 2 periods * beat leniency
+                timeUntilNextFire = delayFromFire * playerController.GetPeriod() * 2;
+
+                shootSource.PlayOneShot(weaponJam);
                 Debug.Log("Beat Miss");
             }
             //if (!beatManager.onQuarter.contains(FireProjectile()))
