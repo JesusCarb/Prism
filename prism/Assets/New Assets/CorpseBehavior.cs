@@ -8,7 +8,7 @@ public class CorpseBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Despawn();
+        StartCoroutine(Despawn());
     }
 
     // Update is called once per frame
