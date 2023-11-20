@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
     private bool enemyFireBeat = false;
 
     // only L/R movement for start screen
-    public bool onlyHorizontalMovement = false;
+    public bool inOverworld = false;
 
     private enum Walk
     {
@@ -149,7 +149,7 @@ public class PlayerController : MonoBehaviour
 
         velocity.x = targetVelocityX;
 
-        if (onlyHorizontalMovement) // start screen
+        if (inOverworld) // start screen
             velocity.y = 0f;
         else
             velocity.y = targetVelocityY;
@@ -394,17 +394,25 @@ public class PlayerController : MonoBehaviour
             //insert tween here
             if (barIsUp)
             {
-                //tween downwards
-                RectTransform targetTransform = GameObject.Find("TimingBar").GetComponent<RectTransform>();
-                targetTransform.DOMoveY(GameObject.Find("DownPosition").GetComponent<RectTransform>().position.y, period, false).SetEase(Ease.InOutQuad);
-                barIsUp = false;
+                if (!inOverworld)
+                {
+                    //tween downwards
+                    RectTransform targetTransform = GameObject.Find("TimingBar").GetComponent<RectTransform>();
+                    targetTransform.DOMoveY(GameObject.Find("DownPosition").GetComponent<RectTransform>().position.y, period, false).SetEase(Ease.InOutQuad);
+                    barIsUp = false;
+                }
+                
             }
             else
             {
-                //tween upwards
-                RectTransform targetTransform = GameObject.Find("TimingBar").GetComponent<RectTransform>();
-                targetTransform.DOMoveY(GameObject.Find("UpPosition").GetComponent<RectTransform>().position.y, period, false).SetEase(Ease.InOutQuad);
-                barIsUp = true;
+                if (!inOverworld)
+                {
+                    //tween upwards
+                    RectTransform targetTransform = GameObject.Find("TimingBar").GetComponent<RectTransform>();
+                    targetTransform.DOMoveY(GameObject.Find("UpPosition").GetComponent<RectTransform>().position.y, period, false).SetEase(Ease.InOutQuad);
+                    barIsUp = true;
+                }
+                    
             }
             countingTweenDelay = false;
         }
