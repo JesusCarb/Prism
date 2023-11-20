@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(Room))]
 public class RoomGenerator : MonoBehaviour
 {
+    public static RoomGenerator instance;
+
     public enum GeneratorType
     {
         singularPath,
@@ -100,9 +102,11 @@ public class RoomGenerator : MonoBehaviour
     private Vector2 generatorPosition;
 
     public Room playerRoom;
+    public Room playerRoomChange;
 
     private void Awake()
     {
+        instance = this;
         if (useSeed)
             Random.InitState(seed);
 
@@ -194,10 +198,24 @@ public class RoomGenerator : MonoBehaviour
 
     void Update()
     {
+        if (playerRoom.enemyList.Count == 0)
+        {
+            playerRoom.UnlockRoom();
+        }
         if (Input.GetKeyDown("u"))
         {
             playerRoom.UnlockRoom();
         }
+        if (playerRoomChange != playerRoom)
+        {
+            print("Changing room player is in");
+            if (playerRoomChange.beaten == false)
+            {
+                playerRoomChange.RespawnEnemies();
+            }
+            playerRoom = playerRoomChange;
+        }
+
     }
 
     public IEnumerator CreatePool(Room prefab)

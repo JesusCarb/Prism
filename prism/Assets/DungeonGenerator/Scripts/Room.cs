@@ -56,6 +56,7 @@ public class Room : MonoBehaviour
     public bool bossRoom = false;
     public bool lootRoom = false;
     public bool unlocked = false;
+    public bool beaten = false;
 
     public void setBossRoom()
     {
@@ -78,6 +79,7 @@ public class Room : MonoBehaviour
 
     public int jumpsFromStart = - 1;
 
+    [System.Serializable]
     public struct EnemyProfile
     {
         public GameObject enemyRef;
@@ -94,6 +96,7 @@ public class Room : MonoBehaviour
         }
     }
 
+    [SerializeField]
     public List<EnemyProfile> enemyList = new List<EnemyProfile>();
  
     public void AssignRoomValue()
@@ -174,6 +177,10 @@ public class Room : MonoBehaviour
                 r.lockedState.enabled = false;
             }
         }
+    }
+    public void RoomBeaten()
+    {
+        beaten = true;
     }
     public void resetDoors()
     {
@@ -344,7 +351,7 @@ public class Room : MonoBehaviour
     //    return collision;
     //}
 
-    void RespawnEnemies()
+    public void RespawnEnemies()
     {
         for (int i = 0; i < enemyList.Count; i++)
         {
@@ -357,7 +364,7 @@ public class Room : MonoBehaviour
         }
     }
 
-    void DespawnEnemies()
+    public void DespawnEnemies()
     {
         for (int i = 0; i < enemyList.Count; i++)
         {
@@ -366,7 +373,7 @@ public class Room : MonoBehaviour
         }
     }
 
-    void RemoveEnemy(int ID)
+    public void RemoveEnemy(int ID)
     {
         for (int i = 0; i < enemyList.Count; i++)
         {

@@ -28,25 +28,37 @@ public class Doors : MonoBehaviour
             if (direction == 0)
             {
                 if (roomOfDoor.roomDoors[0].leadsTo != null)
+                {
                     CameraController.instance.currRoom = roomOfDoor.roomDoors[0].leadsTo;
-                other.transform.position = new Vector2(other.transform.position.x + 30, other.transform.position.y);
+                    RoomGenerator.instance.playerRoomChange = roomOfDoor.roomDoors[0].leadsTo;
+                }
+                other.transform.position = new Vector2(other.transform.position.x + 24, other.transform.position.y);
             } 
             else if (direction == 1)
             {
                 if (roomOfDoor.roomDoors[1].leadsTo != null)
+                {
                     CameraController.instance.currRoom = roomOfDoor.roomDoors[1].leadsTo;
-                other.transform.position = new Vector2(other.transform.position.x - 30, other.transform.position.y);
+                    RoomGenerator.instance.playerRoomChange = roomOfDoor.roomDoors[1].leadsTo;
+                }
+                other.transform.position = new Vector2(other.transform.position.x - 24, other.transform.position.y);
             }
             else if (direction == 2)
             {
                 if (roomOfDoor.roomDoors[2].leadsTo != null)
+                {
                     CameraController.instance.currRoom = roomOfDoor.roomDoors[2].leadsTo;
+                    RoomGenerator.instance.playerRoomChange = roomOfDoor.roomDoors[2].leadsTo;
+                }
                 other.transform.position = new Vector2(other.transform.position.x, other.transform.position.y + 22);
             }
             else
             {
                 if (roomOfDoor.roomDoors[3].leadsTo != null)
+                {
                     CameraController.instance.currRoom = roomOfDoor.roomDoors[3].leadsTo;
+                    RoomGenerator.instance.playerRoomChange = roomOfDoor.roomDoors[3].leadsTo;
+                }
                 other.transform.position = new Vector2(other.transform.position.x, other.transform.position.y - 22);
             }
         }
