@@ -66,6 +66,10 @@ public class PlayerController : MonoBehaviour
     public MusicInfo musicInfo;
     public AudioSource audioSource;
     public AudioSource songAudioSource;
+
+    public AudioSource endingSongAudioSource;
+
+
     private Animator anim;
 
     // enemy timing vars
@@ -91,7 +95,7 @@ public class PlayerController : MonoBehaviour
         Rifle,
         Shotty
     }
-
+    private float songTimeStart;
     int beatCounter = 0;
 
     // Start is called before the first frame update
@@ -301,7 +305,16 @@ public class PlayerController : MonoBehaviour
     private void PlayMusicWrapper()
     {
         // Add delay to start of music to match up with beats
-        Invoke("PlayMusic", 0.3f);
+        // trying new song without early delay
+        // songAudioSource.Play();
+
+        Invoke("PlayMusic", 0.0f);
+    }
+
+    public void PlayEndingMusic()
+    {
+        endingSongAudioSource.Play();
+
     }
 
     private void PlayMusic()
