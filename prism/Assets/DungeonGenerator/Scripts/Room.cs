@@ -36,7 +36,6 @@ public class Room : MonoBehaviour
         public Directions direction;
         public SpriteRenderer spriteR;
         public Room leadsTo;
-        public BoxCollider2D doorHitBox;
         public BoxCollider2D lockedState;
     }
 
