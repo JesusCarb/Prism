@@ -76,20 +76,20 @@ public class PlayerBulletBehavior : MonoBehaviour
             // pistol
 
             case 1:
-            despawnTime = 1.35f;
+            despawnTime = 1.0f;
             break;
 
             // rifle
 
             case 2:
 
-            despawnTime = 1.75f;
+            despawnTime = 1.25f;
             break;
 
             // shotty
 
             case 3:
-            despawnTime = 0.75f;
+            despawnTime = 0.5f;
             break;
 
         }

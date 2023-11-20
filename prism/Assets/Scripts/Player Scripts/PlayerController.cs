@@ -119,12 +119,10 @@ public class PlayerController : MonoBehaviour
         if(hp <= 0)
         {
             StartCoroutine(FailureState());
-
         }
         else
         {
             SetPlayerAnimations();
-
         }
         //print(hp);
     }
