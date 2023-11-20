@@ -250,6 +250,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: -8599818805871314511, guid: 10f1c961e8e8cf545a8c6507e6fc4435, type: 3}
+      propertyPath: playerRoomChange
+      value: 
+      objectReference: {fileID: 1185514347}
+    - target: {fileID: -8599818805871314511, guid: 10f1c961e8e8cf545a8c6507e6fc4435, type: 3}
       propertyPath: offsets.Array.size
       value: 8
       objectReference: {fileID: 0}

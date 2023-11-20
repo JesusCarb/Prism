@@ -198,9 +198,10 @@ public class RoomGenerator : MonoBehaviour
 
     void Update()
     {
-        if (playerRoom.enemyList.Count == 0)
+        if (playerRoom.enemiesLeft.Count == 0)
         {
             playerRoom.UnlockRoom();
+            playerRoom.RoomBeaten();
         }
         if (Input.GetKeyDown("u"))
         {
