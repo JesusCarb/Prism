@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
@@ -80,9 +81,18 @@ public class Room : MonoBehaviour
 
     public struct EnemyProfile
     {
-        public GameObject enemyType;
+        public GameObject enemyRef;
         public Vector3 position;
+        public int ID;
         public int HP; // haven't implemented yet
+
+        public EnemyProfile(GameObject enRef, Vector3 pos, int enemyID, int enemyHP)
+        {
+            enemyRef = enRef;
+            position = pos;
+            ID = enemyID;
+            HP = enemyHP;
+        }
     }
 
     public List<EnemyProfile> enemyList = new List<EnemyProfile>();
@@ -339,8 +349,30 @@ public class Room : MonoBehaviour
     {
         for (int i = 0; i < enemyList.Count; i++)
         {
-            Instantiate(enemyList[i].enemyType, position: enemyList[i].position, Quaternion.identity);
-            // eventually trying to also keep original HP
+            GameObject tempObj = Instantiate(enemyList[i].enemyRef, position: enemyList[i].position, Quaternion.identity);
+            EnemyDamageHandling tempScpt = tempObj.GetComponent<EnemyDamageHandling>();
+
+            tempScpt.enemyID = enemyList[i].ID;
+            tempScpt.hp = enemyList[i].HP;
+            tempScpt.roomSpawnedIn = this;
+        }
+    }
+
+    void DespawnEnemies()
+    {
+        for (int i = 0; i < enemyList.Count; i++)
+        {
+            Destroy(enemyList[i].enemyRef);
+            //EnemyProfile tempProfile = new EnemyProfile(enemyList[i].enemyRef, enemyList[i].position, enemyList[i].ID, enemyList[i].HP);
+        }
+    }
+
+    void RemoveEnemy(int ID)
+    {
+        for (int i = 0; i < enemyList.Count; i++)
+        {
+            if (enemyList[i].ID == ID)
+                enemyList.RemoveAt(i);
         }
     }
 }

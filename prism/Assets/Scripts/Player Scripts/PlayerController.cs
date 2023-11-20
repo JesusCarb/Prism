@@ -74,6 +74,9 @@ public class PlayerController : MonoBehaviour
     // only L/R movement for start screen
     public bool inOverworld = false;
 
+    // to fix bug
+    public bool noHitWindowGraphic = false;
+
     private enum Walk
     {
         Not,
@@ -396,7 +399,7 @@ public class PlayerController : MonoBehaviour
             //insert tween here
             if (barIsUp)
             {
-                if (!inOverworld)
+                if (!noHitWindowGraphic)
                 {
                     //tween downwards
                     RectTransform targetTransform = GameObject.Find("TimingBar").GetComponent<RectTransform>();
@@ -407,7 +410,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                if (!inOverworld)
+                if (!noHitWindowGraphic)
                 {
                     //tween upwards
                     RectTransform targetTransform = GameObject.Find("TimingBar").GetComponent<RectTransform>();

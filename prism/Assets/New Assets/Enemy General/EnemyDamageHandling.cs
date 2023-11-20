@@ -7,7 +7,11 @@ public class EnemyDamageHandling : MonoBehaviour
     public AudioClip enemyDamageAudio;
     public AudioClip enemyDeathAudio;
 
-    private int hp = 3;
+    public Room roomSpawnedIn;
+
+    public int enemyID;
+
+    public int hp = 3;
 
     const float damageTintTime = 0.3f;
     private float timeLeftTinted = 0f;
@@ -62,6 +66,7 @@ public class EnemyDamageHandling : MonoBehaviour
     public void killEnemy()
     {
         player.GetComponent<AudioSource>().PlayOneShot(enemyDeathAudio);
+        //roomSpawnedIn.RemoveEnemy(enemyID);
         Destroy(gameObject);
     }
 }
