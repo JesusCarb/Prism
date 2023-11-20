@@ -142,12 +142,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f3182983d61fe3458653cdeec68d962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBullet: {fileID: 3110126029553538758, guid: 00b8176ed1202df4192a19a842c76657, type: 3}
+  basicBullet: {fileID: 0}
   enemyBullet: {fileID: 0}
-  shootSuccessAudio: {fileID: 0}
-  shootFailAudio: {fileID: 0}
+  pistolShot: {fileID: 0}
+  rifleShot: {fileID: 0}
+  shottyShot: {fileID: 0}
   currentWeapon: 2
   blastBullets: {fileID: 3110126029553538758, guid: 657a2bee99d2f5d47a9a81683e1d1d41, type: 3}
   burstBullets: {fileID: 3110126029553538758, guid: 00b8176ed1202df4192a19a842c76657, type: 3}
   blastNum: 0
-  burstNum: 3
+  burstNum: 2
