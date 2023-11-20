@@ -148,7 +148,7 @@ MonoBehaviour:
   chaseDetectionDistance: 3
   shootDetectionDistance: 5
   skelloWeapon: {fileID: 5644327936522697431, guid: 31d32cf16f82a6c46ba530aeb85a77db, type: 3}
-  wanderLimit: 15
+  wanderLimit: 8
 --- !u!61 &5751621207301384857
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -201,4 +201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyDamageAudio: {fileID: 8300000, guid: 8f4e98fe365cc1c47a4cc3338cf3f60c, type: 3}
   enemyDeathAudio: {fileID: 8300000, guid: 531b8a48098fd44458414ab90c97f7bd, type: 3}
+  roomSpawnedIn: {fileID: 0}
+  enemyID: 0
+  hp: 3
   corpse: {fileID: 655303771940014979, guid: a77c42c30da7adc4b9ac96a1755581bb, type: 3}

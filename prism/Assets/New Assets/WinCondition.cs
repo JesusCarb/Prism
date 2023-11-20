@@ -16,11 +16,18 @@ public class WinCondition : MonoBehaviour
         playerC = player.GetComponent<PlayerController>();
     }
 
-    void OnTriggerEnter2D(Collider2D col)
+    IEnumerator OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag.Equals("Player"))
         {
+            yield return new WaitForSecondsRealtime(.05f);
+
             print("youwin");
+
+            Time.timeScale = 0;
+            yield return new WaitForSecondsRealtime(2);
+
+            Time.timeScale = 1;
 
             // thiswasnt working L
             // playerC.audioSource.Stop();

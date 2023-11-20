@@ -290,16 +290,23 @@ public class PlayerController : MonoBehaviour
     
     private void PlayBeat()
     {
-        if(beatCounter < 1)
+        if(beatCounter == 4 && beatChange == true)
         {
-            PlayMusicWrapper();
-        }
-        if(beatChange)
-        {
-            // audioSource.Play();
-        }
+            // PlayMusicWrapper();
+            PlayMusic();
+            beatCounter += 1;
 
-        beatCounter ++;
+        }else if(beatChange)
+        {
+            beatCounter += 1;
+        }
+        // if(beatChange)
+        // {
+        //     // audioSource.Play();
+        //     beatCounter += 1;;
+
+        // }
+
     }
 
     private void PlayMusicWrapper()

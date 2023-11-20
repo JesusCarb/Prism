@@ -7,12 +7,13 @@ using UnityEngine;
 public class WeaponRotator : MonoBehaviour
 {
     Transform player;
-    
+    private PlayerController deathTracker;
     Vector3 starting;
     // Start is called before the first frame update
     void Start()
     {
         player = this.transform.parent;
+        deathTracker = player.GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -39,5 +40,15 @@ public class WeaponRotator : MonoBehaviour
        
         
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
+        DespawnWeapon();
+    }
+
+    void DespawnWeapon()
+    {
+        if(deathTracker.hp <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

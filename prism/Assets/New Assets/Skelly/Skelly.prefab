@@ -201,4 +201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyDamageAudio: {fileID: 8300000, guid: 8f4e98fe365cc1c47a4cc3338cf3f60c, type: 3}
   enemyDeathAudio: {fileID: 8300000, guid: 531b8a48098fd44458414ab90c97f7bd, type: 3}
+  roomSpawnedIn: {fileID: 0}
+  enemyID: 0
+  hp: 3
   corpse: {fileID: 655303771940014979, guid: 27ac86af53141ca4f9a3b5ad87392284, type: 3}
