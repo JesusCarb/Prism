@@ -71,6 +71,11 @@ public class EnemyBulletBehavior : MonoBehaviour
 
             Destroy(gameObject);
         }
+
+        if (collision.gameObject.tag.Equals("Ouch"))
+        {
+            Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        }
     }
     // despawns the bullet after 3 seconds
 

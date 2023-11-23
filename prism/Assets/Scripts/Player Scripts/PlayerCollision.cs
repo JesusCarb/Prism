@@ -32,13 +32,19 @@ public class PlayerCollision : MonoBehaviour
         }
 
 
-        //checks for collision with ouchobstacle reduces health
-        if (collision.gameObject.tag.Equals("OuchObstacle"))
+        //checks for collision with ouch or ouchobstacle reduces health
+        if (collision.gameObject.tag.Equals("OuchObstacle") || collision.gameObject.tag.Equals("Ouch"))
         {
             // collision.gameObject.takeDamage()
             gameObject.GetComponent<PlayerController>().hp -= 1;
             gameObject.GetComponent<PlayerController>().audioSource.PlayOneShot(playerDamageAudio);
             // If ^ doesn't work, just GameObject.findAnyObjectOfType<>
+        }
+
+        //dont collide with ouch
+        if (collision.gameObject.tag.Equals("Ouch"))
+        {
+            Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         }
 
     }

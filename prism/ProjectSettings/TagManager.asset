@@ -13,6 +13,8 @@ TagManager:
   - Weapon
   - Drop
   - OuchObstacle
+  - Room
+  - Ouch
   layers:
   - Default
   - TransparentFX

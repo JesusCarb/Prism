@@ -57,10 +57,15 @@ public class PlayerBulletBehavior : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (collision.gameObject.tag.Equals("Obstacle"))
+        if (collision.gameObject.tag.Equals("Obstacle") || collision.gameObject.tag.Equals("OuchObstacle"))
         {
             Destroy(gameObject);
 
+        }
+
+        if (collision.gameObject.tag.Equals("Ouch"))
+        {
+            Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         }
     }
 

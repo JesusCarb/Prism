@@ -28,6 +28,11 @@ public class EnemyColController : MonoBehaviour
             print("HITWAALLL");
         }
 
+        if (collision.gameObject.tag == "Ouch")
+        {
+            Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        }
+
         //if(collision.gameObject.tag == "PlayerBullet")
         //{
         //    Destroy(collision.gameObject);
