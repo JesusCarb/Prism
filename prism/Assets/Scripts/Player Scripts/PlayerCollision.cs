@@ -31,5 +31,15 @@ public class PlayerCollision : MonoBehaviour
             // If ^ doesn't work, just GameObject.findAnyObjectOfType<>
         }
 
+
+        //checks for collision with ouchobstacle reduces health
+        if (collision.gameObject.tag.Equals("OuchObstacle"))
+        {
+            // collision.gameObject.takeDamage()
+            gameObject.GetComponent<PlayerController>().hp -= 1;
+            gameObject.GetComponent<PlayerController>().audioSource.PlayOneShot(playerDamageAudio);
+            // If ^ doesn't work, just GameObject.findAnyObjectOfType<>
+        }
+
     }
 }

@@ -12,6 +12,7 @@ TagManager:
   - AICollider
   - Weapon
   - Drop
+  - OuchObstacle
   layers:
   - Default
   - TransparentFX
