@@ -414,12 +414,12 @@ public class PlayerController : MonoBehaviour
                     if (OnOffTracker)
                     {
                         obj.GetComponent<SpriteRenderer>().color = new Color(0.612f, 0, 0, 1);
-                        obj.GetComponent<BoxCollider2D>().isTrigger = false;
+                        obj.GetComponent<BoxCollider2D>().enabled = true;
                     }
                     else
                     {
                         obj.GetComponent<SpriteRenderer>().color = new Color(0.612f, 0, 0, 0.5f);
-                        obj.GetComponent<BoxCollider2D>().isTrigger = true;
+                        obj.GetComponent<BoxCollider2D>().enabled = false;
                     }
                     
                 }
@@ -429,12 +429,12 @@ public class PlayerController : MonoBehaviour
                     if (OnOffTracker)
                     {
                         obj.GetComponent<SpriteRenderer>().color = new Color(0.612f, 0, 0, 0.5f);
-                        obj.GetComponent<BoxCollider2D>().isTrigger = true;
+                        obj.GetComponent<BoxCollider2D>().enabled = false;
                     }
                     else
                     {
                         obj.GetComponent<SpriteRenderer>().color = new Color(0.612f, 0, 0, 1);
-                        obj.GetComponent<BoxCollider2D>().isTrigger = false;
+                        obj.GetComponent<BoxCollider2D>().enabled = true;
                     }
                     
                 }
