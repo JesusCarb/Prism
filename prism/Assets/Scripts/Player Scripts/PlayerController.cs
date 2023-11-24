@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     // player vars
     public int hp = 3;
     public float moveSpeed = 40f;
+    public int damageMultiplier = 1;
     Vector2 playerInput;
     Vector3 velocity;
     float velocityXSmoothing;
@@ -371,25 +372,40 @@ public class PlayerController : MonoBehaviour
     {
         switch (hp)
         {
+            case 3:
+                GameObject.Find("Heart3").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 1);
+                GameObject.Find("Heart3Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                GameObject.Find("Heart2").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 1);
+                GameObject.Find("Heart2Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                GameObject.Find("Heart1").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 1);
+                GameObject.Find("Heart1Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                break;
+
             case 2:
-                UnityEngine.UI.Image hideimage2 = GameObject.Find("Heart3").GetComponent<UnityEngine.UI.Image>();
-                hideimage2.color = new Color(255, 255, 255, 0);
-                UnityEngine.UI.Image showimage2 = GameObject.Find("Heart3Gone").GetComponent<UnityEngine.UI.Image>();
-                showimage2.color = new Color(255, 255, 255, 0.75f);
+                GameObject.Find("Heart3").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                GameObject.Find("Heart3Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0.75f);
+                GameObject.Find("Heart2").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 1);
+                GameObject.Find("Heart2Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                GameObject.Find("Heart1").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 1);
+                GameObject.Find("Heart1Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
                 break;
 
             case 1:
-                UnityEngine.UI.Image hideimage1 = GameObject.Find("Heart2").GetComponent<UnityEngine.UI.Image>();
-                hideimage1.color = new Color(255, 255, 255, 0);
-                UnityEngine.UI.Image showimage1 = GameObject.Find("Heart2Gone").GetComponent<UnityEngine.UI.Image>();
-                showimage1.color = new Color(255, 255, 255, 0.75f);
+                GameObject.Find("Heart3").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                GameObject.Find("Heart3Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0.75f);
+                GameObject.Find("Heart2").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                GameObject.Find("Heart2Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0.75f);
+                GameObject.Find("Heart1").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 1);
+                GameObject.Find("Heart1Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
                 break;
             
             case 0:
-                UnityEngine.UI.Image hideimage0 = GameObject.Find("Heart1").GetComponent<UnityEngine.UI.Image>();
-                hideimage0.color = new Color(255, 255, 255, 0);
-                UnityEngine.UI.Image showimage0 = GameObject.Find("Heart1Gone").GetComponent<UnityEngine.UI.Image>();
-                showimage0.color = new Color(255, 255, 255, 0.75f);
+                GameObject.Find("Heart3").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                GameObject.Find("Heart3Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0.75f);
+                GameObject.Find("Heart2").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                GameObject.Find("Heart2Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0.75f);
+                GameObject.Find("Heart1").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                GameObject.Find("Heart1Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0.75f);
                 break;
         }
     }
@@ -447,12 +463,12 @@ public class PlayerController : MonoBehaviour
                     if (OnOffTracker)
                     {
                         obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-                        obj.GetComponent<BoxCollider2D>().isTrigger = false;
+                        obj.GetComponent<BoxCollider2D>().enabled = true;
                     }
                     else
                     {
                         obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
-                        obj.GetComponent<BoxCollider2D>().isTrigger = true;
+                        obj.GetComponent<BoxCollider2D>().enabled = false;
                     }
                     
                 }
@@ -462,12 +478,12 @@ public class PlayerController : MonoBehaviour
                     if (OnOffTracker)
                     {
                         obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
-                        obj.GetComponent<BoxCollider2D>().isTrigger = true;
+                        obj.GetComponent<BoxCollider2D>().enabled = false;
                     }
                     else
                     {
                         obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-                        obj.GetComponent<BoxCollider2D>().isTrigger = false;
+                        obj.GetComponent<BoxCollider2D>().enabled = true;
                     }
                     
                 }

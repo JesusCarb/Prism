@@ -43,14 +43,59 @@ public class PlayerCollision : MonoBehaviour
 
     }
 
+    
+
     void OnTriggerEnter2D(Collider2D collision)
     {
-        print("yes hello");
         if (collision.gameObject.tag.Equals("Ouch"))
         {
             print("OWWWWWWWW!!!!");
             gameObject.GetComponent<PlayerController>().hp -= 1;
             gameObject.GetComponent<PlayerController>().audioSource.PlayOneShot(playerDamageAudio);
         }
+
+        
+        if (collision.gameObject.name == "FullHealItem")
+        {
+            if (gameObject.GetComponent<PlayerController>().hp == 3) {return;};
+            Destroy(collision.gameObject);
+            gameObject.GetComponent<PlayerController>().hp = 3;
+        }
+
+        if (collision.gameObject.name == "PartialHealItem")
+        {
+            if (gameObject.GetComponent<PlayerController>().hp == 3) {return;};
+            Destroy(collision.gameObject);
+            gameObject.GetComponent<PlayerController>().hp += 1;
+        }
+
+        if (collision.gameObject.name == "PowerBuffItem")
+        {
+            Destroy(collision.gameObject);
+            gameObject.GetComponent<PlayerController>().damageMultiplier *= 2;
+            StartCoroutine(PowerBuffTimer());
+        }
+
+        if (collision.gameObject.name == "SpeedBuffItem")
+        {
+            Destroy(collision.gameObject);
+            gameObject.GetComponent<PlayerController>().moveSpeed *= 1.4f;
+            StartCoroutine(SpeedBuffTimer());
+        }
+        
+    }
+
+    IEnumerator SpeedBuffTimer()
+    {
+        yield return new WaitForSeconds(20f);
+        gameObject.GetComponent<PlayerController>().moveSpeed /= 1.4f;
+    }
+
+    IEnumerator PowerBuffTimer()
+    {
+        yield return new WaitForSeconds(20f);
+        gameObject.GetComponent<PlayerController>().damageMultiplier /= 2;
     }
 }
+
+

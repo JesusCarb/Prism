@@ -49,7 +49,8 @@ public class PlayerBulletBehavior : MonoBehaviour
 
         if (collision.gameObject.tag.Equals("Enemy"))
         {
-            collision.gameObject.GetComponent<EnemyDamageHandling>().takeDamage(1);
+            //collision.gameObject.GetComponent<EnemyDamageHandling>().takeDamage(1);
+            collision.gameObject.GetComponent<EnemyDamageHandling>().takeDamage(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().damageMultiplier);
 
             
             //EnemyKilled();
