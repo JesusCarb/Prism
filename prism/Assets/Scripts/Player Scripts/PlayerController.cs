@@ -60,6 +60,7 @@ public class PlayerController : MonoBehaviour
     private float tweenDelay;
     private bool countingTweenDelay = false;
     private bool barIsUp = true;
+    private bool OnOffTracker = false;
     
 
     // audio vars
@@ -121,6 +122,7 @@ public class PlayerController : MonoBehaviour
         playerInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         BeatTracker();
         TweenTimer();
+        BeatBlocks();
         PlayBeat();
         AdjustHealth();
         if(hp <= 0)
@@ -390,6 +392,55 @@ public class PlayerController : MonoBehaviour
                 showimage0.color = new Color(255, 255, 255, 0.75f);
                 break;
         }
+    }
+
+    private void BeatBlocks()
+    {
+        if(beatChange)
+        {
+            if (OnOffTracker)
+            {
+                OnOffTracker = false;
+            }
+            else
+            {
+                OnOffTracker = true;
+            }
+            
+            foreach(GameObject obj in GameObject.FindGameObjectsWithTag("Ouch"))
+            {
+                if (obj.name == "BeatOuchOn")
+                {
+                    if (OnOffTracker)
+                    {
+                        obj.GetComponent<SpriteRenderer>().color = new Color(156, 0, 0, 1);
+                        obj.GetComponent<BoxCollider2D>().isTrigger = false;
+                    }
+                    else
+                    {
+                        obj.GetComponent<SpriteRenderer>().color = new Color(156, 0, 0, 0.5f);
+                        obj.GetComponent<BoxCollider2D>().isTrigger = true;
+                    }
+                    
+                }
+
+                if (obj.name == "BeatOuchOff")
+                {
+                    if (OnOffTracker)
+                    {
+                        obj.GetComponent<SpriteRenderer>().color = new Color(156, 0, 0, 0.5f);
+                        obj.GetComponent<BoxCollider2D>().isTrigger = true;
+                    }
+                    else
+                    {
+                        obj.GetComponent<SpriteRenderer>().color = new Color(156, 0, 0, 1);
+                        obj.GetComponent<BoxCollider2D>().isTrigger = false;
+                    }
+                    
+                }
+            }
+        }
+        
     }
 
     private void TweenTimer()
