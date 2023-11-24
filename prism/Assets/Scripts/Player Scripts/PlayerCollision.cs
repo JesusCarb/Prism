@@ -44,8 +44,17 @@ public class PlayerCollision : MonoBehaviour
         //dont collide with ouch
         if (collision.gameObject.tag.Equals("Ouch"))
         {
-            Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+            //Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+            collision.gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
         }
 
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Ouch"))
+        {
+            collision.gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
+        }
     }
 }

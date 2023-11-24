@@ -413,12 +413,12 @@ public class PlayerController : MonoBehaviour
                 {
                     if (OnOffTracker)
                     {
-                        obj.GetComponent<SpriteRenderer>().color = new Color(156, 0, 0, 1);
+                        obj.GetComponent<SpriteRenderer>().color = new Color(0.612f, 0, 0, 1);
                         obj.GetComponent<BoxCollider2D>().isTrigger = false;
                     }
                     else
                     {
-                        obj.GetComponent<SpriteRenderer>().color = new Color(156, 0, 0, 0.5f);
+                        obj.GetComponent<SpriteRenderer>().color = new Color(0.612f, 0, 0, 0.5f);
                         obj.GetComponent<BoxCollider2D>().isTrigger = true;
                     }
                     
@@ -428,12 +428,45 @@ public class PlayerController : MonoBehaviour
                 {
                     if (OnOffTracker)
                     {
-                        obj.GetComponent<SpriteRenderer>().color = new Color(156, 0, 0, 0.5f);
+                        obj.GetComponent<SpriteRenderer>().color = new Color(0.612f, 0, 0, 0.5f);
                         obj.GetComponent<BoxCollider2D>().isTrigger = true;
                     }
                     else
                     {
-                        obj.GetComponent<SpriteRenderer>().color = new Color(156, 0, 0, 1);
+                        obj.GetComponent<SpriteRenderer>().color = new Color(0.612f, 0, 0, 1);
+                        obj.GetComponent<BoxCollider2D>().isTrigger = false;
+                    }
+                    
+                }
+            }
+
+            foreach(GameObject obj in GameObject.FindGameObjectsWithTag("Obstacle"))
+            {
+                if (obj.name == "BeatObstacleOn")
+                {
+                    if (OnOffTracker)
+                    {
+                        obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+                        obj.GetComponent<BoxCollider2D>().isTrigger = false;
+                    }
+                    else
+                    {
+                        obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+                        obj.GetComponent<BoxCollider2D>().isTrigger = true;
+                    }
+                    
+                }
+
+                if (obj.name == "BeatObstacleOff")
+                {
+                    if (OnOffTracker)
+                    {
+                        obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+                        obj.GetComponent<BoxCollider2D>().isTrigger = true;
+                    }
+                    else
+                    {
+                        obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
                         obj.GetComponent<BoxCollider2D>().isTrigger = false;
                     }
                     
