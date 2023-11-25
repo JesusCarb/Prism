@@ -11376,6 +11376,10 @@ PrefabInstance:
       value: Player Variant v5
       objectReference: {fileID: 0}
     - target: {fileID: 7489343226717202916, guid: 8b1989dc0efcbee4f80d2733f8c66a09, type: 3}
+      propertyPath: BPM
+      value: 90.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7489343226717202916, guid: 8b1989dc0efcbee4f80d2733f8c66a09, type: 3}
       propertyPath: moveSpeed
       value: 3
       objectReference: {fileID: 0}
