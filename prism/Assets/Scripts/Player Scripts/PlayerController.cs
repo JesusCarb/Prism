@@ -12,13 +12,26 @@ using DG.Tweening;
 
 public class PlayerController : MonoBehaviour
 {
+    //player info stuff (for scene switching)
+    [SerializeField]
+    public PlayerInfo playerInfo;
+    public string weapon1;
+    public string weapon2;
+    public string weapon3;
+    public float permPowerBuff = 1;
+    public float permSpeedBuff = 1;
+    public int maxHealth = 3;
+
+
+    
+    //weapons
     [SerializeField]
     private GameObject pistol;
-    [SerializeField]
 
+    [SerializeField]
     private GameObject rifle;
-    [SerializeField]
 
+    [SerializeField]
     private GameObject shotty;
 
     public AudioClip pistolAudio;
@@ -111,6 +124,13 @@ public class PlayerController : MonoBehaviour
         beatChange = false;
         // PlayMusicWrapper();
         
+        weapon1 = playerInfo.weapon1;
+        weapon2 = playerInfo.weapon2;
+        weapon3 = playerInfo.weapon3;
+        permPowerBuff = playerInfo.permPowerBuff;
+        permSpeedBuff = playerInfo.permSpeedBuff;
+        maxHealth = playerInfo.maxHealth;
+
         currentWeapon = (int)Weapon.None;
                 // get animator 
         anim = GetComponent<Animator>();
@@ -120,6 +140,20 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        //sorry this is so you can equip previously acquired weapons
+        if (Input.GetKeyDown("1"))
+        {
+            SetWeapon(1);
+        }
+        if (Input.GetKeyDown("2"))
+        {
+            SetWeapon(2);
+        }
+        if (Input.GetKeyDown("3"))
+        {
+            SetWeapon(3);
+        }
+
         playerInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         BeatTracker();
         TweenTimer();
@@ -170,6 +204,7 @@ public class PlayerController : MonoBehaviour
 
     public void SetWeapon(int type)
     {
+        /*
         if(currentWeapon != (int)Weapon.None)
         {
             GameObject obj = GameObject.FindGameObjectWithTag("Weapon");
@@ -195,6 +230,43 @@ public class PlayerController : MonoBehaviour
 
             default:
             break;
+        }
+        */
+        
+        if(currentWeapon != (int)Weapon.None)
+        {
+            GameObject obj = GameObject.FindGameObjectWithTag("Weapon");
+            Destroy(obj);
+        }
+
+        switch (type)
+        {
+            case 1:
+                weapon3 = weapon2;
+                weapon2 = weapon1;
+                weapon1 = "Pistol";
+
+                Instantiate(pistol, this.transform);
+                currentWeapon = (int)Weapon.Pistol;
+                break;
+                
+            case 2:
+                weapon3 = weapon2;
+                weapon2 = weapon1;
+                weapon1 = "Rifle";
+
+                Instantiate(rifle, this.transform);
+                currentWeapon = (int)Weapon.Rifle;
+                break;
+
+            case 3:
+                weapon3 = weapon2;
+                weapon2 = weapon1;
+                weapon1 = "Shotty";
+
+                Instantiate(shotty, this.transform);
+                currentWeapon = (int)Weapon.Shotty;
+                break;
         }
     }
 
@@ -361,6 +433,13 @@ public class PlayerController : MonoBehaviour
             yield return new WaitForSecondsRealtime(2);
 
             Time.timeScale = 1;
+
+            playerInfo.weapon1 = "";
+            playerInfo.weapon2 = "";
+            playerInfo.weapon3 = "";
+            playerInfo.permPowerBuff = 1;
+            playerInfo.permSpeedBuff = 1;
+            playerInfo.maxHealth = 3;
 
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
             // timescale will stay at zero so I'm turning it back to 1

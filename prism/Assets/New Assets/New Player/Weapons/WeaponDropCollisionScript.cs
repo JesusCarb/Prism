@@ -28,6 +28,30 @@ public class WeaponDropCollisionScript : MonoBehaviour
     {
         if(collision.gameObject.tag.Equals("Player"))
         {
+            switch (currentWeapon)
+            {
+                case 1:
+                    if (player.weapon1 == "Pistol" || player.weapon2 == "Pistol" || player.weapon3 == "Pistol")
+                    {
+                        return;
+                    }
+                    break;
+
+                case 2:
+                    if (player.weapon1 == "Rifle" || player.weapon2 == "Rifle" || player.weapon3 == "Rifle")
+                    {
+                        return;
+                    }
+                    break;
+                
+                case 3:
+                    if (player.weapon1 == "Shotty" || player.weapon2 == "Shotty" || player.weapon3 == "Shotty")
+                    {
+                        return;
+                    }
+                    break;
+            }
+            
             player.SetWeapon(currentWeapon);
             Destroy(gameObject);
         }
