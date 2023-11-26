@@ -631,6 +631,7 @@ MonoBehaviour:
   bossRoom: 0
   lootRoom: 0
   unlocked: 0
+  beaten: 0
   roomDoors:
   - active: 0
     roomPart: {fileID: 8039849885859110527}
@@ -658,6 +659,8 @@ MonoBehaviour:
     lockedState: {fileID: 5540591006862027992}
   collision: 0
   jumpsFromStart: -1
+  enemyList: []
+  enemiesLeft: []
 --- !u!50 &2272310311312756395
 Rigidbody2D:
   serializedVersion: 4

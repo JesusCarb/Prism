@@ -100,6 +100,11 @@ public class Room : MonoBehaviour
     public List<EnemyProfile> enemyList = new List<EnemyProfile>();
     public List<EnemyProfile> enemiesLeft = new List<EnemyProfile>();
 
+    /* public void Start()
+    {
+        enemiesLeft.Add(new EnemyProfile(null, new Vector3(0, 0, 0), 0, 0));
+    } */
+
     public void AssignRoomValue()
     {
         if (roomDoors.Length != 4)
@@ -362,6 +367,10 @@ public class Room : MonoBehaviour
             tempScpt.enemyID = enemiesLeft[i].ID;
             tempScpt.hp = enemiesLeft[i].HP;
             tempScpt.roomSpawnedIn = this;
+
+            tempObj.transform.localScale = new Vector3(3, 3, 3);
+            enemiesLeft.Insert(i, new EnemyProfile(tempObj, enemiesLeft[i].position, enemiesLeft[i].ID, enemiesLeft[i].HP));
+            enemiesLeft.RemoveAt(i + 1);
         }
     }
 
@@ -373,11 +382,7 @@ public class Room : MonoBehaviour
             enemiesLeft.RemoveAt(i);
         }
 
-        for (int i = 0; i < enemyList.Count; i++)
-        {
-            EnemyProfile tempProfile = new EnemyProfile(enemyList[i].enemyRef, enemyList[i].position, enemyList[i].ID, enemyList[i].HP);
-            enemiesLeft.Add(tempProfile);
-        }
+        RepopEnemiesLeft();
     }
 
     public void RemoveEnemy(int ID)
@@ -386,6 +391,15 @@ public class Room : MonoBehaviour
         {
             if (enemiesLeft[i].ID == ID)
                 enemiesLeft.RemoveAt(i);
+        }
+    }
+
+    public void RepopEnemiesLeft()
+    {
+        for (int i = 0; i < enemyList.Count; i++)
+        {
+            EnemyProfile tempProfile = new EnemyProfile(enemyList[i].enemyRef, enemyList[i].position, enemyList[i].ID, enemyList[i].HP);
+            enemiesLeft.Add(tempProfile);
         }
     }
 }

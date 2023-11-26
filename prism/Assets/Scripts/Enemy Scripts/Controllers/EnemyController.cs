@@ -22,7 +22,7 @@ public class EnemyController : MonoBehaviour
     private bool onBeat = false;
     private bool firstFrameOnBeat = true;
     private int curBeatCount = 0;
-    private int maxBeatCount = 7;   // fire every 8 beats
+    //private int maxBeatCount = 7;   // fire every 8 beats
 
     public bool enemyIsChaser;
     public bool enemyIsShooter;

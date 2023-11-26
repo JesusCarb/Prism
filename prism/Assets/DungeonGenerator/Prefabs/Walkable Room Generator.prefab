@@ -486,6 +486,7 @@ MonoBehaviour:
   bossRoom: 0
   lootRoom: 0
   unlocked: 0
+  beaten: 0
   roomDoors:
   - active: 0
     roomPart: {fileID: 2669607475130400847}
@@ -513,6 +514,12 @@ MonoBehaviour:
     lockedState: {fileID: 5929247042179391003}
   collision: 0
   jumpsFromStart: -1
+  enemyList:
+  - enemyRef: {fileID: 4563099141569318982, guid: 095eb0d3f7c420b46a205c4342bec056, type: 3}
+    position: {x: 6.21, y: 0, z: 0}
+    ID: 0
+    HP: 0
+  enemiesLeft: []
 --- !u!50 &6131597245029142683
 Rigidbody2D:
   serializedVersion: 4
@@ -618,6 +625,7 @@ MonoBehaviour:
   generatingStructure: 1
   generatorRoom: {fileID: 4509643446405255481}
   playerRoom: {fileID: 0}
+  playerRoomChange: {fileID: 0}
 --- !u!61 &-6533133870729071510
 BoxCollider2D:
   m_ObjectHideFlags: 0

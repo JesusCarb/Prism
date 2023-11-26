@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
     private bool onBeat;
     private float timeLastBeat;
     private float timeNextBeat;
-    private float beatOffset = .15f;
+    //private float beatOffset = .15f;
 
     // percentage betwween beats to hit
     public float hitLeeway = .25f;

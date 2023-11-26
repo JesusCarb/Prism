@@ -897,7 +897,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2669607475130400847, guid: 10f1c961e8e8cf545a8c6507e6fc4435, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 2669607475130400847, guid: 10f1c961e8e8cf545a8c6507e6fc4435, type: 3}
       propertyPath: m_LocalPosition.y
@@ -958,6 +958,18 @@ PrefabInstance:
     - target: {fileID: 4491123560629680282, guid: 10f1c961e8e8cf545a8c6507e6fc4435, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4509643446405255481, guid: 10f1c961e8e8cf545a8c6507e6fc4435, type: 3}
+      propertyPath: enemyList.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4509643446405255481, guid: 10f1c961e8e8cf545a8c6507e6fc4435, type: 3}
+      propertyPath: enemyList.Array.data[0].enemyRef
+      value: 
+      objectReference: {fileID: 4563099141569318982, guid: 095eb0d3f7c420b46a205c4342bec056, type: 3}
+    - target: {fileID: 4509643446405255481, guid: 10f1c961e8e8cf545a8c6507e6fc4435, type: 3}
+      propertyPath: enemyList.Array.data[0].position.x
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4624552708562627358, guid: 10f1c961e8e8cf545a8c6507e6fc4435, type: 3}
       propertyPath: m_Enabled

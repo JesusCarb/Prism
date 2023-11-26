@@ -11,7 +11,7 @@ public class EnemyShooterController : MonoBehaviour
     private Vector3 playerPos;
     private bool onBeat = true;
     private int curBeatCount = 0;
-    private int maxBeatCount = 7;   // fire every 8 beats
+    //private int maxBeatCount = 7;   // fire every 8 beats
 
     private bool shootBehaviorOn = false;
 

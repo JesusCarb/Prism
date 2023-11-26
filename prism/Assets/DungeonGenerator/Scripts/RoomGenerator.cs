@@ -152,6 +152,8 @@ public class RoomGenerator : MonoBehaviour
                 {
                     rooms[i].AssignRoomValue();
                     rooms[i].AssignSpecial();
+                    rooms[i].RepopEnemiesLeft();
+
                     if (rooms[i].specialRoom == true)
                     {
                         numSpecialRooms++;
@@ -203,6 +205,11 @@ public class RoomGenerator : MonoBehaviour
             playerRoom.UnlockRoom();
             playerRoom.RoomBeaten();
         }
+        else
+        {
+            playerRoom.unlocked = false;
+            playerRoom.beaten = false;
+        }
         if (Input.GetKeyDown("u"))
         {
             playerRoom.UnlockRoom();
@@ -210,6 +217,10 @@ public class RoomGenerator : MonoBehaviour
         if (playerRoomChange != playerRoom)
         {
             print("Changing room player is in");
+            //print("beaten" + playerRoomChange.beaten);
+            //print("unlocked" + playerRoomChange.unlocked);
+
+            playerRoom.DespawnEnemies();
             if (playerRoomChange.beaten == false)
             {
                 playerRoomChange.RespawnEnemies();
@@ -638,5 +649,6 @@ public class RoomGenerator : MonoBehaviour
     public void OnPlayerEnterRoom(Room room)
     {
         CameraController.instance.currRoom = room;
+        playerRoomChange = room;
     }
 }
