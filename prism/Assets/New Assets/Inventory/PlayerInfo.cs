@@ -8,7 +8,7 @@ public class PlayerInfo : ScriptableObject
     public string weapon1;
     public string weapon2;
     public string weapon3;
-    public float permPowerBuff = 1;
+    public int permPowerBuff = 1;
     public float permSpeedBuff = 1;
     public int maxHealth = 3;
 

@@ -37,6 +37,7 @@ public class PlayerBulletBehavior : MonoBehaviour
     // Probably better to move this to enemy to reduce lag
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        PlayerController playerC = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         Physics2D.IgnoreCollision(player.transform.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         // Prevent bullet-on-bullet collision
         if (collision.gameObject.tag.Equals("EnemyBullet"))
@@ -50,7 +51,7 @@ public class PlayerBulletBehavior : MonoBehaviour
         if (collision.gameObject.tag.Equals("Enemy"))
         {
             //collision.gameObject.GetComponent<EnemyDamageHandling>().takeDamage(1);
-            collision.gameObject.GetComponent<EnemyDamageHandling>().takeDamage(GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().damageMultiplier);
+            collision.gameObject.GetComponent<EnemyDamageHandling>().takeDamage(playerC.damageMultiplier * playerC.permPowerBuff);
 
             
             //EnemyKilled();

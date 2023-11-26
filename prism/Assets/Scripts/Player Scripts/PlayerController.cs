@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     public string weapon1;
     public string weapon2;
     public string weapon3;
-    public float permPowerBuff = 1;
+    public int permPowerBuff = 1;
     public float permSpeedBuff = 1;
     public int maxHealth = 3;
 
@@ -221,8 +221,8 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        float targetVelocityX = playerInput.x * moveSpeed;
-        float targetVelocityY = playerInput.y * moveSpeed;
+        float targetVelocityX = playerInput.x * moveSpeed * permSpeedBuff;
+        float targetVelocityY = playerInput.y * moveSpeed * permSpeedBuff;
 
         // velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, accelerationTime);
         // velocity.y = Mathf.SmoothDamp(velocity.y, targetVelocityY, ref velocityYSmoothing, accelerationTime);
