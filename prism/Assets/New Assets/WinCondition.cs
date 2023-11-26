@@ -9,6 +9,7 @@ public class WinCondition : MonoBehaviour
 {
     private GameObject player;
     private PlayerController playerC;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,13 @@ public class WinCondition : MonoBehaviour
     {
         if (col.gameObject.tag.Equals("Player"))
         {
+            playerC.playerInfo.weapon1 = playerC.weapon1;
+            playerC.playerInfo.weapon2 = playerC.weapon2;
+            playerC.playerInfo.weapon3 = playerC.weapon3;
+            playerC.playerInfo.permPowerBuff = playerC.permPowerBuff;
+            playerC.playerInfo.permSpeedBuff = playerC.permSpeedBuff;
+            playerC.playerInfo.maxHealth = playerC.maxHealth;
+            
             yield return new WaitForSecondsRealtime(.05f);
 
             print("youwin");

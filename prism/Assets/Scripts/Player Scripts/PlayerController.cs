@@ -143,15 +143,51 @@ public class PlayerController : MonoBehaviour
         //sorry this is so you can equip previously acquired weapons
         if (Input.GetKeyDown("1"))
         {
-            SetWeapon(1);
+            //SetWeapon(1);
+            if (weapon1 == "Pistol")
+            {
+                SetWeapon(1);
+            }
+            if (weapon1 == "Rifle")
+            {
+                SetWeapon(2);
+            }
+            if (weapon1 == "Shotty")
+            {
+                SetWeapon(3);
+            }
         }
         if (Input.GetKeyDown("2"))
         {
-            SetWeapon(2);
+            //SetWeapon(2);
+            if (weapon2 == "Pistol")
+            {
+                SetWeapon(1);
+            }
+            if (weapon2 == "Rifle")
+            {
+                SetWeapon(2);
+            }
+            if (weapon2 == "Shotty")
+            {
+                SetWeapon(3);
+            }
         }
         if (Input.GetKeyDown("3"))
         {
-            SetWeapon(3);
+            //SetWeapon(3);
+            if (weapon3 == "Pistol")
+            {
+                SetWeapon(1);
+            }
+            if (weapon3 == "Rifle")
+            {
+                SetWeapon(2);
+            }
+            if (weapon3 == "Shotty")
+            {
+                SetWeapon(3);
+            }
         }
 
         playerInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -242,27 +278,36 @@ public class PlayerController : MonoBehaviour
         switch (type)
         {
             case 1:
-                weapon3 = weapon2;
-                weapon2 = weapon1;
-                weapon1 = "Pistol";
+                if (weapon1 != "Pistol" && weapon2 != "Pistol" && weapon3 != "Pistol")
+                {
+                    weapon3 = weapon2;
+                    weapon2 = weapon1;
+                    weapon1 = "Pistol";
+                }
 
                 Instantiate(pistol, this.transform);
                 currentWeapon = (int)Weapon.Pistol;
                 break;
                 
             case 2:
-                weapon3 = weapon2;
-                weapon2 = weapon1;
-                weapon1 = "Rifle";
+                if (weapon1 != "Rifle" && weapon2 != "Rifle" && weapon3 != "Rifle")
+                {
+                    weapon3 = weapon2;
+                    weapon2 = weapon1;
+                    weapon1 = "Rifle";
+                }
 
                 Instantiate(rifle, this.transform);
                 currentWeapon = (int)Weapon.Rifle;
                 break;
 
             case 3:
-                weapon3 = weapon2;
-                weapon2 = weapon1;
-                weapon1 = "Shotty";
+                if (weapon1 != "Shotty" && weapon2 != "Shotty" && weapon3 != "Shotty")
+                {
+                    weapon3 = weapon2;
+                    weapon2 = weapon1;
+                    weapon1 = "Shotty";
+                }
 
                 Instantiate(shotty, this.transform);
                 currentWeapon = (int)Weapon.Shotty;
