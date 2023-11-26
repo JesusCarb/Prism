@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Room : MonoBehaviour
 {
+    public bool hasBeenBeaten = false;
     public enum DirValue
     {
         up = 1,
@@ -354,23 +355,29 @@ public class Room : MonoBehaviour
 
     public void RespawnEnemies()
     {
-        for (int i = 0; i < enemyList.Count; i++)
+        for (int i = 0; i < enemiesLeft.Count; i++)
         {
-            GameObject tempObj = Instantiate(enemyList[i].enemyRef, position: enemyList[i].position, Quaternion.identity);
+            GameObject tempObj = Instantiate(enemiesLeft[i].enemyRef, position: enemiesLeft[i].position, Quaternion.identity);
             EnemyDamageHandling tempScpt = tempObj.GetComponent<EnemyDamageHandling>();
 
-            tempScpt.enemyID = enemyList[i].ID;
-            tempScpt.hp = enemyList[i].HP;
+            tempScpt.enemyID = enemiesLeft[i].ID;
+            tempScpt.hp = enemiesLeft[i].HP;
             tempScpt.roomSpawnedIn = this;
         }
     }
 
     public void DespawnEnemies()
     {
+        for (int i = 0; i < enemiesLeft.Count; i++)
+        {
+            Destroy(enemiesLeft[i].enemyRef);
+            enemiesLeft.RemoveAt(i);
+        }
+
         for (int i = 0; i < enemyList.Count; i++)
         {
-            Destroy(enemyList[i].enemyRef);
-            //EnemyProfile tempProfile = new EnemyProfile(enemyList[i].enemyRef, enemyList[i].position, enemyList[i].ID, enemyList[i].HP);
+            EnemyProfile tempProfile = new EnemyProfile(enemyList[i].enemyRef, enemyList[i].position, enemyList[i].ID, enemyList[i].HP);
+            enemiesLeft.Add(tempProfile);
         }
     }
 
@@ -378,8 +385,8 @@ public class Room : MonoBehaviour
     {
         for (int i = 0; i < enemyList.Count; i++)
         {
-            if (enemyList[i].ID == ID)
-                enemyList.RemoveAt(i);
+            if (enemiesLeft[i].ID == ID)
+                enemiesLeft.RemoveAt(i);
         }
     }
 }

@@ -216,7 +216,6 @@ public class RoomGenerator : MonoBehaviour
             }
             playerRoom = playerRoomChange;
         }
-
     }
 
     public IEnumerator CreatePool(Room prefab)
