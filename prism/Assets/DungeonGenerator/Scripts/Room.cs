@@ -6,7 +6,6 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Room : MonoBehaviour
 {
-    public bool hasBeenBeaten = false;
     public enum DirValue
     {
         up = 1,
