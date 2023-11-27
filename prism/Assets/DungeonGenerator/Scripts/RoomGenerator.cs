@@ -462,7 +462,7 @@ public class RoomGenerator : MonoBehaviour
         Room start = rooms[0];
         Room newRoom = null;
         Room currRoom = start;
-        generatedRooms = new List<Room>();
+        //generatedRooms = new List<Room>();
         for(int i = 0; i < numRooms; i++)
         {
             toRemove[i] = rooms[i];

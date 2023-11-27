@@ -22,7 +22,7 @@ public class Doors : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        print("door entered");
+        //print("door entered");
         if (other.tag == "Player")
         {
             if (direction == 0)
