@@ -98,7 +98,7 @@ public class Room : MonoBehaviour
 
     [SerializeField]
     public List<EnemyProfile> enemyList = new List<EnemyProfile>();
-    public List<EnemyProfile> enemiesLeft = new List<EnemyProfile>();
+    public List<EnemyProfile> enemiesLeft = new List<EnemyProfile> ();
 
     /* public void Start()
     {

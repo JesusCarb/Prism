@@ -219,10 +219,10 @@ public class RoomGenerator : MonoBehaviour
             print("Changing room player is in");
             //print("beaten" + playerRoomChange.beaten);
             //print("unlocked" + playerRoomChange.unlocked);
-
             playerRoom.DespawnEnemies();
             if (playerRoomChange.beaten == false)
             {
+                playerRoomChange.RepopEnemiesLeft();
                 playerRoomChange.RespawnEnemies();
             }
             playerRoom = playerRoomChange;
