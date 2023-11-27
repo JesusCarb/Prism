@@ -72,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 912035719
-  m_SortingLayer: 2
+  m_SortingLayerID: -1869315837
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: -353751291, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -142,14 +142,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f3182983d61fe3458653cdeec68d962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basicBullet: {fileID: 3110126029553538758, guid: 22650c8dfb512244a99435dd9b739dff, type: 3}
+  basicBullet: {fileID: 3110126029553538758, guid: 22650c8dfb512244a99435dd9b739dff,
+    type: 3}
   enemyBullet: {fileID: 0}
   pistolShot: {fileID: 0}
   rifleShot: {fileID: 0}
   shottyShot: {fileID: 0}
-  weaponJam: {fileID: 8300000, guid: 05cf1faecd1a74d43a90265a28f02ee5, type: 3}
   currentWeapon: 1
-  blastBullets: {fileID: 3110126029553538758, guid: 657a2bee99d2f5d47a9a81683e1d1d41, type: 3}
-  burstBullets: {fileID: 3110126029553538758, guid: 00b8176ed1202df4192a19a842c76657, type: 3}
+  blastBullets: {fileID: 3110126029553538758, guid: 657a2bee99d2f5d47a9a81683e1d1d41,
+    type: 3}
+  burstBullets: {fileID: 3110126029553538758, guid: 00b8176ed1202df4192a19a842c76657,
+    type: 3}
   blastNum: 0
   burstNum: 0

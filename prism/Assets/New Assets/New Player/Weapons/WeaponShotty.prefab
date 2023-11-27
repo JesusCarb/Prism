@@ -72,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 912035719
-  m_SortingLayer: 2
+  m_SortingLayerID: -1869315837
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 1772703093, guid: 378026fc794d15e4bbb89c335c8031ab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -148,7 +148,9 @@ MonoBehaviour:
   rifleShot: {fileID: 0}
   shottyShot: {fileID: 0}
   currentWeapon: 3
-  blastBullets: {fileID: 3110126029553538758, guid: 657a2bee99d2f5d47a9a81683e1d1d41, type: 3}
-  burstBullets: {fileID: 3110126029553538758, guid: 00b8176ed1202df4192a19a842c76657, type: 3}
+  blastBullets: {fileID: 3110126029553538758, guid: 657a2bee99d2f5d47a9a81683e1d1d41,
+    type: 3}
+  burstBullets: {fileID: 3110126029553538758, guid: 00b8176ed1202df4192a19a842c76657,
+    type: 3}
   blastNum: 3
   burstNum: 3
