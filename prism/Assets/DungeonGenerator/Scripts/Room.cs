@@ -334,7 +334,7 @@ public class Room : MonoBehaviour
                 break;
             case Directions.hexLeftUp:
                 output = Directions.hexRightDown;
-                break;
+                break;      
             default:
                 output = Directions.up;
                 break;
@@ -357,11 +357,13 @@ public class Room : MonoBehaviour
     //    return collision;
     //}
 
+
     public void RespawnEnemies()
     {
+        Vector3 me = transform.position;
         for (int i = 0; i < enemiesLeft.Count; i++)
         {
-            GameObject tempObj = Instantiate(enemiesLeft[i].enemyRef, position: enemiesLeft[i].position, Quaternion.identity);
+            GameObject tempObj = Instantiate(enemiesLeft[i].enemyRef, position: new Vector3(enemiesLeft[i].position.x + me.x, enemiesLeft[i].position.y + me.y, 0), Quaternion.identity);
             EnemyDamageHandling tempScpt = tempObj.GetComponent<EnemyDamageHandling>();
 
             tempScpt.enemyID = enemiesLeft[i].ID;
@@ -369,7 +371,7 @@ public class Room : MonoBehaviour
             tempScpt.roomSpawnedIn = this;
 
             tempObj.transform.localScale = new Vector3(3, 3, 3);
-            enemiesLeft.Insert(i, new EnemyProfile(tempObj, enemiesLeft[i].position, enemiesLeft[i].ID, enemiesLeft[i].HP));
+            enemiesLeft.Insert(i, new EnemyProfile(tempObj, new Vector3(enemiesLeft[i].position.x + me.x, enemiesLeft[i].position.y + me.y, 0), enemiesLeft[i].ID, enemiesLeft[i].HP));
             enemiesLeft.RemoveAt(i + 1);
         }
     }
@@ -382,7 +384,7 @@ public class Room : MonoBehaviour
             enemiesLeft.RemoveAt(i);
         }
 
-        RepopEnemiesLeft();
+        //RepopEnemiesLeft();
     }
 
     public void RemoveEnemy(int ID)

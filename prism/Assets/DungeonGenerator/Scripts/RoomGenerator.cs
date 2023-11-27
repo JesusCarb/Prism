@@ -200,6 +200,10 @@ public class RoomGenerator : MonoBehaviour
 
     void Update()
     {
+        if (playerRoom.enemiesLeft.Count > 0 && playerRoom.enemiesLeft[0].enemyRef == null)
+        {
+            playerRoom.enemiesLeft.Remove(playerRoom.enemiesLeft[0]);
+        }
         if (playerRoom.enemiesLeft.Count == 0)
         {
             playerRoom.UnlockRoom();
@@ -218,7 +222,7 @@ public class RoomGenerator : MonoBehaviour
         {
             print("Changing room player is in");
             //print("beaten" + playerRoomChange.beaten);
-            //print("unlocked" + playerRoomChange.unlocked);
+            //print("unlocked" + playerRoomChange.unlocked);s
             playerRoom.DespawnEnemies();
             if (playerRoomChange.beaten == false)
             {

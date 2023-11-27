@@ -97,8 +97,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1869315837
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -493647738, guid: 52723cad5cf6b52469fdeb2da8044a3e, type: 3}
   m_Color: {r: 0.7686275, g: 0.7686275, b: 0.7686275, a: 1}
@@ -198,4 +198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyDamageAudio: {fileID: 8300000, guid: df67e24d79b6e7b40bd3083e2fbc0067, type: 3}
   enemyDeathAudio: {fileID: 8300000, guid: f685f8af2b201dc408e62739ff57279c, type: 3}
+  roomSpawnedIn: {fileID: 0}
+  enemyID: 0
+  hp: 3
   corpse: {fileID: 655303771940014979, guid: 9a0009bb6347c0449a848623c4899a46, type: 3}
