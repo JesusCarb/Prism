@@ -556,7 +556,10 @@ public class PlayerController : MonoBehaviour
 
                     if (OnOffTracker)
                     {
-                        obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+                        //obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+                        Color clr = obj.GetComponent<SpriteRenderer>().color;
+                        obj.GetComponent<SpriteRenderer>().color = new Color(clr.r, clr.g, clr.b, 1);
+
                         if (objCollider != null)
                         {
                             objCollider.enabled = true;
@@ -568,7 +571,10 @@ public class PlayerController : MonoBehaviour
                     }
                     else
                     {
-                        obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+                        //obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+                        Color clr = obj.GetComponent<SpriteRenderer>().color;
+                        obj.GetComponent<SpriteRenderer>().color = new Color(clr.r, clr.g, clr.b, 0.5f);
+
                         if (objCollider != null)
                         {
                             objCollider.enabled = false;
@@ -588,7 +594,10 @@ public class PlayerController : MonoBehaviour
                     
                     if (OnOffTracker)
                     {
-                        obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+                        //obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+                        Color clr = obj.GetComponent<SpriteRenderer>().color;
+                        obj.GetComponent<SpriteRenderer>().color = new Color(clr.r, clr.g, clr.b, 0.5f);
+
                         if (objCollider != null)
                         {
                             objCollider.enabled = false;
@@ -600,7 +609,10 @@ public class PlayerController : MonoBehaviour
                     }
                     else
                     {
-                        obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+                        //obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+                        Color clr = obj.GetComponent<SpriteRenderer>().color;
+                        obj.GetComponent<SpriteRenderer>().color = new Color(clr.r, clr.g, clr.b, 1);
+
                         if (objCollider != null)
                         {
                             objCollider.enabled = true;
@@ -623,7 +635,10 @@ public class PlayerController : MonoBehaviour
 
                     if (OnOffTracker)
                     {
-                        obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+                        //obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+                        Color clr = obj.GetComponent<SpriteRenderer>().color;
+                        obj.GetComponent<SpriteRenderer>().color = new Color(clr.r, clr.g, clr.b, 1);
+
                         if (objCollider != null)
                         {
                             objCollider.enabled = true;
@@ -635,7 +650,10 @@ public class PlayerController : MonoBehaviour
                     }
                     else
                     {
-                        obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+                        //obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+                        Color clr = obj.GetComponent<SpriteRenderer>().color;
+                        obj.GetComponent<SpriteRenderer>().color = new Color(clr.r, clr.g, clr.b, 0.5f);
+
                         if (objCollider != null)
                         {
                             objCollider.enabled = false;
@@ -655,7 +673,10 @@ public class PlayerController : MonoBehaviour
                     
                     if (OnOffTracker)
                     {
-                        obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+                        //obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+                        Color clr = obj.GetComponent<SpriteRenderer>().color;
+                        obj.GetComponent<SpriteRenderer>().color = new Color(clr.r, clr.g, clr.b, 0.5f);
+
                         if (objCollider != null)
                         {
                             objCollider.enabled = false;
@@ -667,7 +688,10 @@ public class PlayerController : MonoBehaviour
                     }
                     else
                     {
-                        obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+                        //obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+                        Color clr = obj.GetComponent<SpriteRenderer>().color;
+                        obj.GetComponent<SpriteRenderer>().color = new Color(clr.r, clr.g, clr.b, 1);
+
                         if (objCollider != null)
                         {
                             objCollider.enabled = true;
