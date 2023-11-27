@@ -551,30 +551,64 @@ public class PlayerController : MonoBehaviour
             {
                 if (obj.name == "BeatOuchOn")
                 {
+                    BoxCollider2D objCollider = obj.GetComponent<BoxCollider2D>();
+                    PolygonCollider2D objPolyCollider = obj.GetComponent<PolygonCollider2D>();
+
                     if (OnOffTracker)
                     {
-                        obj.GetComponent<SpriteRenderer>().color = new Color(0.612f, 0, 0, 1);
-                        obj.GetComponent<BoxCollider2D>().enabled = true;
+                        obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+                        if (objCollider != null)
+                        {
+                            objCollider.enabled = true;
+                        }
+                        if (objPolyCollider != null)
+                        {
+                            objPolyCollider.enabled = true;
+                        }
                     }
                     else
                     {
-                        obj.GetComponent<SpriteRenderer>().color = new Color(0.612f, 0, 0, 0.5f);
-                        obj.GetComponent<BoxCollider2D>().enabled = false;
+                        obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+                        if (objCollider != null)
+                        {
+                            objCollider.enabled = false;
+                        }
+                        if (objPolyCollider != null)
+                        {
+                            objPolyCollider.enabled = false;
+                        }
                     }
                     
                 }
 
                 if (obj.name == "BeatOuchOff")
                 {
+                    BoxCollider2D objCollider = obj.GetComponent<BoxCollider2D>();
+                    PolygonCollider2D objPolyCollider = obj.GetComponent<PolygonCollider2D>();
+                    
                     if (OnOffTracker)
                     {
-                        obj.GetComponent<SpriteRenderer>().color = new Color(0.612f, 0, 0, 0.5f);
-                        obj.GetComponent<BoxCollider2D>().enabled = false;
+                        obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+                        if (objCollider != null)
+                        {
+                            objCollider.enabled = false;
+                        }
+                        if (objPolyCollider != null)
+                        {
+                            objPolyCollider.enabled = false;
+                        }
                     }
                     else
                     {
-                        obj.GetComponent<SpriteRenderer>().color = new Color(0.612f, 0, 0, 1);
-                        obj.GetComponent<BoxCollider2D>().enabled = true;
+                        obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+                        if (objCollider != null)
+                        {
+                            objCollider.enabled = true;
+                        }
+                        if (objPolyCollider != null)
+                        {
+                            objPolyCollider.enabled = true;
+                        }
                     }
                     
                 }
@@ -584,30 +618,64 @@ public class PlayerController : MonoBehaviour
             {
                 if (obj.name == "BeatObstacleOn")
                 {
+                    BoxCollider2D objCollider = obj.GetComponent<BoxCollider2D>();
+                    PolygonCollider2D objPolyCollider = obj.GetComponent<PolygonCollider2D>();
+
                     if (OnOffTracker)
                     {
                         obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-                        obj.GetComponent<BoxCollider2D>().enabled = true;
+                        if (objCollider != null)
+                        {
+                            objCollider.enabled = true;
+                        }
+                        if (objPolyCollider != null)
+                        {
+                            objPolyCollider.enabled = true;
+                        }
                     }
                     else
                     {
                         obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
-                        obj.GetComponent<BoxCollider2D>().enabled = false;
+                        if (objCollider != null)
+                        {
+                            objCollider.enabled = false;
+                        }
+                        if (objPolyCollider != null)
+                        {
+                            objPolyCollider.enabled = false;
+                        }
                     }
                     
                 }
 
                 if (obj.name == "BeatObstacleOff")
                 {
+                    BoxCollider2D objCollider = obj.GetComponent<BoxCollider2D>();
+                    PolygonCollider2D objPolyCollider = obj.GetComponent<PolygonCollider2D>();
+                    
                     if (OnOffTracker)
                     {
                         obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
-                        obj.GetComponent<BoxCollider2D>().enabled = false;
+                        if (objCollider != null)
+                        {
+                            objCollider.enabled = false;
+                        }
+                        if (objPolyCollider != null)
+                        {
+                            objPolyCollider.enabled = false;
+                        }
                     }
                     else
                     {
                         obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-                        obj.GetComponent<BoxCollider2D>().enabled = true;
+                        if (objCollider != null)
+                        {
+                            objCollider.enabled = true;
+                        }
+                        if (objPolyCollider != null)
+                        {
+                            objPolyCollider.enabled = true;
+                        }
                     }
                     
                 }
