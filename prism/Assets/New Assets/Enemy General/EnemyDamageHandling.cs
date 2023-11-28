@@ -1,11 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyDamageHandling : MonoBehaviour
 {
     public AudioClip enemyDamageAudio;
     public AudioClip enemyDeathAudio;
+
+
+    public GameObject FullHealItem;
+    public GameObject PartialHealItem;
+    public GameObject PowerBuffItem;
+    public GameObject SpeedBuffItem;
+
 
     public Room roomSpawnedIn;
 
@@ -50,6 +58,34 @@ public class EnemyDamageHandling : MonoBehaviour
         if (hp <= 0)
         {
             Instantiate(corpse, position: this.transform.position, rotation: this.transform.rotation);
+
+            //enemy drops
+            if (Random.Range(0, 19) == 0)
+            {
+                int itemnum = Random.Range(0, 3);
+                switch (itemnum)
+                {
+                    case 0:
+                        GameObject FHIclone = Instantiate(FullHealItem, position: this.transform.position, rotation: this.transform.rotation);
+                        FHIclone.name = "FullHealItem";
+                        break;
+
+                    case 1:
+                        GameObject PHIclone = Instantiate(PartialHealItem, position: this.transform.position, rotation: this.transform.rotation);
+                        PHIclone.name = "PartialHealItem";
+                        break;
+                    
+                    case 2:
+                        GameObject PBIclone = Instantiate(PowerBuffItem, position: this.transform.position, rotation: this.transform.rotation);
+                        PBIclone.name = "PowerBuffItem";
+                        break;
+                    
+                    case 3:
+                        GameObject SBIclone = Instantiate(SpeedBuffItem, position: this.transform.position, rotation: this.transform.rotation);
+                        SBIclone.name = "SpeedBuffItem";
+                        break;
+                }
+            }
 
             killEnemy();
         }

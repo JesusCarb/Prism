@@ -12,7 +12,7 @@ public class RuneController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        runeNum = (int)(Mathf.Ceil(Random.Range(0, 9)));
+        runeNum = Random.Range(0, 9);
     }
 
     // Update is called once per frame

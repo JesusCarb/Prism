@@ -202,6 +202,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyDamageAudio: {fileID: 8300000, guid: 8f4e98fe365cc1c47a4cc3338cf3f60c, type: 3}
   enemyDeathAudio: {fileID: 8300000, guid: 531b8a48098fd44458414ab90c97f7bd, type: 3}
+  FullHealItem: {fileID: 8978895164077454988, guid: 82727dfcc2ba7ad4e965fd87652033cd,
+    type: 3}
+  PartialHealItem: {fileID: 389212859528730869, guid: f591338b4a6fa3a42a84712bcddd2c33,
+    type: 3}
+  PowerBuffItem: {fileID: 4823656433199527462, guid: b975d7f5fbfb1c0499648855c493c17c,
+    type: 3}
+  SpeedBuffItem: {fileID: 4852319302994243872, guid: 3e218ca9a06013c4cbaee599c2676249,
+    type: 3}
   roomSpawnedIn: {fileID: 0}
   enemyID: 0
   hp: 3
