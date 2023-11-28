@@ -222,7 +222,7 @@ public class RoomGenerator : MonoBehaviour
         {
             print("Changing room player is in");
             //print("beaten" + playerRoomChange.beaten);
-            //print("unlocked" + playerRoomChange.unlocked);s
+            //print("unlocked" + playerRoomChange.unlocked);
             playerRoom.DespawnEnemies();
             if (playerRoomChange.beaten == false)
             {
