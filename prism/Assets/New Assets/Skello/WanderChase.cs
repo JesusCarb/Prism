@@ -32,11 +32,17 @@ public class WanderChase : MonoBehaviour
 
     float wanderLength;
 
+    int currBeatCount = 0;
+    private PlayerController pc;
+
+
     // Start is called before the first frame update
     void Start()
     {
         player = FindObjectOfType<PlayerController>();
         rb = GetComponent<Rigidbody2D>();
+        pc = player.GetComponent<PlayerController>();
+
         wanderLength = 0f;
     }
 
@@ -57,7 +63,10 @@ public class WanderChase : MonoBehaviour
 
     void FixedUpdate()
     {
-
+        if(pc.beatChange == true)
+        {
+            currBeatCount += 1;
+        }
 
         distanceToPlayer = player.transform.position - this.transform.position;
         directionToPlayer = distanceToPlayer.normalized;
@@ -72,10 +81,15 @@ public class WanderChase : MonoBehaviour
             if(wanderLength <= 0)
             {
                 Wander();
-
-                if(Math.Abs(distanceToPlayer.magnitude) < shootDetectionDistance)
-                    Shoot();
             }
+
+            if(Math.Abs(distanceToPlayer.magnitude) < shootDetectionDistance)
+            
+                if(currBeatCount >= 4)
+                {
+                    Shoot(); 
+                    currBeatCount = 0;  
+                }
         }
         wanderLength -= Time.fixedDeltaTime;
 

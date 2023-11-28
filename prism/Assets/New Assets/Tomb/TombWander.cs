@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WanderScript : MonoBehaviour
+public class TombWander : MonoBehaviour
 {
     [SerializeField]
     private float speed;
@@ -25,15 +25,19 @@ public class WanderScript : MonoBehaviour
 
     public GameObject EnemyBullet;
 
-    int currBeatCount = 0;
+    public float shootDelay;
 
+    int currBeatCount = 0;
     private PlayerController pc;
+
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         player = FindObjectOfType<PlayerController>();
         pc = player.GetComponent<PlayerController>();
+
         wanderLength = 0f;
 
     }
@@ -62,14 +66,16 @@ public class WanderScript : MonoBehaviour
         {
             JesusWanderTest();
         }
+
         
         if(Math.Abs(distanceToPlayer.magnitude) < detectionDistance)
-        // shoot every other beat
-            if(currBeatCount >= 4)
+        {
+            if(currBeatCount >= 2)
             {
                 Shoot(); 
                 currBeatCount = 0;  
             }
+        }
 
 
         wanderLength -= Time.deltaTime;
@@ -97,6 +103,7 @@ public class WanderScript : MonoBehaviour
             randy, 0)) * speed;
             wanderLength = UnityEngine.Random.Range(1f, 4f);
 
+
             
         }
         
@@ -119,9 +126,9 @@ public class WanderScript : MonoBehaviour
         Vector3 final = mouseLoc - pos;
 
         float angle = Mathf.Atan2(final.y, final.x) * Mathf.Rad2Deg;
-
-        Quaternion rot = Quaternion.Euler(new Vector3(0,0, angle));
-
+        print(angle);
+        print(angle+90);
+        Quaternion rot = Quaternion.Euler(new Vector3(0,0, angle - 90));
         Instantiate(EnemyBullet, pos, rot);
     }
 }

@@ -83,7 +83,7 @@ public class EnemyBulletBehavior : MonoBehaviour
     {
         float currentTime = Time.time;
         
-        if(currentTime - spawnTime > 3)
+        if(currentTime - spawnTime > 1.5)
         {
             Destroy(gameObject);
         }

@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 hotspot = Vector2.zero;
 
     // beat calculation vars
-    bool beatChange;
+    public bool beatChange;
     public float BPM;
     private bool onBeat;
     private float timeLastBeat;
@@ -420,7 +420,7 @@ public class PlayerController : MonoBehaviour
     
     private void PlayBeat()
     {
-        if(beatCounter == 4 && beatChange == true)
+        if(beatCounter == 1 && beatChange == true)
         {
             // PlayMusicWrapper();
             PlayMusic();
