@@ -170,12 +170,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 842e8f918947c314db329bbaa1b18979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.5
-  detectionDistance: 5
-  wanderLimit: 10
+  speed: 2
+  detectionDistance: 30
+  wanderLimit: 5
   EnemyBullet: {fileID: 5644327936522697431, guid: 6817264d398d2f249bc5d1bba9ff569b,
     type: 3}
-  shootDelay: 10
 --- !u!114 &2385609327106054937
 MonoBehaviour:
   m_ObjectHideFlags: 0

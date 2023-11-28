@@ -673,12 +673,12 @@ MonoBehaviour:
   enemyList:
   - enemyRef: {fileID: 4563099141569318982, guid: 095eb0d3f7c420b46a205c4342bec056,
       type: 3}
-    position: {x: 3, y: 3, z: 0}
+    position: {x: 3, y: -1, z: 0}
     ID: 0
     HP: 3
   - enemyRef: {fileID: 4563099141569318982, guid: 095eb0d3f7c420b46a205c4342bec056,
       type: 3}
-    position: {x: -3, y: 3, z: 0}
+    position: {x: -3, y: -1, z: 0}
     ID: 1
     HP: 3
   enemiesLeft: []
