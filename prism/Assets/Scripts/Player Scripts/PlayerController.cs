@@ -23,6 +23,9 @@ public class PlayerController : MonoBehaviour
     public int maxHealth = 3;
     public int extraBulletsFired = 0;
     public float shotSpeedBuff = 1;
+    public float rangeBuff = 1;
+    public float hitLeewayBuff = 1;
+    public bool ouchImmunity = false;
 
 
     
@@ -134,6 +137,9 @@ public class PlayerController : MonoBehaviour
         maxHealth = playerInfo.maxHealth;
         extraBulletsFired = playerInfo.extraBulletsFired;
         shotSpeedBuff = playerInfo.shotSpeedBuff;
+        rangeBuff = playerInfo.rangeBuff;
+        hitLeewayBuff = playerInfo.hitLeewayBuff;
+        ouchImmunity = playerInfo.ouchImmunity;
 
         currentWeapon = (int)Weapon.None;
                 // get animator 
@@ -401,7 +407,7 @@ public class PlayerController : MonoBehaviour
         //print("timeLastBeat" + normalTLB + " " + onBeat);
         //print("timeNextBeat" + normalTNB + " " + onBeat);
 
-        if(normalTLB < hitLeeway || normalTNB < hitLeeway)
+        if(normalTLB < hitLeeway * hitLeewayBuff || normalTNB < hitLeeway * hitLeewayBuff)
         {
             onBeat = true;
         }
@@ -491,6 +497,9 @@ public class PlayerController : MonoBehaviour
             playerInfo.maxHealth = 3;
             playerInfo.extraBulletsFired = 0;
             playerInfo.shotSpeedBuff = 1;
+            playerInfo.rangeBuff = 1;
+            playerInfo.hitLeewayBuff = 1;
+            playerInfo.ouchImmunity = false;
 
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
             SceneManager.LoadScene("StartMenu");

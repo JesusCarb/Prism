@@ -36,6 +36,7 @@ public class PlayerCollision : MonoBehaviour
         if (collision.gameObject.tag.Equals("OuchObstacle"))
         {
             // collision.gameObject.takeDamage()
+            if (gameObject.GetComponent<PlayerController>().ouchImmunity) {return;};
             gameObject.GetComponent<PlayerController>().hp -= 1;
             gameObject.GetComponent<PlayerController>().audioSource.PlayOneShot(playerDamageAudio);
             // If ^ doesn't work, just GameObject.findAnyObjectOfType<>
@@ -49,7 +50,7 @@ public class PlayerCollision : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Ouch"))
         {
-            print("OWWWWWWWW!!!!");
+            if (gameObject.GetComponent<PlayerController>().ouchImmunity) {return;};
             gameObject.GetComponent<PlayerController>().hp -= 1;
             gameObject.GetComponent<PlayerController>().audioSource.PlayOneShot(playerDamageAudio);
         }

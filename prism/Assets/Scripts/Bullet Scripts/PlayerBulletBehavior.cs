@@ -100,7 +100,7 @@ public class PlayerBulletBehavior : MonoBehaviour
             break;
 
         }
-        if(currentTime - spawnTime > despawnTime)
+        if(currentTime - spawnTime > despawnTime * player.GetComponent<PlayerController>().rangeBuff)
         {
             Destroy(gameObject);
         }

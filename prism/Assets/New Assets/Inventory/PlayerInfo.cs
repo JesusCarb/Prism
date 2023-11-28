@@ -13,6 +13,9 @@ public class PlayerInfo : ScriptableObject
     public int maxHealth = 3;
     public int extraBulletsFired = 0;
     public float shotSpeedBuff = 1;
+    public float rangeBuff = 1;
+    public float hitLeewayBuff = 1;
+    public bool ouchImmunity = false;
 
     void OnEnable()
     {
@@ -24,5 +27,8 @@ public class PlayerInfo : ScriptableObject
         maxHealth = 3;
         extraBulletsFired = 0;
         shotSpeedBuff = 1;
+        rangeBuff = 1;
+        hitLeewayBuff = 1;
+        ouchImmunity = false;
     }
 }

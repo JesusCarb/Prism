@@ -1202,6 +1202,11 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1289624256027500910, guid: 10f1c961e8e8cf545a8c6507e6fc4435,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 1705408809234794530, guid: 10f1c961e8e8cf545a8c6507e6fc4435,
         type: 3}
       propertyPath: m_SortingOrder
@@ -1291,6 +1296,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Walkable Room Generator
+      objectReference: {fileID: 0}
+    - target: {fileID: 3381276053576646719, guid: 10f1c961e8e8cf545a8c6507e6fc4435,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 3724598998838477133, guid: 10f1c961e8e8cf545a8c6507e6fc4435,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4162960930369243946, guid: 10f1c961e8e8cf545a8c6507e6fc4435,
         type: 3}
@@ -1382,6 +1397,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043542243713478289, guid: 10f1c961e8e8cf545a8c6507e6fc4435,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 8940467938789187211, guid: 10f1c961e8e8cf545a8c6507e6fc4435,
         type: 3}
