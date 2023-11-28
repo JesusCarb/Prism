@@ -494,9 +494,155 @@ public class PlayerController : MonoBehaviour
 
     void AdjustHealth()
     {
+        //im so sorry
+        switch(maxHealth)
+        {
+            case 1:
+                GameObject.Find("Heart1").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart1Gone").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart2").GetComponent<UnityEngine.UI.Image>().enabled = false;
+                GameObject.Find("Heart2Gone").GetComponent<UnityEngine.UI.Image>().enabled = false;
+                GameObject.Find("Heart3").GetComponent<UnityEngine.UI.Image>().enabled = false;
+                GameObject.Find("Heart3Gone").GetComponent<UnityEngine.UI.Image>().enabled = false;
+                GameObject.Find("Heart4").GetComponent<UnityEngine.UI.Image>().enabled = false;
+                GameObject.Find("Heart4Gone").GetComponent<UnityEngine.UI.Image>().enabled = false;
+                GameObject.Find("Heart5").GetComponent<UnityEngine.UI.Image>().enabled = false;
+                GameObject.Find("Heart5Gone").GetComponent<UnityEngine.UI.Image>().enabled = false;
+                GameObject.Find("Heart6").GetComponent<UnityEngine.UI.Image>().enabled = false;
+                GameObject.Find("Heart6Gone").GetComponent<UnityEngine.UI.Image>().enabled = false;
+                break;
+
+            case 2:
+                GameObject.Find("Heart1").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart1Gone").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart2").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart2Gone").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart3").GetComponent<UnityEngine.UI.Image>().enabled = false;
+                GameObject.Find("Heart3Gone").GetComponent<UnityEngine.UI.Image>().enabled = false;
+                GameObject.Find("Heart4").GetComponent<UnityEngine.UI.Image>().enabled = false;
+                GameObject.Find("Heart4Gone").GetComponent<UnityEngine.UI.Image>().enabled = false;
+                GameObject.Find("Heart5").GetComponent<UnityEngine.UI.Image>().enabled = false;
+                GameObject.Find("Heart5Gone").GetComponent<UnityEngine.UI.Image>().enabled = false;
+                GameObject.Find("Heart6").GetComponent<UnityEngine.UI.Image>().enabled = false;
+                GameObject.Find("Heart6Gone").GetComponent<UnityEngine.UI.Image>().enabled = false;
+                break;
+            
+            case 3:
+                GameObject.Find("Heart1").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart1Gone").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart2").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart2Gone").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart3").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart3Gone").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart4").GetComponent<UnityEngine.UI.Image>().enabled = false;
+                GameObject.Find("Heart4Gone").GetComponent<UnityEngine.UI.Image>().enabled = false;
+                GameObject.Find("Heart5").GetComponent<UnityEngine.UI.Image>().enabled = false;
+                GameObject.Find("Heart5Gone").GetComponent<UnityEngine.UI.Image>().enabled = false;
+                GameObject.Find("Heart6").GetComponent<UnityEngine.UI.Image>().enabled = false;
+                GameObject.Find("Heart6Gone").GetComponent<UnityEngine.UI.Image>().enabled = false;
+                break;
+            
+            case 4:
+                GameObject.Find("Heart1").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart1Gone").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart2").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart2Gone").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart3").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart3Gone").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart4").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart4Gone").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart5").GetComponent<UnityEngine.UI.Image>().enabled = false;
+                GameObject.Find("Heart5Gone").GetComponent<UnityEngine.UI.Image>().enabled = false;
+                GameObject.Find("Heart6").GetComponent<UnityEngine.UI.Image>().enabled = false;
+                GameObject.Find("Heart6Gone").GetComponent<UnityEngine.UI.Image>().enabled = false;
+                break;
+            
+            case 5:
+                GameObject.Find("Heart1").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart1Gone").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart2").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart2Gone").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart3").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart3Gone").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart4").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart4Gone").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart5").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart5Gone").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart6").GetComponent<UnityEngine.UI.Image>().enabled = false;
+                GameObject.Find("Heart6Gone").GetComponent<UnityEngine.UI.Image>().enabled = false;
+                break;
+            
+            case 6:
+                GameObject.Find("Heart1").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart1Gone").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart2").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart2Gone").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart3").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart3Gone").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart4").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart4Gone").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart5").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart5Gone").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart6").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                GameObject.Find("Heart6Gone").GetComponent<UnityEngine.UI.Image>().enabled = true;
+                break;
+        }
+        
+        //im so so sorry why does this go backwards welp i dont feel like changing it
         switch (hp)
         {
+            case 6:
+                GameObject.Find("Heart6").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 1);
+                GameObject.Find("Heart6Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                GameObject.Find("Heart5").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 1);
+                GameObject.Find("Heart5Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                GameObject.Find("Heart4").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 1);
+                GameObject.Find("Heart4Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                GameObject.Find("Heart3").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 1);
+                GameObject.Find("Heart3Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                GameObject.Find("Heart2").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 1);
+                GameObject.Find("Heart2Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                GameObject.Find("Heart1").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 1);
+                GameObject.Find("Heart1Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                break;
+            
+            case 5:
+                GameObject.Find("Heart6").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                GameObject.Find("Heart6Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0.75f);
+                GameObject.Find("Heart5").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 1);
+                GameObject.Find("Heart5Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                GameObject.Find("Heart4").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 1);
+                GameObject.Find("Heart4Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                GameObject.Find("Heart3").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 1);
+                GameObject.Find("Heart3Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                GameObject.Find("Heart2").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 1);
+                GameObject.Find("Heart2Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                GameObject.Find("Heart1").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 1);
+                GameObject.Find("Heart1Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                break;
+            
+            case 4:
+                GameObject.Find("Heart6").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                GameObject.Find("Heart6Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0.75f);
+                GameObject.Find("Heart5").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                GameObject.Find("Heart5Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0.75f);
+                GameObject.Find("Heart4").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 1);
+                GameObject.Find("Heart4Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                GameObject.Find("Heart3").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 1);
+                GameObject.Find("Heart3Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                GameObject.Find("Heart2").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 1);
+                GameObject.Find("Heart2Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                GameObject.Find("Heart1").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 1);
+                GameObject.Find("Heart1Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                break;
+            
             case 3:
+                GameObject.Find("Heart6").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                GameObject.Find("Heart6Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0.75f);
+                GameObject.Find("Heart5").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                GameObject.Find("Heart5Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0.75f);
+                GameObject.Find("Heart4").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                GameObject.Find("Heart4Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0.75f);
                 GameObject.Find("Heart3").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 1);
                 GameObject.Find("Heart3Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
                 GameObject.Find("Heart2").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 1);
@@ -506,6 +652,12 @@ public class PlayerController : MonoBehaviour
                 break;
 
             case 2:
+                GameObject.Find("Heart6").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                GameObject.Find("Heart6Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0.75f);
+                GameObject.Find("Heart5").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                GameObject.Find("Heart5Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0.75f);
+                GameObject.Find("Heart4").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                GameObject.Find("Heart4Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0.75f);
                 GameObject.Find("Heart3").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
                 GameObject.Find("Heart3Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0.75f);
                 GameObject.Find("Heart2").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 1);
@@ -515,6 +667,12 @@ public class PlayerController : MonoBehaviour
                 break;
 
             case 1:
+                GameObject.Find("Heart6").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                GameObject.Find("Heart6Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0.75f);
+                GameObject.Find("Heart5").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                GameObject.Find("Heart5Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0.75f);
+                GameObject.Find("Heart4").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                GameObject.Find("Heart4Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0.75f);
                 GameObject.Find("Heart3").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
                 GameObject.Find("Heart3Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0.75f);
                 GameObject.Find("Heart2").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
@@ -524,6 +682,12 @@ public class PlayerController : MonoBehaviour
                 break;
             
             case 0:
+                GameObject.Find("Heart6").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                GameObject.Find("Heart6Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0.75f);
+                GameObject.Find("Heart5").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                GameObject.Find("Heart5Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0.75f);
+                GameObject.Find("Heart4").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
+                GameObject.Find("Heart4Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0.75f);
                 GameObject.Find("Heart3").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
                 GameObject.Find("Heart3Gone").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0.75f);
                 GameObject.Find("Heart2").GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 0);
