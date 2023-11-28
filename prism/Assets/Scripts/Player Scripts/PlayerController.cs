@@ -486,7 +486,8 @@ public class PlayerController : MonoBehaviour
             playerInfo.permSpeedBuff = 1;
             playerInfo.maxHealth = 3;
 
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            SceneManager.LoadScene("StartMenu");
             // timescale will stay at zero so I'm turning it back to 1
         }
 
