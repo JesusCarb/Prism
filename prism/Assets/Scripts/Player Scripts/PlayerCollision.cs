@@ -58,14 +58,14 @@ public class PlayerCollision : MonoBehaviour
         
         if (collision.gameObject.name == "FullHealItem")
         {
-            if (gameObject.GetComponent<PlayerController>().hp == 3) {return;};
+            if (gameObject.GetComponent<PlayerController>().hp == gameObject.GetComponent<PlayerController>().maxHealth) {return;};
             Destroy(collision.gameObject);
             gameObject.GetComponent<PlayerController>().hp = 3;
         }
 
         if (collision.gameObject.name == "PartialHealItem")
         {
-            if (gameObject.GetComponent<PlayerController>().hp == 3) {return;};
+            if (gameObject.GetComponent<PlayerController>().hp == gameObject.GetComponent<PlayerController>().maxHealth) {return;};
             Destroy(collision.gameObject);
             gameObject.GetComponent<PlayerController>().hp += 1;
         }
