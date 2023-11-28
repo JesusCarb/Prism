@@ -704,6 +704,85 @@ public class PlayerController : MonoBehaviour
                     
                 }
             }
+
+            foreach(GameObject obj in GameObject.FindGameObjectsWithTag("OuchObstacle"))
+            {
+                if (obj.name == "BeatOuchObstacleOn")
+                {
+                    BoxCollider2D objCollider = obj.GetComponent<BoxCollider2D>();
+                    PolygonCollider2D objPolyCollider = obj.GetComponent<PolygonCollider2D>();
+
+                    if (OnOffTracker)
+                    {
+                        //obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+                        Color clr = obj.GetComponent<SpriteRenderer>().color;
+                        obj.GetComponent<SpriteRenderer>().color = new Color(clr.r, clr.g, clr.b, 1);
+
+                        if (objCollider != null)
+                        {
+                            objCollider.enabled = true;
+                        }
+                        if (objPolyCollider != null)
+                        {
+                            objPolyCollider.enabled = true;
+                        }
+                    }
+                    else
+                    {
+                        //obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+                        Color clr = obj.GetComponent<SpriteRenderer>().color;
+                        obj.GetComponent<SpriteRenderer>().color = new Color(clr.r, clr.g, clr.b, 0.5f);
+
+                        if (objCollider != null)
+                        {
+                            objCollider.enabled = false;
+                        }
+                        if (objPolyCollider != null)
+                        {
+                            objPolyCollider.enabled = false;
+                        }
+                    }
+                    
+                }
+
+                if (obj.name == "BeatOuchObstacleOff")
+                {
+                    BoxCollider2D objCollider = obj.GetComponent<BoxCollider2D>();
+                    PolygonCollider2D objPolyCollider = obj.GetComponent<PolygonCollider2D>();
+                    
+                    if (OnOffTracker)
+                    {
+                        //obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+                        Color clr = obj.GetComponent<SpriteRenderer>().color;
+                        obj.GetComponent<SpriteRenderer>().color = new Color(clr.r, clr.g, clr.b, 0.5f);
+
+                        if (objCollider != null)
+                        {
+                            objCollider.enabled = false;
+                        }
+                        if (objPolyCollider != null)
+                        {
+                            objPolyCollider.enabled = false;
+                        }
+                    }
+                    else
+                    {
+                        //obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+                        Color clr = obj.GetComponent<SpriteRenderer>().color;
+                        obj.GetComponent<SpriteRenderer>().color = new Color(clr.r, clr.g, clr.b, 1);
+
+                        if (objCollider != null)
+                        {
+                            objCollider.enabled = true;
+                        }
+                        if (objPolyCollider != null)
+                        {
+                            objPolyCollider.enabled = true;
+                        }
+                    }
+                    
+                }
+            }
         }
         
     }
