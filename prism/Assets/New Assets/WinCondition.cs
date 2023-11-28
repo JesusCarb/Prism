@@ -27,6 +27,7 @@ public class WinCondition : MonoBehaviour
             playerC.playerInfo.permPowerBuff = playerC.permPowerBuff;
             playerC.playerInfo.permSpeedBuff = playerC.permSpeedBuff;
             playerC.playerInfo.maxHealth = playerC.maxHealth;
+            playerC.playerInfo.extraBulletsFired = playerC.extraBulletsFired;
             
             yield return new WaitForSecondsRealtime(.05f);
 

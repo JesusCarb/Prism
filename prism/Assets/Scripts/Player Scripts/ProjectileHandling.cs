@@ -83,7 +83,7 @@ public class ProjectileHandling : MonoBehaviour
                 //print((int)Weapon.Shotty);
                 if(currentWeapon == (int)Weapon.Pistol)
                 {
-                    FireProjectile();
+                    StartCoroutine(FireProjectile());
                 }else if(currentWeapon == (int)Weapon.Rifle)
                 {
                     StartCoroutine(FireBurst());
@@ -114,27 +114,33 @@ public class ProjectileHandling : MonoBehaviour
         }
     }
 
-    void FireProjectile()
+    private IEnumerator FireProjectile()
     {
-        // gets position of player to spawn bullet
+        for (int i = 0; i < 1 + playerController.extraBulletsFired; i++)
+        {
+            // gets position of player to spawn bullet
 
-        Vector3 pos = this.transform.position;
-        Vector3 mouseLoc = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 final = mouseLoc - pos;
+            Vector3 pos = this.transform.position;
+            Vector3 mouseLoc = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 final = mouseLoc - pos;
 
-        float angle = Mathf.Atan2(final.y, final.x) * Mathf.Rad2Deg;
+            float angle = Mathf.Atan2(final.y, final.x) * Mathf.Rad2Deg;
 
-        Quaternion rot = Quaternion.Euler(new Vector3(0,0, angle - 90));
+            Quaternion rot = Quaternion.Euler(new Vector3(0,0, angle - 90));
 
-        // currently spawning on player position
-        Instantiate(basicBullet, position: pos, rotation: rot);
-        shootSource.PlayOneShot(pistolShot);
-        // Debug.Log("FIRE");
+            // currently spawning on player position
+            Instantiate(basicBullet, position: pos, rotation: rot);
+            shootSource.PlayOneShot(pistolShot);
+            // Debug.Log("FIRE");
+            yield return new WaitForSeconds(.075f);
+        }
+        
+        
     }
 
     private IEnumerator FireBurst()
     {
-        for(int i = 0; i < burstNum; i ++)
+        for(int i = 0; i < burstNum + playerController.extraBulletsFired; i ++)
         {
             yield return new WaitForSeconds(.075f);
                 // gets position of player to spawn bullet
@@ -159,7 +165,7 @@ public class ProjectileHandling : MonoBehaviour
     {
         Vector3 loc = this.transform.position;
         Quaternion rot = this.transform.rotation;
-        for(int i = 0; i < blastNum; i++)
+        for(int i = 0; i < blastNum + playerController.extraBulletsFired; i++)
         {
             Instantiate(blastBullets, position: loc, rotation: rot);
         }

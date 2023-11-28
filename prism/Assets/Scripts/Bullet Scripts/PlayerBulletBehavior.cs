@@ -59,7 +59,7 @@ public class PlayerBulletBehavior : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (collision.gameObject.tag.Equals("Obstacle") || collision.gameObject.tag.Equals("OuchObstacle"))
+        if (collision.gameObject.tag.Equals("Obstacle") || collision.gameObject.tag.Equals("OuchObstacle") || collision.gameObject.tag.Equals("Room"))
         {
             Destroy(gameObject);
 
