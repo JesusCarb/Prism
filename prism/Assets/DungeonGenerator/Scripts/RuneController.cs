@@ -20,8 +20,21 @@ public class RuneController : MonoBehaviour
     void Start()
     {
         new WaitForSeconds(0.5f);
-        
+        PlayerController player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         runeNum = Random.Range(1, 14);
+
+        while(true)
+        {
+            if (runeNum == 1 && player.maxHealth > 4) {continue;};
+            if (runeNum == 4 && player.extraBulletsFired == 5) {continue;};
+            if (runeNum == 8 && player.maxHealth < 2) {continue;};
+            if (runeNum == 9 && player.maxHealth < 3) {continue;};
+            if (runeNum == 11 && player.maxHealth > 5) {continue;};
+            if (runeNum == 13 && (player.weapon1 == "Shotty" || player.weapon2 == "Shotty" || player.weapon3 == "Shotty")) {continue;};
+            if (runeNum == 14 && (player.weapon1 == "Rifle" || player.weapon2 == "Rifle" || player.weapon3 == "Rifle")) {continue;};
+
+            break;
+        }
 
         switch (runeNum)
         {
@@ -165,6 +178,7 @@ public class RuneController : MonoBehaviour
             {
                 case 1:
                     player.maxHealth += 2;
+                    player.hp += 2;
                     player.permSpeedBuff *= 0.6f;
                     break;
                 
@@ -199,11 +213,14 @@ public class RuneController : MonoBehaviour
                 
                 case 8:
                     player.permPowerBuff *= 1.5f;
+                    if (player.hp == player.maxHealth) {player.hp -= 1;};
                     player.maxHealth -= 1;
                     break;
                 
                 case 9:
                     player.permPowerBuff *= 2;
+                    if (player.hp == player.maxHealth) {player.hp -= 2;}
+                    else if (player.hp == player.maxHealth - 1) {player.hp -= 1;};
                     player.maxHealth -= 2;
                     break;
                 
@@ -214,6 +231,7 @@ public class RuneController : MonoBehaviour
                 case 11:
                     player.rangeBuff *= 1.4f;
                     player.maxHealth += 1;
+                    player.hp += 1;
                     player.permSpeedBuff *= 0.75f;
                     break;
                 
