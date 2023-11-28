@@ -33,7 +33,7 @@ public class PlayerBulletTragectory : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        rb.velocity = direction * speed;
+        rb.velocity = direction * (speed * player.GetComponent<PlayerController>().shotSpeedBuff);
 
         // this.transform.Rotate(0f,0f, Random.Range(-spread,spread));
     }

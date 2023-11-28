@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public float permSpeedBuff = 1;
     public int maxHealth = 3;
     public int extraBulletsFired = 0;
+    public float shotSpeedBuff = 1;
 
 
     
@@ -132,6 +133,7 @@ public class PlayerController : MonoBehaviour
         permSpeedBuff = playerInfo.permSpeedBuff;
         maxHealth = playerInfo.maxHealth;
         extraBulletsFired = playerInfo.extraBulletsFired;
+        shotSpeedBuff = playerInfo.shotSpeedBuff;
 
         currentWeapon = (int)Weapon.None;
                 // get animator 
@@ -488,6 +490,7 @@ public class PlayerController : MonoBehaviour
             playerInfo.permSpeedBuff = 1;
             playerInfo.maxHealth = 3;
             playerInfo.extraBulletsFired = 0;
+            playerInfo.shotSpeedBuff = 1;
 
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
             SceneManager.LoadScene("StartMenu");

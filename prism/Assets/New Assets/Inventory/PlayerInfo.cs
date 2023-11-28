@@ -12,6 +12,7 @@ public class PlayerInfo : ScriptableObject
     public float permSpeedBuff = 1;
     public int maxHealth = 3;
     public int extraBulletsFired = 0;
+    public float shotSpeedBuff = 1;
 
     void OnEnable()
     {
@@ -22,5 +23,6 @@ public class PlayerInfo : ScriptableObject
         permSpeedBuff = 1;
         maxHealth = 3;
         extraBulletsFired = 0;
+        shotSpeedBuff = 1;
     }
 }
