@@ -73,7 +73,7 @@ public class PlayerCollision : MonoBehaviour
         if (collision.gameObject.name == "PowerBuffItem")
         {
             Destroy(collision.gameObject);
-            gameObject.GetComponent<PlayerController>().damageMultiplier *= 2;
+            gameObject.GetComponent<PlayerController>().damageMultiplier *= 1.5f;
             StartCoroutine(PowerBuffTimer());
         }
 

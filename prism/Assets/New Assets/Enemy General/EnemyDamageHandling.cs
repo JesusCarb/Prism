@@ -19,7 +19,7 @@ public class EnemyDamageHandling : MonoBehaviour
 
     public int enemyID;
 
-    public int hp = 3;
+    public float hp = 3;
 
     const float damageTintTime = 0.3f;
     private float timeLeftTinted = 0f;
@@ -50,7 +50,7 @@ public class EnemyDamageHandling : MonoBehaviour
         }
     }
 
-    public void takeDamage(int damageVal)
+    public void takeDamage(float damageVal)
     {
         
         hp-= damageVal;
@@ -60,7 +60,7 @@ public class EnemyDamageHandling : MonoBehaviour
             Instantiate(corpse, position: this.transform.position, rotation: this.transform.rotation);
 
             //enemy drops
-            if (Random.Range(0, 19) == 0)
+            if (Random.Range(0, 9) == 0)
             {
                 int itemnum = Random.Range(0, 3);
                 switch (itemnum)

@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     public string weapon1;
     public string weapon2;
     public string weapon3;
-    public int permPowerBuff = 1;
+    public float permPowerBuff = 1;
     public float permSpeedBuff = 1;
     public int maxHealth = 3;
     public int extraBulletsFired = 0;
@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
     // player vars
     public int hp = 3;
     public float moveSpeed = 40f;
-    public int damageMultiplier = 1;
+    public float damageMultiplier = 1;
     Vector2 playerInput;
     Vector3 velocity;
     float velocityXSmoothing;
