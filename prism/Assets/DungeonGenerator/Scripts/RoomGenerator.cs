@@ -195,6 +195,7 @@ public class RoomGenerator : MonoBehaviour
 
         replaceRooms();
         GenerateDoors();
+        GenerateShards();
     }
 
 
@@ -217,6 +218,10 @@ public class RoomGenerator : MonoBehaviour
         if (Input.GetKeyDown("u"))
         {
             playerRoom.UnlockRoom();
+        }
+        if (Input.GetKeyDown("l"))
+        {
+            print("Number of shards left: " + ShardsLeft());
         }
         if (playerRoomChange != playerRoom)
         {
@@ -388,6 +393,33 @@ public class RoomGenerator : MonoBehaviour
             rooms[i].AssignAllNeighbours(offsets);
         }
 
+    }
+
+    private void GenerateShards()
+    {
+        int hasShard = 0;
+        foreach(Room r in rooms)
+        {
+            hasShard = Random.Range(0, 2);
+            if (hasShard == 0)
+            {
+                r.setShard();
+            }
+        }
+
+    }
+
+    public int ShardsLeft()
+    {
+        int numShards = 0;
+        foreach (Room r in rooms)
+        {
+            if (r.hasShard == true)
+            {
+                numShards++;
+            }
+        }
+        return numShards;
     }
 
     private void Add2x2Room()

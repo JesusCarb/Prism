@@ -57,6 +57,7 @@ public class Room : MonoBehaviour
     public bool lootRoom = false;
     public bool unlocked = false;
     public bool beaten = false;
+    public bool hasShard = false;
 
     public void setBossRoom()
     {
@@ -140,6 +141,11 @@ public class Room : MonoBehaviour
         return false;
     }
 
+    public void setShard()
+    {
+        hasShard = true;
+    }
+
     private void Awake()
     {
         myCollider = GetComponent<BoxCollider2D>();
@@ -187,6 +193,7 @@ public class Room : MonoBehaviour
     public void RoomBeaten()
     {
         beaten = true;
+        hasShard = false;
     }
     public void resetDoors()
     {
