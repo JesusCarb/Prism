@@ -713,7 +713,7 @@ PrefabInstance:
     - target: {fileID: 3941651070723074689, guid: 7fcdbae76ff334346b79f0aa48855e47,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3941651070723074689, guid: 7fcdbae76ff334346b79f0aa48855e47,
         type: 3}
@@ -1124,7 +1124,7 @@ PrefabInstance:
     - target: {fileID: -8599818805871314511, guid: 10f1c961e8e8cf545a8c6507e6fc4435,
         type: 3}
       propertyPath: RoomVal12.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8599818805871314511, guid: 10f1c961e8e8cf545a8c6507e6fc4435,
         type: 3}
@@ -1300,6 +1300,12 @@ PrefabInstance:
       propertyPath: RoomVal12.Array.data[1]
       value: 
       objectReference: {fileID: 3209839221660925346, guid: f5e7ab8952b764645b7bb841df87c5c9,
+        type: 3}
+    - target: {fileID: -8599818805871314511, guid: 10f1c961e8e8cf545a8c6507e6fc4435,
+        type: 3}
+      propertyPath: RoomVal12.Array.data[2]
+      value: 
+      objectReference: {fileID: 7131705432431710062, guid: 74190cb79cd47a84c997c1175f95e6b3,
         type: 3}
     - target: {fileID: -8599818805871314511, guid: 10f1c961e8e8cf545a8c6507e6fc4435,
         type: 3}
