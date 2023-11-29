@@ -761,6 +761,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runeNum: 0
   active: 0
+  runeName: 
+  changeList: []
+  runePanel: {fileID: 0}
 --- !u!1 &1669159742160056924
 GameObject:
   m_ObjectHideFlags: 0
@@ -1830,9 +1833,10 @@ MonoBehaviour:
   roomValue: 0
   specialRoom: 0
   bossRoom: 0
-  lootRoom: 0
+  lootRoom: 1
   unlocked: 0
   beaten: 0
+  hasShard: 0
   roomDoors:
   - active: 0
     roomPart: {fileID: 9023310783344284603}

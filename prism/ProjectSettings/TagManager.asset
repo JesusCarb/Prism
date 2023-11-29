@@ -12,6 +12,10 @@ TagManager:
   - Drop
   - Room
   - RunePillar
+  - EnemyBullet
+  - Weapon
+  - PlayerBullet
+  - Shard
   layers:
   - Default
   - TransparentFX

@@ -32,6 +32,7 @@ public class WinCondition : MonoBehaviour
             playerC.playerInfo.rangeBuff = playerC.rangeBuff;
             playerC.playerInfo.hitLeewayBuff = playerC.hitLeewayBuff;
             playerC.playerInfo.ouchImmunity = playerC.ouchImmunity;
+            playerC.playerInfo.floorNum = playerC.floorNum + 1;
             
             yield return new WaitForSecondsRealtime(.05f);
 
@@ -45,7 +46,7 @@ public class WinCondition : MonoBehaviour
             // thiswasnt working L
             // playerC.audioSource.Stop();
             playerC.PlayEndingMusic();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            SceneManager.LoadScene("TransitionScene");
             // Destroy(gameObject);
         }
     }

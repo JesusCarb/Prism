@@ -64,6 +64,17 @@ public class PlayerCollision : MonoBehaviour
             gameObject.GetComponent<PlayerController>().audioSource.PlayOneShot(playerDamageAudio);
         }
 
+        if (collision.gameObject.tag.Equals("Shard"))
+        {
+            gameObject.GetComponent<PlayerController>().numShards += 1;
+            Destroy(collision.gameObject);
+            if (gameObject.GetComponent<PlayerController>().numShards == gameObject.GetComponent<PlayerController>().totalShards)
+            {
+                GameObject.Find("WinCrystal").GetComponent<SpriteRenderer>().enabled = true;
+                GameObject.Find("WinCrystal").GetComponent<BoxCollider2D>().enabled = true;
+            }
+        }
+
         
         if (collision.gameObject.name == "FullHealItem")
         {
