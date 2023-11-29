@@ -996,12 +996,12 @@ MonoBehaviour:
   enemyList:
   - enemyRef: {fileID: 2080535979394739434, guid: 58f4a38ae907cdd449d6180a327e1ed2,
       type: 3}
-    position: {x: -15, y: 5.7, z: 0}
+    position: {x: -13, y: 5.7, z: 0}
     ID: 0
     HP: 3
   - enemyRef: {fileID: 2080535979394739434, guid: 58f4a38ae907cdd449d6180a327e1ed2,
       type: 3}
-    position: {x: 15, y: 5.7, z: 0}
+    position: {x: 13, y: 5.7, z: 0}
     ID: 0
     HP: 3
   - enemyRef: {fileID: 2080535979394739434, guid: 58f4a38ae907cdd449d6180a327e1ed2,
