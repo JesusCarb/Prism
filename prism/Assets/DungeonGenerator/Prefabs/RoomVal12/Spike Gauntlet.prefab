@@ -965,6 +965,7 @@ MonoBehaviour:
   lootRoom: 0
   unlocked: 0
   beaten: 0
+  hasShard: 0
   roomDoors:
   - active: 0
     roomPart: {fileID: 8746493257381813784}
@@ -995,12 +996,12 @@ MonoBehaviour:
   enemyList:
   - enemyRef: {fileID: 2080535979394739434, guid: 58f4a38ae907cdd449d6180a327e1ed2,
       type: 3}
-    position: {x: -12.41, y: 5.7, z: 0}
+    position: {x: -15, y: 5.7, z: 0}
     ID: 0
     HP: 3
   - enemyRef: {fileID: 2080535979394739434, guid: 58f4a38ae907cdd449d6180a327e1ed2,
       type: 3}
-    position: {x: 12.58, y: 5.7, z: 0}
+    position: {x: 15, y: 5.7, z: 0}
     ID: 0
     HP: 3
   - enemyRef: {fileID: 2080535979394739434, guid: 58f4a38ae907cdd449d6180a327e1ed2,
@@ -4008,7 +4009,7 @@ PrefabInstance:
     - target: {fileID: 4929813193132097679, guid: d45bf3d5d1127554081123ffb829d50d,
         type: 3}
       propertyPath: m_Name
-      value: BeatOuchObstacleOn (5)
+      value: BeatOuchObstacleOn
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d45bf3d5d1127554081123ffb829d50d, type: 3}
@@ -4178,7 +4179,7 @@ PrefabInstance:
     - target: {fileID: 4929813193132097679, guid: d45bf3d5d1127554081123ffb829d50d,
         type: 3}
       propertyPath: m_Name
-      value: BeatOuchObstacleOn (3)
+      value: BeatOuchObstacleOn
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d45bf3d5d1127554081123ffb829d50d, type: 3}
@@ -6048,7 +6049,7 @@ PrefabInstance:
     - target: {fileID: 4929813193132097679, guid: d45bf3d5d1127554081123ffb829d50d,
         type: 3}
       propertyPath: m_Name
-      value: BeatOuchObstacleOn (4)
+      value: BeatOuchObstacleOn
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d45bf3d5d1127554081123ffb829d50d, type: 3}
@@ -6218,7 +6219,7 @@ PrefabInstance:
     - target: {fileID: 4929813193132097679, guid: d45bf3d5d1127554081123ffb829d50d,
         type: 3}
       propertyPath: m_Name
-      value: BeatOuchObstacleOn (6)
+      value: BeatOuchObstacleOn
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d45bf3d5d1127554081123ffb829d50d, type: 3}
@@ -9023,7 +9024,7 @@ PrefabInstance:
     - target: {fileID: 4929813193132097679, guid: d45bf3d5d1127554081123ffb829d50d,
         type: 3}
       propertyPath: m_Name
-      value: BeatOuchObstacleOn (1)
+      value: BeatOuchObstacleOn
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d45bf3d5d1127554081123ffb829d50d, type: 3}
@@ -9108,7 +9109,7 @@ PrefabInstance:
     - target: {fileID: 4929813193132097679, guid: d45bf3d5d1127554081123ffb829d50d,
         type: 3}
       propertyPath: m_Name
-      value: BeatOuchObstacleOn (2)
+      value: BeatOuchObstacleOn
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d45bf3d5d1127554081123ffb829d50d, type: 3}
