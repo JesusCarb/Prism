@@ -400,10 +400,12 @@ public class RoomGenerator : MonoBehaviour
         int hasShard = 0;
         foreach(Room r in rooms)
         {
+            if (r.bossRoom || r.lootRoom) {continue;};
             hasShard = Random.Range(0, 2);
             if (hasShard == 0)
             {
                 r.setShard();
+                GameObject.FindWithTag("Player").GetComponent<PlayerController>().totalShards += 1;
             }
         }
 

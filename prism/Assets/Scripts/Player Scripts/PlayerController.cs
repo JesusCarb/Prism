@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     public float rangeBuff = 1;
     public float hitLeewayBuff = 1;
     public bool ouchImmunity = false;
+    public int floorNum = 1;
 
 
     
@@ -50,6 +51,8 @@ public class PlayerController : MonoBehaviour
     public int hp = 3;
     public float moveSpeed = 40f;
     public float damageMultiplier = 1;
+    public int numShards = 0;
+    public int totalShards = 0;
     Vector2 playerInput;
     Vector3 velocity;
     float velocityXSmoothing;
@@ -140,10 +143,13 @@ public class PlayerController : MonoBehaviour
         rangeBuff = playerInfo.rangeBuff;
         hitLeewayBuff = playerInfo.hitLeewayBuff;
         ouchImmunity = playerInfo.ouchImmunity;
+        floorNum = playerInfo.floorNum;
 
         currentWeapon = (int)Weapon.None;
                 // get animator 
         anim = GetComponent<Animator>();
+
+        SetWeapon(1);
 
         // SetWeapon((int)Weapon.Rifle);
     }
@@ -500,6 +506,7 @@ public class PlayerController : MonoBehaviour
             playerInfo.rangeBuff = 1;
             playerInfo.hitLeewayBuff = 1;
             playerInfo.ouchImmunity = false;
+            playerInfo.floorNum = 1;
 
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
             SceneManager.LoadScene("StartMenu");

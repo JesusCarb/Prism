@@ -21,10 +21,12 @@ public class RuneController : MonoBehaviour
     {
         new WaitForSeconds(0.5f);
         PlayerController player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
-        runeNum = Random.Range(1, 14);
+        
 
         while(true)
         {
+            runeNum = Random.Range(1, 15);
+
             if (runeNum == 1 && player.maxHealth > 4) {continue;};
             if (runeNum == 4 && player.extraBulletsFired == 5) {continue;};
             if (runeNum == 8 && player.maxHealth < 2) {continue;};
