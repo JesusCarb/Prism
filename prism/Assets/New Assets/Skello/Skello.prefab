@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 5751621207301385574}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.61, y: 4.85, z: -0.05502673}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -145,8 +145,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
-  chaseDetectionDistance: 3
-  shootDetectionDistance: 5
+  chaseDetectionDistance: 10
+  shootDetectionDistance: 10
   skelloWeapon: {fileID: 5644327936522697431, guid: 31d32cf16f82a6c46ba530aeb85a77db,
     type: 3}
   wanderLimit: 8

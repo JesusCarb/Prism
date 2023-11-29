@@ -51,11 +51,11 @@ public class WanderMovement : MonoBehaviour
         // flips sprite
         if(_rigidbody.velocity.x < 0)
         {
-            this.transform.localScale = new Vector3(-1, 1, 1);
+            this.transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         }
         else
         {
-            this.transform.localScale = new Vector3(1, 1, 1);
+            this.transform.localScale = new Vector3(-transform.localScale.y, transform.localScale.y, transform.localScale.z);
 
         }
 

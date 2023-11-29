@@ -73,11 +73,11 @@ public class ChaseMovement : MonoBehaviour
                 // flip
         if(_playerAwarenessController.DirectionToPlayer.x < 0)
         {
-            this.transform.localScale = new Vector3(-1, 1, 1);
+            this.transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         }
         else
         {
-            this.transform.localScale = new Vector3(1, 1, 1);
+            this.transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
 
         }
 
