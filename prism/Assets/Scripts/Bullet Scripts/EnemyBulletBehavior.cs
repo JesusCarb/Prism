@@ -66,9 +66,8 @@ public class EnemyBulletBehavior : MonoBehaviour
             // If ^ doesn't work, just GameObject.findAnyObjectOfType<>
         }
 
-        if (collision.gameObject.tag.Equals("Obstacle") || collision.gameObject.tag.Equals("OuchObstacle"))
+        if (collision.gameObject.tag.Equals("Obstacle") || collision.gameObject.tag.Equals("OuchObstacle") || collision.gameObject.tag.Equals("Room"))
         {
-
             Destroy(gameObject);
         }
 

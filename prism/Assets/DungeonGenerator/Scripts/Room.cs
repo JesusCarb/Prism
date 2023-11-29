@@ -193,6 +193,12 @@ public class Room : MonoBehaviour
     public void RoomBeaten()
     {
         beaten = true;
+        //drop shard in shardpos
+        if (hasShard)
+        {
+            gameObject.transform.Find("Shard").GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.transform.Find("Shard").GetComponent<BoxCollider2D>().enabled = true;
+        }
         hasShard = false;
     }
     public void resetDoors()

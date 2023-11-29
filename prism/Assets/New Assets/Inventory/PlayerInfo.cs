@@ -16,6 +16,7 @@ public class PlayerInfo : ScriptableObject
     public float rangeBuff = 1;
     public float hitLeewayBuff = 1;
     public bool ouchImmunity = false;
+    public int floorNum = 1;
 
     void OnEnable()
     {
@@ -30,5 +31,6 @@ public class PlayerInfo : ScriptableObject
         rangeBuff = 1;
         hitLeewayBuff = 1;
         ouchImmunity = false;
+        floorNum = 1;
     }
 }
