@@ -17,6 +17,8 @@ public class PlayerInfo : ScriptableObject
     public float hitLeewayBuff = 1;
     public bool ouchImmunity = false;
     public int floorNum = 1;
+    public int savedHP = 3;
+    public string lastWeaponEquipped = "Pistol";
 
     void OnEnable()
     {
@@ -32,5 +34,7 @@ public class PlayerInfo : ScriptableObject
         hitLeewayBuff = 1;
         ouchImmunity = false;
         floorNum = 1;
+        savedHP = 3;
+        lastWeaponEquipped = "Pistol";
     }
 }

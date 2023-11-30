@@ -100,7 +100,7 @@ public class RoomGenerator : MonoBehaviour
     public bool generatingRooms;
     [HideInInspector]
     public bool generatingStructure = true;
-    
+
     public Room generatorRoom;
     private Vector2 generatorPosition;
 
@@ -130,6 +130,9 @@ public class RoomGenerator : MonoBehaviour
 
     IEnumerator Start()
     {
+        floorNum = playerInfo.floorNum;
+        amountToGenerate = (int)(Mathf.Ceil(3 * (floorNum + 1) + (int)Random.Range(5, 6)));
+
         //pooling
         Debug.Log("Creating a pool...");
             StartCoroutine(CreatePool(selected1x1Prefab));
@@ -172,7 +175,7 @@ public class RoomGenerator : MonoBehaviour
                         }
                     }
                 }
-                
+
             }
             if (add2x2 && !hex)
             {
@@ -359,7 +362,7 @@ public class RoomGenerator : MonoBehaviour
                     //yield return new WaitForSeconds(0.1f);    //animated look
                     collision = newRoom.collision;
                     newRoom.collision = false;
-                }  
+                }
 
                 if (collision)
                 {
@@ -504,7 +507,7 @@ public class RoomGenerator : MonoBehaviour
         {
             toRemove[i] = rooms[i];
         }
- 
+
         if (start != null)
         {
             for (int i = 0; i < numRooms; i++)

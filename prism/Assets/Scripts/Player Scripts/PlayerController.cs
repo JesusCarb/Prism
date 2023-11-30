@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
     public float hitLeewayBuff = 1;
     public bool ouchImmunity = false;
     public int floorNum = 1;
+    public int savedHP = 3;
+    public string lastWeaponEquipped = "Pistol";
 
 
     
@@ -144,12 +146,28 @@ public class PlayerController : MonoBehaviour
         hitLeewayBuff = playerInfo.hitLeewayBuff;
         ouchImmunity = playerInfo.ouchImmunity;
         floorNum = playerInfo.floorNum;
+        savedHP = playerInfo.savedHP;
+        lastWeaponEquipped = playerInfo.lastWeaponEquipped;
 
         currentWeapon = (int)Weapon.None;
                 // get animator 
         anim = GetComponent<Animator>();
 
-        SetWeapon(1);
+        hp = savedHP;
+
+        if (lastWeaponEquipped == "Pistol")
+        {
+            SetWeapon(1);
+        }
+        else if (lastWeaponEquipped == "Rifle")
+        {
+            SetWeapon(2);
+        }
+        else if (lastWeaponEquipped == "Shotty")
+        {
+            SetWeapon(3);
+        }
+        
 
         // SetWeapon((int)Weapon.Rifle);
     }
@@ -303,6 +321,7 @@ public class PlayerController : MonoBehaviour
 
                 Instantiate(pistol, this.transform);
                 currentWeapon = (int)Weapon.Pistol;
+                lastWeaponEquipped = "Pistol";
                 break;
                 
             case 2:
@@ -315,6 +334,7 @@ public class PlayerController : MonoBehaviour
 
                 Instantiate(rifle, this.transform);
                 currentWeapon = (int)Weapon.Rifle;
+                lastWeaponEquipped = "Rifle";
                 break;
 
             case 3:
@@ -327,6 +347,7 @@ public class PlayerController : MonoBehaviour
 
                 Instantiate(shotty, this.transform);
                 currentWeapon = (int)Weapon.Shotty;
+                lastWeaponEquipped = "Shotty";
                 break;
         }
     }
@@ -507,6 +528,8 @@ public class PlayerController : MonoBehaviour
             playerInfo.hitLeewayBuff = 1;
             playerInfo.ouchImmunity = false;
             playerInfo.floorNum = 1;
+            playerInfo.savedHP = 3;
+            playerInfo.lastWeaponEquipped = "Pistol";
 
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
             SceneManager.LoadScene("StartMenu");

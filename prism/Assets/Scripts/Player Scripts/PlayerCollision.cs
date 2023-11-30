@@ -80,7 +80,7 @@ public class PlayerCollision : MonoBehaviour
         {
             if (gameObject.GetComponent<PlayerController>().hp == gameObject.GetComponent<PlayerController>().maxHealth) {return;};
             Destroy(collision.gameObject);
-            gameObject.GetComponent<PlayerController>().hp = 3;
+            gameObject.GetComponent<PlayerController>().hp = gameObject.GetComponent<PlayerController>().maxHealth;
         }
 
         if (collision.gameObject.name == "PartialHealItem")
@@ -115,7 +115,7 @@ public class PlayerCollision : MonoBehaviour
     IEnumerator PowerBuffTimer()
     {
         yield return new WaitForSeconds(20f);
-        gameObject.GetComponent<PlayerController>().damageMultiplier /= 2;
+        gameObject.GetComponent<PlayerController>().damageMultiplier /= 1.5f;
     }
 
     IEnumerator CooldownCycle()

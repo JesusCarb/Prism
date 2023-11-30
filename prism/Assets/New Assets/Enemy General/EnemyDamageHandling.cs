@@ -35,6 +35,7 @@ public class EnemyDamageHandling : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         originalColor = player.GetComponent<SpriteRenderer>().color;
+        hp += player.GetComponent<PlayerController>().floorNum - 1;
     }
 
     // Update is called once per frame
@@ -60,9 +61,9 @@ public class EnemyDamageHandling : MonoBehaviour
             Instantiate(corpse, position: this.transform.position, rotation: this.transform.rotation);
 
             //enemy drops
-            if (Random.Range(0, 9) == 0)
+            if (Random.Range(0, 10) == 0)
             {
-                int itemnum = Random.Range(0, 3);
+                int itemnum = Random.Range(0, 4);
                 switch (itemnum)
                 {
                     case 0:
