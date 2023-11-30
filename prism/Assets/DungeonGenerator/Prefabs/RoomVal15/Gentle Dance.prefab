@@ -465,7 +465,7 @@ MonoBehaviour:
   - enemyRef: {fileID: 2080535979394739434, guid: 58f4a38ae907cdd449d6180a327e1ed2,
       type: 3}
     position: {x: -5, y: 0, z: 0}
-    ID: 0
+    ID: 1
     HP: 3
   enemiesLeft: []
 --- !u!50 &6827332248052748862
