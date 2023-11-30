@@ -124,13 +124,13 @@ public class RoomGenerator : MonoBehaviour
 
         roomsContainer = new GameObject("Rooms").transform;
         selected1x1Prefab = hex ? hexRoomPrefab1x1 : roomPrefab1x1;
-
-        floorNum = playerInfo.floorNum;
-        amountToGenerate = (int)(Mathf.Ceil(3 * (floorNum + 1) + (int)Random.Range(5, 6)));
     }
 
     IEnumerator Start()
     {
+        floorNum = playerInfo.floorNum;
+        amountToGenerate = (int)(Mathf.Ceil(3 * (floorNum + 1) + (int)Random.Range(5, 6)));
+        
         //pooling
         Debug.Log("Creating a pool...");
             StartCoroutine(CreatePool(selected1x1Prefab));
