@@ -115,7 +115,7 @@ public class PlayerCollision : MonoBehaviour
     IEnumerator PowerBuffTimer()
     {
         yield return new WaitForSeconds(20f);
-        gameObject.GetComponent<PlayerController>().damageMultiplier /= 2;
+        gameObject.GetComponent<PlayerController>().damageMultiplier /= 1.5f;
     }
 
     IEnumerator CooldownCycle()
