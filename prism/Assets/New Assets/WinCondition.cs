@@ -46,7 +46,14 @@ public class WinCondition : MonoBehaviour
             // thiswasnt working L
             // playerC.audioSource.Stop();
             playerC.PlayEndingMusic();
-            SceneManager.LoadScene("TransitionScene");
+            if (playerC.playerInfo.floorNum == 11)
+            {
+                SceneManager.LoadScene("StartMenu");
+            }
+            else
+            {
+                SceneManager.LoadScene("TransitionScene");
+            }
             // Destroy(gameObject);
         }
     }
