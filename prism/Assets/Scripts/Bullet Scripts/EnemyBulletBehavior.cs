@@ -57,8 +57,10 @@ public class EnemyBulletBehavior : MonoBehaviour
         }
             
                 // Prevent bullet-on-bullet collision
-        if (collision.gameObject.tag.Equals("Bullet"))
-            return;
+        if (collision.gameObject.tag.Equals("Bullet") || collision.gameObject.tag.Equals("EnemyBullet"))
+        {
+            Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
+        }
 
         if (collision.gameObject.tag.Equals("Player"))
         {

@@ -144,12 +144,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7f475edff664042ab54fc7ea1851ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.5
+  speed: 4
   chaseDetectionDistance: 10
-  shootDetectionDistance: 20
+  shootDetectionDistance: 60
   skelloWeapon: {fileID: 5644327936522697431, guid: 31d32cf16f82a6c46ba530aeb85a77db,
     type: 3}
-  wanderLimit: 8
+  wanderLimit: 0
 --- !u!61 &5751621207301384857
 BoxCollider2D:
   m_ObjectHideFlags: 0

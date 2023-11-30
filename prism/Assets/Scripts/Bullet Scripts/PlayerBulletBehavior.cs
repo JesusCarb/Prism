@@ -40,12 +40,11 @@ public class PlayerBulletBehavior : MonoBehaviour
         PlayerController playerC = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         Physics2D.IgnoreCollision(player.transform.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         // Prevent bullet-on-bullet collision
-        if (collision.gameObject.tag.Equals("EnemyBullet"))
+        if (collision.gameObject.tag.Equals("EnemyBullet") || collision.gameObject.tag.Equals("Bullet"))
         {
-            Destroy(collision.gameObject);
-
-            Destroy(gameObject);
-
+            Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+            //Destroy(collision.gameObject);
+            //Destroy(gameObject);
         }
 
         if (collision.gameObject.tag.Equals("Enemy"))

@@ -602,12 +602,12 @@ MonoBehaviour:
     position: {x: -10, y: 1, z: 0}
     ID: 0
     HP: 3
-  - enemyRef: {fileID: 4563099141569318982, guid: 095eb0d3f7c420b46a205c4342bec056,
+  - enemyRef: {fileID: 1616097923886622902, guid: 8528341b86cbe7a45af10eac4b76fa74,
       type: 3}
     position: {x: 7.5, y: -9.5, z: 0}
     ID: 0
     HP: 3
-  - enemyRef: {fileID: 4563099141569318982, guid: 095eb0d3f7c420b46a205c4342bec056,
+  - enemyRef: {fileID: 1616097923886622902, guid: 8528341b86cbe7a45af10eac4b76fa74,
       type: 3}
     position: {x: 16, y: 7.5, z: 0}
     ID: 0
