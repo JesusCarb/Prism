@@ -45,7 +45,6 @@ public class WinCondition : MonoBehaviour
 
             // thiswasnt working L
             // playerC.audioSource.Stop();
-            playerC.PlayEndingMusic();
             if (playerC.playerInfo.floorNum == 11)
             {
                 SceneManager.LoadScene("StartMenu");
