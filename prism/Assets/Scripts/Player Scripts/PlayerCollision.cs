@@ -80,7 +80,7 @@ public class PlayerCollision : MonoBehaviour
         {
             if (gameObject.GetComponent<PlayerController>().hp == gameObject.GetComponent<PlayerController>().maxHealth) {return;};
             Destroy(collision.gameObject);
-            gameObject.GetComponent<PlayerController>().hp = 3;
+            gameObject.GetComponent<PlayerController>().hp = gameObject.GetComponent<PlayerController>().maxHealth;
         }
 
         if (collision.gameObject.name == "PartialHealItem")

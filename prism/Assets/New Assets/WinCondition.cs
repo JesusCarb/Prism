@@ -33,6 +33,8 @@ public class WinCondition : MonoBehaviour
             playerC.playerInfo.hitLeewayBuff = playerC.hitLeewayBuff;
             playerC.playerInfo.ouchImmunity = playerC.ouchImmunity;
             playerC.playerInfo.floorNum = playerC.floorNum + 1;
+            playerC.playerInfo.savedHP = playerC.hp;
+            playerC.playerInfo.lastWeaponEquipped = playerC.lastWeaponEquipped;
             
             yield return new WaitForSecondsRealtime(.05f);
 
