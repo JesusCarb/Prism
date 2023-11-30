@@ -19,7 +19,7 @@ public class PlayerBulletTragectory : MonoBehaviour
     Rigidbody2D rb;
     GameObject player;
 
-
+    private bool inOverworld;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +28,14 @@ public class PlayerBulletTragectory : MonoBehaviour
         player = GameObject.FindWithTag("Player");
 
         CalculatePlayerBulletTragectory();
+        
+        
+        inOverworld = player.GetComponent<PlayerController>().inOverworld;
+        if (inOverworld)
+        {
+            gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+            speed /= 2.5f;
+        }
     }
 
     // Update is called once per frame

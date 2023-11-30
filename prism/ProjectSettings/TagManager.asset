@@ -16,6 +16,7 @@ TagManager:
   - Weapon
   - PlayerBullet
   - Shard
+  - Fade
   layers:
   - Default
   - TransparentFX

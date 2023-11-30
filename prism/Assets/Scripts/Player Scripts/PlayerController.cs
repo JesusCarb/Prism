@@ -540,6 +540,9 @@ public class PlayerController : MonoBehaviour
 
     void AdjustHealth()
     {
+        if (inOverworld)
+            return;
+
         //im so sorry
         switch(maxHealth)
         {

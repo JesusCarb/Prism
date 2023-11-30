@@ -5,7 +5,9 @@ using UnityEngine;
 public class SkyMovement : MonoBehaviour
 {
     public float speed;
-    public float period;
+    public float teleportFrom = 24f;
+    public float teleportTo = -24f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +17,12 @@ public class SkyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float curTime = Time.time % period;
+        gameObject.transform.position += new Vector3(speed, 0f, 0f);
+        
+        if (gameObject.transform.position.x >= teleportFrom)
+            gameObject.transform.position = new Vector3(teleportTo, 0f, 0f);
+
+        /*float curTime = Time.time % period;
 
         // Scroll right
         if (curTime <= period / 16)
@@ -59,6 +66,6 @@ public class SkyMovement : MonoBehaviour
         else
         {
             gameObject.transform.position += new Vector3(-1 * speed / 4, 0f, 0f);
-        }
+        } */
     }
 }

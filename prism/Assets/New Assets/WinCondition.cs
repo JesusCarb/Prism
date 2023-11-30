@@ -45,8 +45,13 @@ public class WinCondition : MonoBehaviour
 
             Time.timeScale = 1;
 
-            // thiswasnt working L
-            // playerC.audioSource.Stop();
+            // Fade to black (and decrease music volume)
+            GameObject.FindGameObjectWithTag("Fade").GetComponent<FadeToBlack>().startFade = true;
+            while(!GameObject.FindGameObjectWithTag("Fade").GetComponent<FadeToBlack>().finished)
+            {
+                yield return new WaitForSeconds(1);
+            }
+
             if (playerC.playerInfo.floorNum == 11)
             {
                 SceneManager.LoadScene("StartMenu");
