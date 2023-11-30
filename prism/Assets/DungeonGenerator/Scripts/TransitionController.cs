@@ -8,8 +8,6 @@ public class TransitionController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //new WaitForSeconds(2);
-        //SceneManager.LoadScene("DungeonGen");
         StartCoroutine(SendToDungeon());
     }
 

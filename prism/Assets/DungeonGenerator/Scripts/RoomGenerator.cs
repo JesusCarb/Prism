@@ -20,7 +20,10 @@ public class RoomGenerator : MonoBehaviour
     public bool hasLootRoom = false;
 
     [SerializeField]
-    public int floorNum = 1;
+    public PlayerInfo playerInfo;
+
+    [SerializeField]
+    public int floorNum;
 
     public static bool useSeed = false;
     public static readonly int seed = 0;
@@ -122,6 +125,7 @@ public class RoomGenerator : MonoBehaviour
         roomsContainer = new GameObject("Rooms").transform;
         selected1x1Prefab = hex ? hexRoomPrefab1x1 : roomPrefab1x1;
 
+        floorNum = playerInfo.floorNum;
         amountToGenerate = (int)(Mathf.Ceil(3 * (floorNum + 1) + (int)Random.Range(5, 6)));
     }
 
