@@ -175,7 +175,7 @@ MonoBehaviour:
   wanderLimit: 0
   EnemyBullet: {fileID: 5644327936522697431, guid: fa99a0831a1e35545a9aa5a59b6f3328,
     type: 3}
-  shootDelay: 3
+  shootDelay: 2
 --- !u!114 &8234636548277517766
 MonoBehaviour:
   m_ObjectHideFlags: 0
