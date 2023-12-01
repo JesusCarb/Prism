@@ -66,7 +66,7 @@ public class CameraController : MonoBehaviour
 
         Vector3 targetPos = GetCameraTargetPosition();
 
-        if (transform.position != targetPos)
+        if (transform.position != targetPos && startingChange)
         {
             gameObject.GetComponent<Camera>().DOColor(currRoom.transform.Find("Body").GetComponent<SpriteRenderer>().color, 0.5f);
 

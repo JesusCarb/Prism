@@ -71,7 +71,7 @@ public class TransitionController : MonoBehaviour
 
     IEnumerator SendToDungeon()
     {
-        yield return new WaitForSeconds(2.75f);
+        yield return new WaitForSeconds(2.25f);
         if (playerInfo.floorNum == 11)
         {
             playerInfo.weapon1 = "";
