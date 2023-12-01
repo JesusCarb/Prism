@@ -9,6 +9,7 @@ using UnityEngine;
 using JetBrains.Annotations;
 using System.Diagnostics.Tracing;
 using DG.Tweening;
+using Microsoft.Unity.VisualStudio.Editor;
 
 public class PlayerController : MonoBehaviour
 {
@@ -319,8 +320,31 @@ public class PlayerController : MonoBehaviour
                 if (weapon1 != "Pistol" && weapon2 != "Pistol" && weapon3 != "Pistol")
                 {
                     weapon3 = weapon2;
+                    if (weapon3 == "Rifle")
+                    {
+                        GameObject.Find("Panel3").transform.Find("Rifle").gameObject.GetComponent<UnityEngine.UI.Image>().enabled = true;
+                        GameObject.Find("Panel2").transform.Find("Rifle").gameObject.GetComponent<UnityEngine.UI.Image>().enabled = false;
+                    }
+                    else if (weapon3 == "Shotty")
+                    {
+                        GameObject.Find("Panel3").transform.Find("Shotty").gameObject.GetComponent<UnityEngine.UI.Image>().enabled = true;
+                        GameObject.Find("Panel2").transform.Find("Shotty").gameObject.GetComponent<UnityEngine.UI.Image>().enabled = false;
+                    }
+
                     weapon2 = weapon1;
+                    if (weapon2 == "Rifle")
+                    {
+                        GameObject.Find("Panel2").transform.Find("Rifle").gameObject.GetComponent<UnityEngine.UI.Image>().enabled = true;
+                        GameObject.Find("Panel1").transform.Find("Rifle").gameObject.GetComponent<UnityEngine.UI.Image>().enabled = false;
+                    }
+                    else if (weapon2 == "Shotty")
+                    {
+                        GameObject.Find("Panel2").transform.Find("Shotty").gameObject.GetComponent<UnityEngine.UI.Image>().enabled = true;
+                        GameObject.Find("Panel1").transform.Find("Shotty").gameObject.GetComponent<UnityEngine.UI.Image>().enabled = false;
+                    }
+
                     weapon1 = "Pistol";
+                    GameObject.Find("Panel1").transform.Find("Pistol").gameObject.GetComponent<UnityEngine.UI.Image>().enabled = true;
                 }
 
                 Instantiate(pistol, this.transform);
@@ -332,8 +356,31 @@ public class PlayerController : MonoBehaviour
                 if (weapon1 != "Rifle" && weapon2 != "Rifle" && weapon3 != "Rifle")
                 {
                     weapon3 = weapon2;
+                    if (weapon3 == "Pistol")
+                    {
+                        GameObject.Find("Panel3").transform.Find("Pistol").gameObject.GetComponent<UnityEngine.UI.Image>().enabled = true;
+                        GameObject.Find("Panel2").transform.Find("Pistol").gameObject.GetComponent<UnityEngine.UI.Image>().enabled = false;
+                    }
+                    else if (weapon3 == "Shotty")
+                    {
+                        GameObject.Find("Panel3").transform.Find("Shotty").gameObject.GetComponent<UnityEngine.UI.Image>().enabled = true;
+                        GameObject.Find("Panel2").transform.Find("Shotty").gameObject.GetComponent<UnityEngine.UI.Image>().enabled = false;
+                    }
+
                     weapon2 = weapon1;
+                    if (weapon2 == "Pistol")
+                    {
+                        GameObject.Find("Panel2").transform.Find("Pistol").gameObject.GetComponent<UnityEngine.UI.Image>().enabled = true;
+                        GameObject.Find("Panel1").transform.Find("Pistol").gameObject.GetComponent<UnityEngine.UI.Image>().enabled = false;
+                    }
+                    else if (weapon2 == "Shotty")
+                    {
+                        GameObject.Find("Panel2").transform.Find("Shotty").gameObject.GetComponent<UnityEngine.UI.Image>().enabled = true;
+                        GameObject.Find("Panel1").transform.Find("Shotty").gameObject.GetComponent<UnityEngine.UI.Image>().enabled = false;
+                    }
+
                     weapon1 = "Rifle";
+                    GameObject.Find("Panel1").transform.Find("Rifle").gameObject.GetComponent<UnityEngine.UI.Image>().enabled = true;
                 }
 
                 Instantiate(rifle, this.transform);
@@ -345,8 +392,31 @@ public class PlayerController : MonoBehaviour
                 if (weapon1 != "Shotty" && weapon2 != "Shotty" && weapon3 != "Shotty")
                 {
                     weapon3 = weapon2;
+                    if (weapon3 == "Pistol")
+                    {
+                        GameObject.Find("Panel3").transform.Find("Pistol").gameObject.GetComponent<UnityEngine.UI.Image>().enabled = true;
+                        GameObject.Find("Panel2").transform.Find("Pistol").gameObject.GetComponent<UnityEngine.UI.Image>().enabled = false;
+                    }
+                    else if (weapon3 == "Rifle")
+                    {
+                        GameObject.Find("Panel3").transform.Find("Rifle").gameObject.GetComponent<UnityEngine.UI.Image>().enabled = true;
+                        GameObject.Find("Panel2").transform.Find("Rifle").gameObject.GetComponent<UnityEngine.UI.Image>().enabled = false;
+                    }
+
                     weapon2 = weapon1;
+                    if (weapon2 == "Pistol")
+                    {
+                        GameObject.Find("Panel2").transform.Find("Pistol").gameObject.GetComponent<UnityEngine.UI.Image>().enabled = true;
+                        GameObject.Find("Panel1").transform.Find("Pistol").gameObject.GetComponent<UnityEngine.UI.Image>().enabled = false;
+                    }
+                    else if (weapon2 == "Rifle")
+                    {
+                        GameObject.Find("Panel2").transform.Find("Rifle").gameObject.GetComponent<UnityEngine.UI.Image>().enabled = true;
+                        GameObject.Find("Panel1").transform.Find("Rifle").gameObject.GetComponent<UnityEngine.UI.Image>().enabled = false;
+                    }
+
                     weapon1 = "Shotty";
+                    GameObject.Find("Panel1").transform.Find("Shotty").gameObject.GetComponent<UnityEngine.UI.Image>().enabled = true;
                 }
 
                 Instantiate(shotty, this.transform);
