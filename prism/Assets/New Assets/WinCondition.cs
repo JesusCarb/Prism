@@ -54,6 +54,10 @@ public class WinCondition : MonoBehaviour
                 yield return new WaitForSeconds(1);
             }
 
+
+            SceneManager.LoadScene("TransitionScene");
+
+            /*
             if (playerC.playerInfo.floorNum == 11)
             {
                 SceneManager.LoadScene("OVERWORLD");
@@ -62,6 +66,7 @@ public class WinCondition : MonoBehaviour
             {
                 SceneManager.LoadScene("TransitionScene");
             }
+            */
             // Destroy(gameObject);
         }
     }
