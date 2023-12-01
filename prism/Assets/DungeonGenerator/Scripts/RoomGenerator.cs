@@ -219,6 +219,7 @@ public class RoomGenerator : MonoBehaviour
             playerRoom.unlocked = false;
             playerRoom.beaten = false;
         }
+        /*
         if (Input.GetKeyDown("u"))
         {
             playerRoom.UnlockRoom();
@@ -227,6 +228,7 @@ public class RoomGenerator : MonoBehaviour
         {
             print("Number of shards left: " + ShardsLeft());
         }
+        */
         if (playerRoomChange != playerRoom)
         {
             print("Changing room player is in");

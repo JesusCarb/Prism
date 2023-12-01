@@ -25,6 +25,7 @@ public class CameraController : MonoBehaviour
     {
         if (IsSwitchingScene() == false)
         {
+            /*
             if (Input.GetKeyDown("h"))
             {
                 if (currRoom.roomDoors[0].leadsTo != null)
@@ -53,6 +54,7 @@ public class CameraController : MonoBehaviour
                     currRoom = currRoom.roomDoors[3].leadsTo;
                 }
             }
+            */
         }
         UpdatePosition();
     }
