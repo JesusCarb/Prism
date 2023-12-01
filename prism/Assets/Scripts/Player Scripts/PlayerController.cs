@@ -91,7 +91,17 @@ public class PlayerController : MonoBehaviour
     // audio vars
     public MusicInfo musicInfo;
     public AudioSource audioSource;
-    public AudioSource songAudioSource;
+    public AudioSource songAudioSource0;
+    public AudioSource songAudioSource1;
+    public AudioSource songAudioSource2;
+    public AudioSource songAudioSource3;
+    public AudioSource songAudioSource4;
+    public AudioSource songAudioSource5;
+    public AudioSource songAudioSource6;
+    public AudioSource songAudioSource7;
+    public AudioSource songAudioSource8;
+    public AudioSource songAudioSource9;
+    public AudioSource songAudioSource10;
 
     public AudioSource endingSongAudioSource;
 
@@ -127,14 +137,6 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        //BPM = musicInfo.BPM;
-        onBeat = false;
-        CalculateTimings();
-        UnityEngine.Cursor.SetCursor(cursorTexture, hotspot, cursorMode);
-        beatChange = false;
-        // PlayMusicWrapper();
-        
         weapon1 = playerInfo.weapon1;
         weapon2 = playerInfo.weapon2;
         weapon3 = playerInfo.weapon3;
@@ -149,6 +151,57 @@ public class PlayerController : MonoBehaviour
         floorNum = playerInfo.floorNum;
         savedHP = playerInfo.savedHP;
         lastWeaponEquipped = playerInfo.lastWeaponEquipped;
+
+        switch (floorNum)
+        {
+            case 1:
+                BPM = 100;
+                break;
+            
+            case 2:
+                BPM = 125;
+                break;
+            
+            case 3:
+                BPM = 100;
+                break;
+            
+            case 4:
+                BPM = 90;
+                break;
+            
+            case 5:
+                BPM = 120;
+                break;
+            
+            case 6:
+                BPM = 125;
+                break;
+            
+            case 7:
+                BPM = 130;
+                break;
+            
+            case 8:
+                BPM = 120;
+                break;
+            
+            case 9:
+                BPM = 100;
+                break;
+            
+            case 10:
+                BPM = 147;
+                break;
+        }
+        
+        rb = GetComponent<Rigidbody2D>();
+        //BPM = musicInfo.BPM;
+        onBeat = false;
+        CalculateTimings();
+        UnityEngine.Cursor.SetCursor(cursorTexture, hotspot, cursorMode);
+        beatChange = false;
+        // PlayMusicWrapper();
 
         currentWeapon = (int)Weapon.None;
                 // get animator 
@@ -575,7 +628,71 @@ public class PlayerController : MonoBehaviour
             fadeOverlay.GetComponent<UnityEngine.UI.Image>().color = new Color(0,0,0,0);
         }
 
-        songAudioSource.Play();
+        if (SceneManager.GetActiveScene().name == "OVERWORLD")
+        {
+            songAudioSource0.loop = true;
+            songAudioSource0.Play();  //menu music
+            return;
+        }
+
+        switch (floorNum)
+        {
+            case 1:
+                songAudioSource1.loop = true;
+                songAudioSource1.Play();
+                break;
+            
+            case 2:
+                songAudioSource2.loop = true;
+                songAudioSource2.Play();
+                break;
+            
+            case 3: 
+                songAudioSource3.loop = true;
+                songAudioSource3.Play();
+                break;
+            
+            case 4:
+                songAudioSource4.loop = true;
+                songAudioSource4.Play();
+                break;
+            
+            case 5:
+                songAudioSource5.loop = true;
+                songAudioSource5.Play();
+                break;
+            
+            case 6:
+                songAudioSource6.loop = true;
+                songAudioSource6.Play();
+                break;
+            
+            case 7:
+                songAudioSource7.loop = true;
+                songAudioSource7.Play();
+                break;
+            
+            case 8:
+                songAudioSource8.loop = true;
+                songAudioSource8.Play();
+                break;
+            
+            case 9:
+                songAudioSource9.loop = true;
+                songAudioSource9.Play();
+                break;
+
+            case 10:
+                songAudioSource10.loop = true;
+                songAudioSource10.Play();
+                break;
+            
+            default:
+                songAudioSource0.loop = true;
+                songAudioSource0.Play();  //menu music
+                break;
+        }
+        
     }
 
     public bool OnBeat()

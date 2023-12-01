@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FadeToBlackUI : MonoBehaviour
 {
@@ -15,7 +16,14 @@ public class FadeToBlackUI : MonoBehaviour
     void Start()
     {   
         speed /= 1000f;
-        initialMusicVol = GameObject.Find("Music Audio Source").GetComponent<AudioSource>().volume;
+
+        if (SceneManager.GetActiveScene().name == "OVERWORLD")
+        {
+            initialMusicVol = GameObject.Find("Music Audio Source 0").GetComponent<AudioSource>().volume;
+        }
+
+        int floorNum = GameObject.FindWithTag("Player").GetComponent<PlayerController>().floorNum;
+        initialMusicVol = GameObject.Find("Music Audio Source " + floorNum).GetComponent<AudioSource>().volume;
     }
 
     // Update is called once per frame
@@ -38,8 +46,14 @@ public class FadeToBlackUI : MonoBehaviour
             curAlpha = speed + gameObject.GetComponent<UnityEngine.UI.Image>().color.a;
             gameObject.GetComponent<UnityEngine.UI.Image>().color = new Color(0, 0, 0, curAlpha);
 
+            if (SceneManager.GetActiveScene().name == "OVERWORLD")
+            {
+                GameObject.Find("Music Audio Source 0").GetComponent<AudioSource>().volume = initialMusicVol * (1 - curAlpha);
+            }
+
+            int floorNum = GameObject.FindWithTag("Player").GetComponent<PlayerController>().floorNum;
             // Decrease volume
-            GameObject.Find("Music Audio Source").GetComponent<AudioSource>().volume = initialMusicVol * (1 - curAlpha);
+            GameObject.Find("Music Audio Source " + floorNum).GetComponent<AudioSource>().volume = initialMusicVol * (1 - curAlpha);
         }
 
         
