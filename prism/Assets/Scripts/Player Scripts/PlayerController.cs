@@ -9,7 +9,7 @@ using UnityEngine;
 using JetBrains.Annotations;
 using System.Diagnostics.Tracing;
 using DG.Tweening;
-using Microsoft.Unity.VisualStudio.Editor;
+//using Microsoft.Unity.VisualStudio.Editor;
 
 public class PlayerController : MonoBehaviour
 {
