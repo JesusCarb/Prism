@@ -36,7 +36,7 @@ public class LeaveOverworld : MonoBehaviour
             {
                 GameObject.FindGameObjectWithTag("Fade").GetComponent<FadeToBlack>().finished = true;
                 {
-                    SceneManager.LoadScene("DungeonGen");
+                    SceneManager.LoadScene("TransitionScene");
                 }
             }
         }

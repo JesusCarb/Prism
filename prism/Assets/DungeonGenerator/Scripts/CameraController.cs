@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -7,6 +8,7 @@ public class CameraController : MonoBehaviour
     public static CameraController instance;
     public Room currRoom;
     public float transitionSpeed;
+    private bool startingChange = false;
 
     void Awake()
     {
@@ -64,6 +66,13 @@ public class CameraController : MonoBehaviour
 
         Vector3 targetPos = GetCameraTargetPosition();
 
+        if (transform.position != targetPos)
+        {
+            gameObject.GetComponent<Camera>().DOColor(currRoom.transform.Find("Body").GetComponent<SpriteRenderer>().color, 0.5f);
+
+            startingChange = false;
+        }
+
         transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * transitionSpeed);
     }
 
@@ -83,6 +92,11 @@ public class CameraController : MonoBehaviour
 
     public bool IsSwitchingScene()
     {
+        if (!startingChange)
+        {
+            startingChange = true;
+        }
+
         return transform.position.Equals(GetCameraTargetPosition()) == false;
     }
 }

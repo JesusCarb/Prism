@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FadeToBlack : MonoBehaviour
+public class FadeToBlackUI : MonoBehaviour
 {
     public float speed = 4f;
     public bool startFade = false;
@@ -26,17 +26,17 @@ public class FadeToBlack : MonoBehaviour
         
         //print("FADING");
 
-        if (gameObject.GetComponent<SpriteRenderer>().color.a + speed > 1)
+        if (gameObject.GetComponent<UnityEngine.UI.Image>().color.a + speed > 1)
         {
-            gameObject.GetComponent<SpriteRenderer>().color = new Color(r: 0, g: 0, b: 0, a: 1);
+            gameObject.GetComponent<UnityEngine.UI.Image>().color = new Color(r: 0, g: 0, b: 0, a: 1);
             finished = true;
             return;
         }
         else
         {
             // Increase opacity
-            curAlpha = speed + gameObject.GetComponent<SpriteRenderer>().color.a;
-            gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, curAlpha);
+            curAlpha = speed + gameObject.GetComponent<UnityEngine.UI.Image>().color.a;
+            gameObject.GetComponent<UnityEngine.UI.Image>().color = new Color(0, 0, 0, curAlpha);
 
             // Decrease volume
             GameObject.Find("Music Audio Source").GetComponent<AudioSource>().volume = initialMusicVol * (1 - curAlpha);

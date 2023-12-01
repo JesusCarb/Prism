@@ -155,6 +155,8 @@ public class PlayerController : MonoBehaviour
 
         hp = savedHP;
 
+        if (SceneManager.GetActiveScene().name == "OVERWORLD") {return;};
+
         if (lastWeaponEquipped == "Pistol")
         {
             SetWeapon(1);
@@ -483,6 +485,12 @@ public class PlayerController : MonoBehaviour
 
     private void PlayMusic()
     {
+        GameObject fadeOverlay = GameObject.Find("FadeOverlayPanel");
+        if (fadeOverlay != null)
+        {
+            fadeOverlay.GetComponent<UnityEngine.UI.Image>().color = new Color(0,0,0,0);
+        }
+
         songAudioSource.Play();
     }
 
@@ -532,7 +540,7 @@ public class PlayerController : MonoBehaviour
             playerInfo.lastWeaponEquipped = "Pistol";
 
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-            SceneManager.LoadScene("StartMenu");
+            SceneManager.LoadScene("OVERWORLD");
             // timescale will stay at zero so I'm turning it back to 1
         }
 
