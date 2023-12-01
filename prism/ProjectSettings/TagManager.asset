@@ -17,6 +17,7 @@ TagManager:
   - PlayerBullet
   - Shard
   - Fade
+  - ItemPanel
   layers:
   - Default
   - TransparentFX

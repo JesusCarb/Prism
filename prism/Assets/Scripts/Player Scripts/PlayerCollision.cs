@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -109,14 +110,50 @@ public class PlayerCollision : MonoBehaviour
 
     IEnumerator SpeedBuffTimer()
     {
+        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("ItemPanel"))
+        {
+            if (obj == gameObject || obj.name == "ItemSpeedPanel" || obj.name == "ItemPowerPanel") {continue;};
+            RectTransform rectT = obj.GetComponent<RectTransform>();
+            rectT.anchoredPosition = new Vector2(rectT.anchoredPosition.x, rectT.anchoredPosition.y + 40);
+        }
+        
+        GameObject panel = Instantiate(GameObject.Find("ItemSpeedPanel"), GameObject.Find("Canvas").transform);
+        panel.transform.GetComponent<UnityEngine.UI.Image>().enabled = true;
+        panel.transform.Find("IconBG").GetComponent<UnityEngine.UI.Image>().enabled = true;
+        panel.transform.Find("IconBG").transform.Find("Icon").GetComponent<UnityEngine.UI.Image>().enabled = true;
+        panel.transform.Find("DurationBar").GetComponent<UnityEngine.UI.Image>().enabled = true;
+        panel.transform.Find("EndPos").GetComponent<UnityEngine.UI.Image>().enabled = true;
+
+        panel.transform.Find("DurationBar").GetComponent<RectTransform>().DOAnchorPos(panel.transform.Find("EndPos").GetComponent<RectTransform>().anchoredPosition, 20f).SetEase(Ease.Linear);
+        panel.transform.Find("DurationBar").GetComponent<RectTransform>().DOSizeDelta(panel.transform.Find("EndPos").GetComponent<RectTransform>().sizeDelta, 20f).SetEase(Ease.Linear);
+
         yield return new WaitForSeconds(20f);
         gameObject.GetComponent<PlayerController>().moveSpeed /= 1.4f;
+        Destroy(panel);
     }
 
     IEnumerator PowerBuffTimer()
     {
+        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("ItemPanel"))
+        {
+            if (obj == gameObject || obj.name == "ItemSpeedPanel" || obj.name == "ItemPowerPanel") {continue;};
+            RectTransform rectT = obj.GetComponent<RectTransform>();
+            rectT.anchoredPosition = new Vector2(rectT.anchoredPosition.x, rectT.anchoredPosition.y + 40);
+        }
+        
+        GameObject panel = Instantiate(GameObject.Find("ItemPowerPanel"), GameObject.Find("Canvas").transform);
+        panel.transform.GetComponent<UnityEngine.UI.Image>().enabled = true;
+        panel.transform.Find("IconBG").GetComponent<UnityEngine.UI.Image>().enabled = true;
+        panel.transform.Find("IconBG").transform.Find("Icon").GetComponent<UnityEngine.UI.Image>().enabled = true;
+        panel.transform.Find("DurationBar").GetComponent<UnityEngine.UI.Image>().enabled = true;
+        panel.transform.Find("EndPos").GetComponent<UnityEngine.UI.Image>().enabled = true;
+
+        panel.transform.Find("DurationBar").GetComponent<RectTransform>().DOAnchorPos(panel.transform.Find("EndPos").GetComponent<RectTransform>().anchoredPosition, 20f).SetEase(Ease.Linear);
+        panel.transform.Find("DurationBar").GetComponent<RectTransform>().DOSizeDelta(panel.transform.Find("EndPos").GetComponent<RectTransform>().sizeDelta, 20f).SetEase(Ease.Linear);
+
         yield return new WaitForSeconds(20f);
         gameObject.GetComponent<PlayerController>().damageMultiplier /= 1.5f;
+        Destroy(panel);
     }
 
     IEnumerator CooldownCycle()

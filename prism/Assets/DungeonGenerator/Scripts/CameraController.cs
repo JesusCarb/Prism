@@ -68,7 +68,7 @@ public class CameraController : MonoBehaviour
 
         if (transform.position != targetPos && startingChange)
         {
-            gameObject.GetComponent<Camera>().DOColor(currRoom.transform.Find("Body").GetComponent<SpriteRenderer>().color, 0.5f);
+            gameObject.GetComponent<Camera>().DOColor(currRoom.transform.Find("Body").GetComponent<SpriteRenderer>().color, 0.5f).SetEase(Ease.Linear);
 
             startingChange = false;
         }
