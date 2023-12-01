@@ -158,6 +158,18 @@ public class PlayerController : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "OVERWORLD") {return;};
 
+        if (weapon1 == "Pistol") {GameObject.Find("Panel1").transform.Find("Pistol").GetComponent<UnityEngine.UI.Image>().enabled = true;}
+        else if (weapon1 == "Rifle") {GameObject.Find("Panel1").transform.Find("Rifle").GetComponent<UnityEngine.UI.Image>().enabled = true;}
+        else if (weapon1 == "Shotty") {GameObject.Find("Panel1").transform.Find("Shotty").GetComponent<UnityEngine.UI.Image>().enabled = true;};
+
+        if (weapon2 == "Pistol") {GameObject.Find("Panel2").transform.Find("Pistol").GetComponent<UnityEngine.UI.Image>().enabled = true;}
+        else if (weapon2 == "Rifle") {GameObject.Find("Panel2").transform.Find("Rifle").GetComponent<UnityEngine.UI.Image>().enabled = true;}
+        else if (weapon2 == "Shotty") {GameObject.Find("Panel2").transform.Find("Shotty").GetComponent<UnityEngine.UI.Image>().enabled = true;};
+
+        if (weapon3 == "Pistol") {GameObject.Find("Panel3").transform.Find("Pistol").GetComponent<UnityEngine.UI.Image>().enabled = true;}
+        else if (weapon3 == "Rifle") {GameObject.Find("Panel3").transform.Find("Rifle").GetComponent<UnityEngine.UI.Image>().enabled = true;}
+        else if (weapon3 == "Shotty") {GameObject.Find("Panel3").transform.Find("Shotty").GetComponent<UnityEngine.UI.Image>().enabled = true;};
+
         if (lastWeaponEquipped == "Pistol")
         {
             SetWeapon(1);
