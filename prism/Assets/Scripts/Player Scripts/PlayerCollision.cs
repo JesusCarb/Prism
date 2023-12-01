@@ -67,6 +67,7 @@ public class PlayerCollision : MonoBehaviour
         if (collision.gameObject.tag.Equals("Shard"))
         {
             gameObject.GetComponent<PlayerController>().numShards += 1;
+            GameObject.Find("ShardCountText").GetComponent<UnityEngine.UI.Text>().text = gameObject.GetComponent<PlayerController>().numShards + " / " + gameObject.GetComponent<PlayerController>().totalShards;
             Destroy(collision.gameObject);
             if (gameObject.GetComponent<PlayerController>().numShards == gameObject.GetComponent<PlayerController>().totalShards)
             {

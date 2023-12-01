@@ -169,7 +169,9 @@ public class PlayerController : MonoBehaviour
         {
             SetWeapon(3);
         }
-        
+
+        //PlayerController playerC = gameObject.GetComponent<PlayerController>();
+        //GameObject.Find("ShardCountText").GetComponent<UnityEngine.UI.Text>().text = playerC.numShards + " / " + playerC.totalShards;
 
         // SetWeapon((int)Weapon.Rifle);
     }

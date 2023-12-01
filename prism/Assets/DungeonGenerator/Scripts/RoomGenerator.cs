@@ -413,6 +413,8 @@ public class RoomGenerator : MonoBehaviour
             }
         }
 
+        PlayerController playerC = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+        GameObject.Find("ShardCountText").GetComponent<UnityEngine.UI.Text>().text = playerC.numShards + " / " + playerC.totalShards;
     }
 
     public int ShardsLeft()
