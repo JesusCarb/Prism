@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
 
     // player vars
     public int hp = 3;
-    public float moveSpeed = 40f;
+    public float moveSpeed = 80f;
     public float damageMultiplier = 1;
     public int numShards = 0;
     public int totalShards = 0;
@@ -325,18 +325,19 @@ public class PlayerController : MonoBehaviour
 
         }
 
+        Vector3 targetVelocity = new Vector3(playerInput.x, playerInput.y, 0).normalized;
         float targetVelocityX = playerInput.x * moveSpeed * permSpeedBuff;
         float targetVelocityY = playerInput.y * moveSpeed * permSpeedBuff;
 
         // velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, accelerationTime);
         // velocity.y = Mathf.SmoothDamp(velocity.y, targetVelocityY, ref velocityYSmoothing, accelerationTime);
 
-        velocity.x = targetVelocityX;
+        velocity = targetVelocity * moveSpeed * permSpeedBuff;
 
         if (inOverworld) // start screen
             velocity.y = 0f;
-        else
-            velocity.y = targetVelocityY;
+        // else
+        //     velocity.y = targetVelocityY;
 
         Move(velocity);
 

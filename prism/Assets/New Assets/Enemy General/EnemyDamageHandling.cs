@@ -35,7 +35,7 @@ public class EnemyDamageHandling : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         originalColor = player.GetComponent<SpriteRenderer>().color;
-        hp += player.GetComponent<PlayerController>().floorNum - 1;
+        hp += .5f * player.GetComponent<PlayerController>().floorNum - 1;
     }
 
     // Update is called once per frame
