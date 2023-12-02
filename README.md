@@ -1,4 +1,4 @@
-Programmed by Origin, BlueTrip, Jeebus and RemyRose.
+Programmed by Origin, BlueTrip, JesusCarb and RemyRose.
 
 If you want to play the game, double-click on prism.exe.
 
