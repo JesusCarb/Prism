@@ -29,5 +29,6 @@ https://assetstore.unity.com/packages/2d/undead-survivor-assets-pack-238068
 https://assetstore.unity.com/packages/2d/free-2d-mega-pack-177430
 
 MUSIC
-All credit and permissions from courtesy of Jarg
+All credit and permissions from courtesy of Jarvis9999
+
 See all his stuff at https://www.youtube.com/@realjarvis9999/featured
